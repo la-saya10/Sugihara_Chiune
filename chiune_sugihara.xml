@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+ 
+  <!-- ============================================ -->
+  <!-- 1. TEI HEADER : metadata (descriptin of this file) -->
+  <!-- ============================================ -->
+  <teiHeader>
+ 
+    <fileDesc>
+      <titleStmt>
+        <title>Chiune Sugihara: a LODLAM encoding</title>
+        <author>Saya</author>
+      </titleStmt>
+ 
+      <publicationStmt>
+        <publisher>University of Bologna</publisher>
+        <date when="2026">2026</date>
+        <availability status="free"> <!--これなに？-->
+          <p>For educational purposes only</p>
+        </availability>
+      </publicationStmt>
+ 
+      <sourceDesc>
+        <bibl>
+          <title>Excerpts from the wikipedia page of Chiune Sugihara</title>
+          <ref target="https://en.wikipedia.org/wiki/Chiune_Sugihara">
+            Wikipedia, the Free Encyclopedia
+          </ref>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+
+
+
+ 
+    <!-- ============================================ -->
+    <!-- encodingDesc : "Righteous Among the Nations" のような  -->
+    <!-- 概念・分類をここで定義する（ステップ3で本格的に使う）    -->
+    <!-- ============================================ -->
+    <encodingDesc>
+      <classDecl>
+        <taxonomy xml:id="project-categories">
+          <category xml:id="righteous-among-nations">
+            <catDesc>Righteous Among the Nations</catDesc>
+            <idno type="wikidata">https://www.wikidata.org/wiki/Q112197</idno>
+            <note>
+              Honorific title bestowed by the State of Israel, through
+              Yad Vashem, on non-Jews who risked their lives to save Jews
+              during the Holocaust. 
+            </note>
+          </category>
+        </taxonomy> 
+      </classDecl>
+    </encodingDesc>
+ 
+
+
+  </teiHeader>
+ 
+  <!-- ============================================ -->
+  <!-- 2. BODY : 本文＋エンティティリスト                 -->
+  <!-- ============================================ -->
+  <text>
+ 
+    <body>
+
+      <div type="biography" n="1">
+        <head>Top</head>
+        <p><persName ref="#chiune">Chiune Sugihara</persName> (杉原 千畝, Sugihara Chiune; 1 January 1900 – 31 July 1986) 
+        <lb/>was a Japanese diplomat who served as vice-consul for the Japanese Empire 
+        <lb/>in <placeName ref="#kaunas">Kaunas</placeName>, Lithuania.</p>
+      </div>
+
+
+      <div type="Jewish refugees" n="2">
+        <p>
+          As the Soviet Union occupied sovereign Lithuania in 1940, many Polish and Lithuanian 
+          Jews fearing persecution tried to acquire exit visas. While under <rs type="event" ref="#soviet-occupation">Soviet occupation</event>, 
+          it was announced that many foreign consulates in Kaunas would soon be closed.</p>
+      </div>
+
+
+      <div type="Jan" n="3">
+        <p>
+          Dekker requested and authorized the Dutch honorary consul <persName ref="#jan-zwartendijk">Jan Zwartendijk</persName> 
+          to issue the same text to Jews in Kovno who wished to escape from Lithuania. In the period 
+          between 16 July and 3 August 1940, Jan Zwartendijk provided over 2,200 Jews with 
+          similar notations in their passports.
+        </p>
+      </div>
+      
+
+      <div type="railway" n="4">
+        <p>
+          Being aware that applicants were in danger if they stayed behind, <persName ref="#chiune">Sugihara</persName> 
+          decided to ignore his orders and, from <date when="1940-07-18">July 18 to August 28, 1940</date>, 
+          he issued over 2100 transit visas. Given his inferior post and the culture of the Japanese 
+          Foreign Service bureaucracy, this was an unusual act of disobedience. He spoke to Soviet officials 
+          who agreed to let the Jews travel through the country via the <rs type="object" ref="#trans-siberian-railway">Trans-Siberian Railway</rs>. 
+          His wife <persName ref="#yukiko">Yukiko</persName> who supported and encouraged him later 
+          recalled, <quote>"My husband and I talked about the visas before he issued them. We understood 
+          that both the Japanese and German governments disagreed with our ideas, but we went ahead anyhow."</quote>
+        </p>
+      </div>
+
+
+      <div type="legacy" n="5">
+        <p>
+          In 1984, <orgName ref="yad-vashem">Yad Vashem</orgName> bestowed the Righteous Among the Nations title on Chiune Sugihara, 
+          the only Japanese national to have been so honored. He was too ill to travel to receive the 
+          award at the Israeli embassy in Tokyo, so his wife and one or more of his children accepted the honor on his behalf.</p>
+
+
+      <div type="book" n="6">
+        <p>
+          <title ref="hero-of-the-holocaust">A Special Fate: Chiune Sugihara: Hero of the Holocaust</title> (2000), 
+          by Alison Leslie Gold, is a book for young readers (grades 5–10). The book draws on interviews 
+          with <persName ref="chiune">Sugihara</persName>'s wife and other witnesses and weaves in the 
+          stories of two Jewish refugee families. The epilogue describes how <persName ref="chiune">Sugihara</persName> 
+          was finally honored in his own country and in Israel.</p>
+      
+      
+    </body>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ============================================ -->
+<!--                    BACK                      -->
+<!-- ============================================ -->
+        <back>
+        <!-- listPerson --> 
+            <listPerson>
+
+                 <person xml:id="chiune">
+                    <persName>Chiune Sugihara</persName>
+                    <persName xml:lang="ja">杉原 千畝</persName>
+                    <birth when="1900-01-01"/>
+                    <death when="1986-07-31"/>
+                    <occupation>diplomat</occupation>
+                    <idno type="Wikidata">https://www.wikidata.org/wiki/Q161381</idno>
+                    <idno type="VIAF">https://viaf.org/viaf/22953110</idno>
+                  </person>
+
+
+                <person xml:id="jan-zwartendijk">
+                    <persName>Jan Zwartendijk</persName>
+                    <birth when="1896-07-29"/>
+                    <death when="1976-09-14"/>
+                    <occupation>diplomat</occupation>
+                    <idno type="Wikidata">http://www.wikidata.org/entity/Q2649762</idno>
+                    <idno type="VIAF">https://viaf.org/viaf/312620714</idno>
+                </person>
+
+
+            </listPerson>
+        
+
+
+
+        <!-- listPlace -->
+            <listPlace>
+                <place xml:id="kaunas" type="city">
+                    <placeName>Kaunas</placeName>
+                    <location>
+                        <address>
+                            <country>Lithuania</country>
+                        </address>
+                        <geo>54.90156 23.90909</geo>
+                    </location>
+                    <idno type="Wikidata">https://www.wikidata.org/wiki/Q4115712</idno>
+                    <note>
+                    City in Lithuania. Location of the Japanese consulate where
+                    Chiune Sugihara served as a diplomat (1939-1940), issuing
+                    transit visas to Jewish refugees.
+                    </note>
+                </place>
+
+
+
+                <place xml:id="sugihara-park" type="park">
+                    <placeName>Chiune Sugihara Sakura Park</placeName>
+                    <location>
+                        <address>
+                            <country>Lithuania</country>
+                        </address>
+                        <geo>54.695556 25.272222</geo>
+                    </location>
+                    <idno type="Wikidata">https://www.wikidata.org/wiki/Q52194860</idno>
+                </place>
+
+
+
+                <place xml:id="memorial-hall" type="">
+                    <placeName>Chiune Sugihara Memorial Hall</placeName>
+                    <location>
+                        <address>
+                            <settlement>Yaotsu</settlement>
+                            <region>Gifu Prefecture</region>
+                            <country>Japan</country>
+                        </address>
+                        <geo>35.466667, 137.166667</geo>
+                    </location>
+                    <idno type="Wikidata">https://www.wikidata.org/wiki/Q47417030</idno>
+                </place>
+
+            </listPlace>
+        
+
+
+
+        <!-- listOrg -->
+            <listOrg>
+                <org xml:id="yad-vashem">
+                    <orgName>Yad Vashem</orgName>
+                    <desc>
+                        the World Holocaust Remembrance Center that was 
+                        established in 1953 by the Knesset
+                    </desc>
+                    <location>
+                        <country>Israel</country>
+                    </location>
+                </org>
+            </listOrg>
+        
+
+
+        <!-- listBibl -->
+            <listBibl>
+                <bibl xml:id="conspiracy-of-kindness" type="documentary">
+                <title>Sugihara: Conspiracy of Kindness</title>
+                <respStmt>
+                    <resp>director</resp>
+                    <name>Robert Kirk</name>
+                </respStmt>
+                <publisher>WGBH Boston Video</publisher>
+                <idno type="Wikidata">https://www.wikidata.org/wiki/Q47417463</idno>
+                <idno type="OCLC">60779186</idno>
+                <date when="2000-08-06">2000-08-06</date>
+            </listBibl>
+
+
+            <listBibl>
+                <bibl xml:id="hero-of-the-holocaust" type="book">
+                <title>A Special Fate: Chiune Sugihara: Hero of the Holocaust</title>
+                <author>Alison Leslie Gold</author>
+                <publisher>Scholastic Press</publisher>
+                <idno type="OCLC">41319984</idno>
+                <date when="2000">2000</date>
+            </listBibl>
+        
+
+
+        <!-- listEvent -->
+            <listEvent>
+                <event xml:id="soviet-occupation">
+                <head>Soviet occupation of the Baltic states</head>
+                <desc>
+                    <p>
+                    Military takover and annexation of Estonia, Latvia, and Lithuania
+                    by the Soviet Union.
+                    </p>
+                </desc>
+                <date when=1940>1940</date>
+                <idno type="Wikidata">https://www.wikidata.org/wiki/Q14505142</idno>
+            </listEvent>
+
+
+
+        <!-- listObject -->
+            <listObject>
+                <object xml:id="trans-siberian-railway" type="infrastructure">
+                <objectIdentifier>
+                    <objectName>Trans-Siberian Railway</objectName>
+                </objectIdentifier>
+                <note>
+                    Rail route used by refugees holding Sugihara's transit visas to
+                    cross the Soviet Union toward Vladivostok, from where they
+                    traveled by sea to Japan.
+                </note>
+                <idno type="Wikidata">https://www.wikidata.org/wiki/Q58767</idno>
+                </object>
+            </listObject>
+        
+
+
+
+            <listRelation>
+                <!-- Chiune Sugihara と 10エンティティ それぞれの直接関係 -->
+
+                <relation name="servedIn" active="#chiune" passive="#kaunas"/>
+                <relation name="affectedBy" active="#chiune" passive="#soviet-occupation"/>
+                <relation name="enabledEscapeVia" active="#chiune" passive="#trans-siberian-railway"/>
+                <relation name="collaboratedWith" active="#chiune" passive="#jan-zwartendijk"/>
+                <relation name="awardedTitle" active="#chiune" passive="#righteous-among-nations"/>
+                <relation name="honoredBy" active="#chiune" passive="#yad-vashem"/>
+                <relation name="commemoratedAt" active="#chiune" passive="#memorial-hall"/>
+                <relation name="commemoratedAt" active="#chiune" passive="#sugihara-park"/>
+                <relation name="isSubjectOf" active="#chiune" passive="#conspiracy-of-kindness"/>
+                <relation name="isSubjectOf" active="#chiune" passive="#in-search-of-sugihara"/>
+                <relation name="awardedTitle" active="#jan-zwartendijk" passive="#righteous-among-nations">
+
+            </listRelation>
+        
+        </back> 
+  </text>
+</TEI>

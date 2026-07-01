@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- <head> 〜 </head>（ブラウザへの指示・設定）実際の画面には直接表示されない -->
+<head>  
+    <meta charset="UTF-8">
+    <!--viewpoint = スマホで開いたときに、画面の横幅に合わせて自動で文字や画像のサイズを調整（最適化）してくれる設定-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sugihara Chiune</title>
+    <link rel="icon" type="image/x-icon" href="assets\img\icon.png?v=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!--Boostrapはcssファイルよりも上に書かないといけない-->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    
+</head>
+
+<!--bodyタグの中が画面に表示される中身-->
+<body>
+
+<!-- NAVBAR -->
+<!-------------------------------------------------------------------------------------------------------------->
+<header class="d-flex align-items-center sticky-top">
+
+
+</header>
+
+
+    
+<!-- ══════════════════════════════════════════
+     NAV
+══════════════════════════════════════════ -->
+<nav  class="d-flex align-items-center sticky-top navbar">
+  <ul class="nav-links">
+  <!-- 1. Home のドロップダウン -->
+    <li class="dropdown">
+      <a href="index.html">Home</a>
+      <ul class="dropdown-menu">
+        <li><a href="#idea">Idea</a></li>
+        <li><a href="#item">Items</a></li>
+      </ul>
+    </li>
+
+
+    <!-- 2. Knowledge Organization のドロップダウン -->
+    <li class="dropdown"><a href="knowledge_organization.html" class="dropdown-trigger">Knowledge Organization</a>
+      <ul class="dropdown-menu">
+        <li><a href="knowledge_organization.html#theoretical">Theoretical Model</a></li>
+        <li><a href="knowledge_organization.html#conceptual">Conceptual Model</a></li>
+      </ul>
+    </li>
+
+
+    <!-- 3. Knowledge Representation のドロップダウン -->
+    <li class="dropdown"><a href="knowledge_representation.html" class="dropdown-trigger">Knowledge Representation</a>
+      <ul class="dropdown-menu">
+        <li><a href="knowledge_representation.html#tei/xml">1. TEI/XML document</a></li>
+        <li><a href="knowledge_representation.html#tei/html">2. TEI → HTML (XSLT)</a></li>
+        <li><a href="knowledge_representation.html#tei/rdf">3. TEI → RDF (Python)</a></li>
+        <li><a href="knowledge_representation.html#csv/rdf">4. CSV → RDF (Python)</a></li>
+      </ul>
+    </li>
+
+  </ul>
+</nav>
+
+
+<div class="main-visual" id="home">
+    <div class="visual-text">
+        <h1>Sugihara Chiune</h1>
+        <h2>杉原千畝</h2>
+        <h3>A Legacy of Art & Influence</h3>
+
+    </div>
+</div>
+
+
+
+
+<!-- ══════════════════════════════════════════
+     1. PROJECT OVERVIEW
+══════════════════════════════════════════ -->
+<div class="container">
+<section id="idea" class="section">
+  <div class="section-eyebrow">01   IDEA</div>
+    <div class="flex-container">
+        <div class="chiune-image"></div>
+
+        <div class="about-text">
+            <h2 class="text-center">About this project</h2>
+            <p>
+                This LODSCH (Linked Open Data in Information Science and Cultural Heritage) project
+                focuses on <strong>Sugihara Chiune</strong> (杉原千畝, 1900-1986),
+                a Japanese diplomat who, during World War II, issued thousands of transit visas to Jewish refugees in Lithuania. 
+                The project takes the English Wikipedia article on him as
+                its source text and produces a structured, interlinked dataset using
+                TEI P5, RDF/OWL, and Linked Open Data principles.
+            </p>
+            <p>
+                The goal is to demonstrate how a cultural heritage entity can be described
+                with formal knowledge organisation methods — from a mind map of conceptual
+                relationships through to a machine-readable RDF dataset aligned with
+                international authority files (Wikidata, VIAF, LCSH).
+            </p>
+        </div>
+    </div>
+
+  <p>
+    <strong>Source:</strong>
+    <a href="https://en.wikipedia.org/wiki/Chiune_Sugihara" target="_blank">
+      https://en.wikipedia.org/wiki/Chiune_Sugihara
+    </a>
+  </p>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     2. ITEMS
+══════════════════════════════════════════ -->
+
+
+<section id="item" class="section">
+  <div class="section-eyebrow">02 · Domain Study</div>
+  <h2>Items</h2>
+  <p>
+    The following ten selected items are relevent to Sugihara Chiune. 
+  </p>
+
+
+  <div class="entity-table">
+  <table>
+  <thead>
+    <tr>
+      <th>No.</th>
+      <th>Item</th>
+      <th>Entity Type</th>
+      <th>Ontology class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Chiune Sugihara</td>
+      <td>Person</td>
+      <td>foaf:Person / schema:Person</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Sugihara: Conspiracy of Kindness</td>
+      <td>Documentary film</td>
+      <td>schema:Movie</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Sugihara Park</td>
+      <td>Place</td>
+      <td>schema:Park / CIDOC CRM: E53 Place</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Soviet occupation of the Baltic states</td>
+      <td>Event</td>
+      <td>schema:Event / CIDOC CRM: E5 Event</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Kaunas</td>
+      <td>City</td>
+      <td>schema:City / CIDOC CRM: E53 Place</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Yad Vashem</td>
+      <td>Organization</td>
+      <td>schema:Organization / FOAF:Organization</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>A Special Fate: Chiune Sugihara: Hero of the Holocaust</td>
+      <td>Book</td>
+      <td>schema:Book / FRBR:Work</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Jan Zwartendijk</td>
+      <td>Person</td>
+      <td>foaf:Person / schema:Person</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Trans-Siberian Railway</td>
+      <td>Infrastructure</td>
+      <td>CIDOC CRM: E53 Place (linear infrastructure) / schema:Place</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Righteous Among the Nations</td>
+      <td>Honorific title / Award</td>
+      <td>schema:Award / CIDOC CRM: E55 Type</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Chiune Sugihara Memorial Hall</td>
+      <td>museum</td>
+      <td>schema:Museum / CIDOC CRM: E53 Place + E22 Man-Made Object</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Knowledge Representation</title>
+  <!-- 既存のCSSファイルを必ず読み込む -->
+   
+   
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css"> 
+</head>
+
+
+
+<body>
+
+
+<!-- ══════════════════════════════════════════
+     NAV
+══════════════════════════════════════════ -->
+  <!-- 1. 既存のナビゲーションバーをそのままコピーして貼り付ける -->
+<nav  class="d-flex align-items-center sticky-top navbar">
+  <ul class="nav-links">
+  <!-- 1. Home のドロップダウン -->
+    <li class="dropdown">
+      <a href="index.html">Home</a>
+      <ul class="dropdown-menu">
+        <li><a href="index.html#idea">Idea</a></li>
+        <li><a href="index.html#item">Items</a></li>
+      </ul>
+    </li>
+
+
+    <!-- 2. Knowledge Organization のドロップダウン -->
+    <li class="dropdown"><a href="knowledge_representation.html" class="dropdown-trigger">Knowledge Organization</a>
+      <ul class="dropdown-menu">
+        <li><a href="#theoretical">Theoretical Model</a></li>
+        <li><a href="#conceptual">Conceptual Model</a></li>
+      </ul>
+    </li>
+
+    
+    <!-- 3. Knowledge Representation のドロップダウン -->
+    <li class="dropdown"><a href="knowledge_representation.html" class="dropdown-trigger">Knowledge Representation</a>
+      <ul class="dropdown-menu">
+        <li><a href="knowledge_representation.html#tei/xml">1. TEI/XML document</a></li>
+        <li><a href="knowledge_representation.html#tei/html">2. TEI → HTML (XSLT)</a></li>
+        <li><a href="knowledge_representation.html#tei/rdf">3. TEI → RDF (Python)</a></li>
+        <li><a href="knowledge_representation.html#csv/rdf">4. CSV → RDF (Python)</a></li>
+      </ul>
+    </li>
+
+  </ul>
+</nav>
+
+
+
+  <!-- 2. 新しいページのメインコンテンツをここに書く -->
+  <main style="padding: 40px; max-width: 1200px; margin: 0 auto;">
+        <!-- Miroのマインドマップをリアルタイム連動で埋め込む -->
+    <div class="theoretical-model" id="theoretical">
+        <div class="model-text">
+          <h2>Theoretical Model</h2>
+          <p>The theoretical model maps the relations between the topic of this project — Chiune Sugihara — and 
+            ten entities identified in the related Wikipedia content. Each relation is expressed as a directed link from a subject to an object, 
+            capturing both biographical facts and the cultural memory that has formed around them.</p>
+        </div>
+        <div class="miro">
+        <iframe width="768" height="432" 
+            src="https://miro.com/app/live-embed/uXjVHFTOejU=/?embedMode=view_only_without_ui&moveToViewport=-816,3382,4591,2364&embedId=520655853246" 
+            frameborder="0" 
+            scrolling="no" 
+            allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen>
+        </iframe>
+        </div>
+    </div>
+
+    <div class="conceptual-model" id="conceptual">
+        <div class="model-text">
+          <h2>Conceptual Model</h2>
+        </div>
+        <div class="miro">
+        <iframe width="768" height="432" 
+          src="https://miro.com/app/live-embed/uXjVHBc543k=/?embedMode=view_only_without_ui&moveToViewport=-2032,-637,3971,2045&embedId=41467715211" 
+          frameborder="0" scrolling="no" 
+          allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen>
+        </iframe>
+        </div>
+    </div>
+
+
+  </main>
+
+
+
+
+  
+
+</body>
+</html>
