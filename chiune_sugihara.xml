@@ -80,7 +80,7 @@
       <div type="Jewish refugees" n="2">
         <p>
           As the Soviet Union occupied sovereign Lithuania in <date when="1940">1940</date>, many Polish and Lithuanian Jews 
-          fearing persecution tried to acquire exit visas. While under <rs type="event" ref="#soviet-occupation">Soviet occupation</event>, 
+          fearing persecution tried to acquire exit visas. While under <rs type="event" ref="#soviet-occupation">Soviet occupation</rs>, 
           it was announced that many foreign consulates in <placeName ref="#kaunas">Kaunas</placeName> would 
           soon be closed. Per the Holocaust researcher and historian David Kranzler, Dutch national, Nathan 
           Gutwirth asked the Dutch Ambassador to the Baltic states, L. P. J. de Dekker, for a travel visa. Per 
@@ -108,30 +108,47 @@
           he issued over 2100 transit visas. Given his inferior post and the culture of the Japanese 
           Foreign Service bureaucracy, this was an unusual act of disobedience. He spoke to Soviet officials 
           who agreed to let the Jews travel through the country via the <rs type="object" ref="#trans-siberian-railway">Trans-Siberian Railway</rs>. 
-          His wife <persName ref="#yukiko">Yukiko</persName> who supported and encouraged him later 
-          recalled, <quote>"My husband and I talked about the visas before he issued them. We understood 
-          that both the Japanese and German governments disagreed with our ideas, but we went ahead anyhow."</quote>
+          His wife Yukiko who supported and encouraged him later recalled, <quote>"My husband and I talked about the 
+          visas before he issued them. We understood that both the Japanese and German governments disagreed 
+          with our ideas, but we went ahead anyhow."</quote>
         </p>
       </div>
 
 
       <div type="legacy and honors" n="5">
         <p>
-          In 1984, <orgName ref="yad-vashem">Yad Vashem</orgName> bestowed the <rs type="concept" ana="#righteous-among-nations">Righteous Among the Nations</rs>
+          In <date when="1984">1984</date>, <orgName ref="#yad-vashem">Yad Vashem</orgName> bestowed the 
+          <rs type="concept" ana="#righteous-among-nations">Righteous Among the Nations</rs>
           title on <persName ref="#chiune">Chiune Sugihara</persName>, the only Japanese national to have been so honored. 
           He was too ill to travel to receive the award at the Israeli embassy in Tokyo, so his wife and one or more of his 
           children accepted the honor on his behalf. <!--the awardはタグ付けする？-->
+
+          Sugihara Street in Vilnius, Lithuania, Chiune (Sempo) Sugihara Street in Jaffa, Israel, and the 
+          asteroid 25893 Sugihara are named after him. In <date when="1992">1992</date>, the town of Yaotsu opened 
+          the Park of Humanity, on a hill overlooking the town. In <date when="2000">2000</date>, the 
+          <placeName ref="#memorial-hall">Chiune Sugihara Memorial Hall</placeName> was opened to the public. Since its 
+          establishment, more than 600,000 visitors, Japanese and foreign, visited and studied about 
+          <persName ref="#chiune">Sugihara</persName> and his virtue.<!--him はタグ付けする？-->
         </p>
       </div>
 
 
       <div type="book" n="6">
         <p>
-          <title ref="hero-of-the-holocaust">A Special Fate: Chiune Sugihara: Hero of the Holocaust</title> (2000), 
+          <title ref="#hero-of-the-holocaust">A Special Fate: Chiune Sugihara: Hero of the Holocaust</title> (2000), 
           by Alison Leslie Gold, is a book for young readers (grades 5–10). The book draws on interviews 
-          with <persName ref="chiune">Sugihara</persName>'s wife and other witnesses and weaves in the 
-          stories of two Jewish refugee families. The epilogue describes how <persName ref="chiune">Sugihara</persName> 
+          with <persName ref="#chiune">Sugihara</persName>'s wife and other witnesses and weaves in the 
+          stories of two Jewish refugee families. The epilogue describes how <persName ref="#chiune">Sugihara</persName> 
           was finally honored in his own country and in Israel.
+        </p>
+      </div>
+
+
+      <div type="film" n="7">
+        <p>
+          <title ref="#conspiracy-of-kindness">Sugihara: Conspiracy of Kindness</title> (2000) from PBS 
+          shares details of <persName ref="#chiune">Sugihara</persName> and his family and the fascinating 
+          relationship between the Jews and the Japanese in the 1930s and 1940s.
         </p>
       </div>
       
@@ -187,6 +204,7 @@
 
         <!-- listPlace -->
             <listPlace>
+
                 <place xml:id="kaunas" type="city">
                     <placeName>Kaunas</placeName>
                     <location>
@@ -205,7 +223,7 @@
 
 
 
-                <place xml:id="memorial-hall" type="">
+                <place xml:id="memorial-hall" type="museum">
                     <placeName>Chiune Sugihara Memorial Hall</placeName>
                     <location>
                         <address>
@@ -213,7 +231,7 @@
                             <region>Gifu Prefecture</region>
                             <country>Japan</country>
                         </address>
-                        <geo>35.466667, 137.166667</geo>
+                        <geo>35.466667 137.166667</geo>
                     </location>
                     <idno type="Wikidata">https://www.wikidata.org/wiki/Q47417030</idno>
                 </place>
@@ -225,6 +243,7 @@
 
         <!-- listOrg -->
             <listOrg>
+
                 <org xml:id="yad-vashem">
                     <orgName>Yad Vashem</orgName>
                     <desc>
@@ -235,38 +254,41 @@
                         <country>Israel</country>
                     </location>
                 </org>
+
             </listOrg>
         
 
 
         <!-- listBibl -->
             <listBibl>
+
                 <bibl xml:id="conspiracy-of-kindness" type="documentary">
-                <title>Sugihara: Conspiracy of Kindness</title>
-                <respStmt>
-                    <resp>director</resp>
-                    <name>Robert Kirk</name>
-                </respStmt>
-                <publisher>WGBH Boston Video</publisher>
-                <idno type="Wikidata">https://www.wikidata.org/wiki/Q47417463</idno>
-                <idno type="OCLC">60779186</idno>
-                <date when="2000-08-06">2000-08-06</date>
-            </listBibl>
-
-
-            <listBibl>
+                  <title>Sugihara: Conspiracy of Kindness</title>
+                  <respStmt>
+                      <resp>director</resp>
+                      <name>Robert Kirk</name>
+                  </respStmt>
+                  <publisher>WGBH Boston Video</publisher>
+                  <idno type="Wikidata">https://www.wikidata.org/wiki/Q47417463</idno>
+                  <idno type="OCLC">60779186</idno>
+                  <date when="2000-08-06">2000-08-06</date>
+                </bibl>
+          
                 <bibl xml:id="hero-of-the-holocaust" type="book">
-                <title>A Special Fate: Chiune Sugihara: Hero of the Holocaust</title>
-                <author>Alison Leslie Gold</author>
-                <publisher>Scholastic Press</publisher>
-                <idno type="OCLC">41319984</idno>
-                <date when="2000">2000</date>
+                  <title>A Special Fate: Chiune Sugihara: Hero of the Holocaust</title>
+                  <author>Alison Leslie Gold</author>
+                  <publisher>Scholastic Press</publisher>
+                  <idno type="OCLC">41319984</idno>
+                  <date when="2000">2000</date>
+                </bibl>
+
             </listBibl>
         
 
 
         <!-- listEvent -->
             <listEvent>
+
                 <event xml:id="soviet-occupation">
                 <head>Soviet occupation of the Baltic states</head>
                 <desc>
@@ -275,14 +297,18 @@
                     by the Soviet Union.
                     </p>
                 </desc>
-                <date when=1940>1940</date>
+                <date when="1940">1940</date>
                 <idno type="Wikidata">https://www.wikidata.org/wiki/Q14505142</idno>
+                </event>
+
             </listEvent>
+
 
 
 
         <!-- listObject -->
             <listObject>
+
                 <object xml:id="trans-siberian-railway" type="infrastructure">
                 <objectIdentifier>
                     <objectName>Trans-Siberian Railway</objectName>
@@ -294,6 +320,7 @@
                 </note>
                 <idno type="Wikidata">https://www.wikidata.org/wiki/Q58767</idno>
                 </object>
+
             </listObject>
         
 
@@ -309,10 +336,9 @@
                 <relation name="awardedTitle" active="#chiune" passive="#righteous-among-nations"/>
                 <relation name="honoredBy" active="#chiune" passive="#yad-vashem"/>
                 <relation name="commemoratedAt" active="#chiune" passive="#memorial-hall"/>
-                <relation name="commemoratedAt" active="#chiune" passive="#sugihara-park"/>
                 <relation name="isSubjectOf" active="#chiune" passive="#conspiracy-of-kindness"/>
-                <relation name="isSubjectOf" active="#chiune" passive="#in-search-of-sugihara"/>
-                <relation name="awardedTitle" active="#jan-zwartendijk" passive="#righteous-among-nations">
+                <relation name="isSubjectOf" active="#chiune" passive="#hero-of-the-holocaust"/>
+                <relation name="awardedTitle" active="#jan-zwartendijk" passive="#righteous-among-nations"/>
 
             </listRelation>
         
