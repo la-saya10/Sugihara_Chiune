@@ -10,7 +10,7 @@
 
 
 <xsl:template match="/">
-    <!-- ここに変換ルールを書いていく -->
+    <!-- Write rules in the following part -->
  
   <html>
     <head>
@@ -123,7 +123,6 @@
 
 
     <body>
-    <div class="box">
         <div class="container">
             <div class="header">
             <h1>Transformation from XMl/TEI to HTML: Chiune Sugihara</h1>
@@ -142,9 +141,8 @@
             </div>
             </div>
             <xsl:apply-templates select="tei:TEI/tei:text/tei:body"/>
-            
         </div>
-    </div>
+   
     </body>
   </html>
 </xsl:template>

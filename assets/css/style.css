@@ -4,6 +4,14 @@
     border-bottom: 1px solid var(--rule);
 }
 
+.container-index {
+    max-width: 1100px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 20px;
+
+}
+
 
 
 /* ══════════════════════════════════════════════════════════════════
@@ -248,6 +256,14 @@ tbody tr:nth-child(even) {
   background-color: #fafafa;
 }
 
+
+
+/* ══════════════════════════════════════════════════════════════════
+          Knowledge Organization
+═════════════════════════════════════════════════════════════════════
+*/
+
+
 .theoretical-model,
 .conceptual-model {
   margin: 0;
@@ -275,6 +291,7 @@ tbody tr:nth-child(even) {
 .model-text p {
     text-align: left;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 
@@ -286,8 +303,26 @@ tbody tr:nth-child(even) {
 }
 
 
+
+/* ══════════════════════════════════════════════════════════════════
+                 Knowledge Representation 
+═════════════════════════════════════════════════════════════════════
+*/
+
+.container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: #ffffff;         
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+            border-radius: 10px;         
+        }
+
+
+
 .tei-xml,
-.tei-html {
+.tei-html,
+.transformed-html {
     max-width: 800px;      /* 箱自体の幅を絞る(数値はお好みで) */
     margin: 0 auto;        /* 左右の余白を自動にして中央寄せ */
     text-align: left;      /* 念のため明示的に左揃えを指定 */
