@@ -286,6 +286,33 @@ tbody tr:nth-child(even) {
 }
 
 
+.tei-xml,
+.tei-html {
+    max-width: 800px;      /* 箱自体の幅を絞る(数値はお好みで) */
+    margin: 0 auto;        /* 左右の余白を自動にして中央寄せ */
+    text-align: left;      /* 念のため明示的に左揃えを指定 */
+}
+
+
+
+
+/* emgithubの埋め込み内のテーブル行は、縞模様を無効化する */
+.emgithub-file table tr,
+.emgithub-file table tr:nth-child(even),
+.emgithub-file table tr:nth-child(odd) {
+    background: transparent !important;
+}
+
+
+
+.code-scroll-box {
+    
+    border-radius: 6px;
+    width: 100%;
+
+}
+
+
 
 
 
