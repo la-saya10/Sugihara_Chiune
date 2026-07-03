@@ -269,7 +269,7 @@ tbody tr:nth-child(even) {
 
 
 .model-text {
-    text-align: center;
+    text-align: left;
 }
 
 .model-text p {
@@ -477,3 +477,9 @@ tbody tr:nth-child(even) {
     from { transform: scale(0.9); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
 }
+
+
+
+
+
+

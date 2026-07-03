@@ -1,5 +1,3 @@
-あははははは
-
 <?xml version="1.0" encoding="UTF-8"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
  
@@ -109,7 +107,7 @@
           decided to ignore his orders and, from <date when="1940-07-18">July 18 to August 28, 1940</date>, 
           he issued over 2100 transit visas. Given his inferior post and the culture of the Japanese 
           Foreign Service bureaucracy, this was an unusual act of disobedience. He spoke to Soviet officials 
-          who agreed to let the Jews travel through the country via the <rs type="object" ref="#trans-siberian-railway">Trans-Siberian Railway</rs>. 
+          who agreed to let the Jews travel through the country via the <rs type="infrastructure" ref="#trans-siberian-railway">Trans-Siberian Railway</rs>. 
           His wife Yukiko who supported and encouraged him later recalled, <quote>"My husband and I talked about the 
           visas before he issued them. We understood that both the Japanese and German governments disagreed 
           with our ideas, but we went ahead anyhow."</quote>
