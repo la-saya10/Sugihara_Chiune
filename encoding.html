@@ -3,48 +3,99 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>TEI to HTML: Chiune Sugihara</title>
 <style>
+
+        .header {
+            background-color: #d6eaf8;   /* 薄い青 */
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+
+        .intro {
+            background-color: #fafafa;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .intro p {
+            margin-top: 0;
+            text-align: left;
+        }
+
+
+        .color-desc {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 0;
+        }
+
+        .color-desc li {
+            font-size: 0.9em;
+        }
+
+
         body { 
             font-family: Arial; 
-            max-width: 700px; 
-            margin: 40px auto; 
+            margin: 0;
             line-height: 1.6; 
+            background-color: #ffffff;   /* ★ ページ全体の背景(薄いグレー) */
         }
 
         .container {
-            max-width: 800px;
-            background 
+            max-width: 700px;
+            margin: 40px auto;
+            background: #ffffff;          /* コンテンツは白のまま */
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);  /* ★ 影を追加 */
+            border-radius: 10px;          /* 角を少し丸めると、より「カード」っぽく見える */
+        }
+
+
+        .section {
+            background-color: #f0f0f0;   /* 薄い灰色 */
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
         }
 
 
 
         .quote  { 
-            font-style: italic; color: #848393; 
+            font-style: italic; color: #291cea; 
             font-weight: bold; 
         }
 
         .person { 
-            font-weight: bold; color: #c0392b; 
             font-weight: bold; 
+            color: #c0392b; 
         }
 
         .place { 
-            font-weight: bold; color: #2980b9; 
             font-weight: bold; 
+            color: #2980b9; 
         }
 
         .work  { 
-            font-weight: bold; color: #44ad63; 
             font-weight: bold; 
+            color: #44ad63; 
         }
 
         .organization  { 
-            font-weight: bold; color: #95ae27; 
             font-weight: bold; 
+            color: #95ae27;  
         }
 
         .object {
-            font-weight: bold; color: #6044ad
             font-weight: bold; 
+            color: #b909ff;
+             
         }
 
 
@@ -56,10 +107,30 @@
 
       </style>
 </head>
-<body><div class="container">
-<div class="header"><h1>Transformation from XMl/TEI to HTML: Chiune Sugihara</h1></div>
+<body><div class="box"><div class="container">
+<div class="header">
+<h1>Transformation from XMl/TEI to HTML: Chiune Sugihara</h1>
+<div class="intro">
+<p>This page presents a TEI/XML-encoded text about Chiune Sugihara,
+                transformed into HTML using XSLT. Entities mentioned
+                in the text are highlighted below according to their type.</p>
+<ul class="color-desc">
+<li>
+<span class="person">Person</span>,</li>
+<li>
+<span class="place">Place</span>,</li>
+<li>
+<span class="work">Work / Title</span>,</li>
+<li>
+<span class="organization">Organization</span>,</li>
+<li>
+<span class="object">Object: Event / Concept / Infrastructure</span>,</li>
+<li><span class="quote">Quotation</span></li>
+</ul>
+</div>
+</div>
 
-      
+      <div class="section">
         <h2>Top</h2>
         <p>
           <span class="person">Chiune Sugihara</span> (杉原 千畝, Sugihara Chiune; 1 January 1900 – 31 July 1986) 
@@ -69,23 +140,23 @@
           of his family. The fleeing Jews were refugees from German-occupied Western Poland and Soviet-occupied Eastern Poland, as 
           well as residents of Lithuania.
         </p>
-      
+      </div>
 
 
-      
+      <div class="section">
+        <h2>Jewish refugees-1</h2>
         <p>
           As the Soviet Union occupied sovereign Lithuania in 1940, many Polish and Lithuanian Jews 
           fearing persecution tried to acquire exit visas. While under <span class="object">Soviet occupation</span>, 
           it was announced that many foreign consulates in <span class="place">Kaunas</span> would 
           soon be closed. Per the Holocaust researcher and historian David Kranzler, Dutch national, Nathan 
-          Gutwirth asked the Dutch Ambassador to the Baltic states, L. P. J. de Dekker, for a travel visa. Per 
-          the granddaughter of another Dutch national Peppy Sterinheim Lewin made the request. Either one or both of the 
-          above sought to reach Curaçao, then a Dutch colony, with subsequent plans to reach the United States
+          Gutwirth asked the Dutch Ambassador to the Baltic states, L. P. J. de Dekker, for a travel visa. 
         </p>
-      
+      </div>
 
 
-      
+      <div class="section">
+        <h2>Jewish refugees-2</h2>
         <p>
           Dekker requested and authorized the Dutch honorary consul <span class="person">Jan Zwartendijk</span> 
           to issue the same text to Jews in Kovno who wished to escape from Lithuania. In the period 
@@ -93,24 +164,26 @@
           <span class="person">Jan Zwartendijk</span> provided over 2,200 Jews with similar 
           notations in their passports.
         </p>
-      
+      </div>
       
 
-      
+      <div class="section">
+        <h2>Sugihara's Visas</h2>
         <p>
           Being aware that applicants were in danger if they stayed behind, <span class="person">Sugihara</span> 
           decided to ignore his orders and, from July 18 to August 28, 1940, 
           he issued over 2100 transit visas. Given his inferior post and the culture of the Japanese 
           Foreign Service bureaucracy, this was an unusual act of disobedience. He spoke to Soviet officials 
           who agreed to let the Jews travel through the country via the <span class="object">Trans-Siberian Railway</span>. 
-          His wife Yukiko who supported and encouraged him later recalled, "My husband and I talked about the 
+          His wife Yukiko who supported and encouraged him later recalled, <span class="quote">"My husband and I talked about the 
           visas before he issued them. We understood that both the Japanese and German governments disagreed 
-          with our ideas, but we went ahead anyhow."
+          with our ideas, but we went ahead anyhow."</span>
         </p>
-      
+      </div>
 
 
-      
+      <div class="section">
+        <h2>Legacy and honors</h2>
         <p>
           In 1984, <span class="organization">Yad Vashem</span> bestowed the 
           <span class="object">Righteous Among the Nations</span>
@@ -125,10 +198,11 @@
           establishment, more than 600,000 visitors, Japanese and foreign, visited and studied about 
           <span class="person">Sugihara</span> and his virtue.
         </p>
-      
+      </div>
 
 
-      
+      <div class="section">
+        <h2>Biographies-1</h2>
         <p>
           <span class="work">A Special Fate: Chiune Sugihara: Hero of the Holocaust</span> (2000), 
           by Alison Leslie Gold, is a book for young readers (grades 5–10). The book draws on interviews 
@@ -136,17 +210,18 @@
           stories of two Jewish refugee families. The epilogue describes how <span class="person">Sugihara</span> 
           was finally honored in his own country and in Israel.
         </p>
-      
+      </div>
 
 
-      
+      <div class="section">
+        <h2>Biographies-2</h2>
         <p>
           <span class="work">Sugihara: Conspiracy of Kindness</span> (2000) from PBS 
           shares details of <span class="person">Sugihara</span> and his family and the fascinating 
           relationship between the Jews and the Japanese in the 1930s and 1940s.
         </p>
+      </div>
       
       
-      
-    </div></body>
+    </div></div></body>
 </html>

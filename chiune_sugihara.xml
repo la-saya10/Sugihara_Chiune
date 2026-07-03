@@ -78,19 +78,19 @@
 
 
       <div type="Jewish refugees" n="2">
+        <head>Jewish refugees-1</head>
         <p>
           As the Soviet Union occupied sovereign Lithuania in <date when="1940">1940</date>, many Polish and Lithuanian Jews 
           fearing persecution tried to acquire exit visas. While under <rs type="event" ref="#soviet-occupation">Soviet occupation</rs>, 
           it was announced that many foreign consulates in <placeName ref="#kaunas">Kaunas</placeName> would 
           soon be closed. Per the Holocaust researcher and historian David Kranzler, Dutch national, Nathan 
-          Gutwirth asked the Dutch Ambassador to the Baltic states, L. P. J. de Dekker, for a travel visa. Per 
-          the granddaughter of another Dutch national Peppy Sterinheim Lewin made the request. Either one or both of the 
-          above sought to reach Curaçao, then a Dutch colony, with subsequent plans to reach the United States
+          Gutwirth asked the Dutch Ambassador to the Baltic states, L. P. J. de Dekker, for a travel visa. 
         </p>
       </div>
 
 
       <div type="Jan zwartendijk" n="3">
+        <head>Jewish refugees-2</head>
         <p>
           Dekker requested and authorized the Dutch honorary consul <persName ref="#jan-zwartendijk">Jan Zwartendijk</persName> 
           to issue the same text to Jews in Kovno who wished to escape from Lithuania. In the period 
@@ -102,6 +102,7 @@
       
 
       <div type="Sugihara's Visas" n="4">
+        <head>Sugihara's Visas</head>
         <p>
           Being aware that applicants were in danger if they stayed behind, <persName ref="#chiune">Sugihara</persName> 
           decided to ignore his orders and, from <date when="1940-07-18">July 18 to August 28, 1940</date>, 
@@ -116,6 +117,7 @@
 
 
       <div type="legacy and honors" n="5">
+        <head>Legacy and honors</head>
         <p>
           In <date when="1984">1984</date>, <orgName ref="#yad-vashem">Yad Vashem</orgName> bestowed the 
           <rs type="concept" ana="#righteous-among-nations">Righteous Among the Nations</rs>
@@ -134,6 +136,7 @@
 
 
       <div type="book" n="6">
+        <head>Biographies-1</head>
         <p>
           <title ref="#hero-of-the-holocaust">A Special Fate: Chiune Sugihara: Hero of the Holocaust</title> (2000), 
           by Alison Leslie Gold, is a book for young readers (grades 5–10). The book draws on interviews 
@@ -145,6 +148,7 @@
 
 
       <div type="film" n="7">
+        <head>Biographies-2</head>
         <p>
           <title ref="#conspiracy-of-kindness">Sugihara: Conspiracy of Kindness</title> (2000) from PBS 
           shares details of <persName ref="#chiune">Sugihara</persName> and his family and the fascinating 
@@ -155,13 +159,6 @@
       
     </body>
  
-
-
-
-
-
-
-
 
 
 

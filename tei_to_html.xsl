@@ -16,48 +16,99 @@
     <head>
       <title>TEI to HTML: Chiune Sugihara</title>
       <style>
+
+        .header {
+            background-color: #d6eaf8;   /* 薄い青 */
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+
+        .intro {
+            background-color: #fafafa;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .intro p {
+            margin-top: 0;
+            text-align: left;
+        }
+
+
+        .color-desc {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 0;
+        }
+
+        .color-desc li {
+            font-size: 0.9em;
+        }
+
+
         body { 
             font-family: Arial; 
-            max-width: 700px; 
-            margin: 40px auto; 
+            margin: 0;
             line-height: 1.6; 
+            background-color: #ffffff;   /* ★ ページ全体の背景(薄いグレー) */
         }
 
         .container {
-            max-width: 800px;
-            background 
+            max-width: 700px;
+            margin: 40px auto;
+            background: #ffffff;          /* コンテンツは白のまま */
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);  /* ★ 影を追加 */
+            border-radius: 10px;          /* 角を少し丸めると、より「カード」っぽく見える */
+        }
+
+
+        .section {
+            background-color: #f0f0f0;   /* 薄い灰色 */
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
         }
 
 
 
         .quote  { 
-            font-style: italic; color: #848393; 
+            font-style: italic; color: #291cea; 
             font-weight: bold; 
         }
 
         .person { 
-            font-weight: bold; color: #c0392b; 
             font-weight: bold; 
+            color: #c0392b; 
         }
 
         .place { 
-            font-weight: bold; color: #2980b9; 
             font-weight: bold; 
+            color: #2980b9; 
         }
 
         .work  { 
-            font-weight: bold; color: #44ad63; 
             font-weight: bold; 
+            color: #44ad63; 
         }
 
         .organization  { 
-            font-weight: bold; color: #95ae27; 
             font-weight: bold; 
+            color: #95ae27;  
         }
 
         .object {
-            font-weight: bold; color: #6044ad
             font-weight: bold; 
+            color: #b909ff;
+             
         }
 
 
@@ -72,12 +123,28 @@
 
 
     <body>
+    <div class="box">
         <div class="container">
             <div class="header">
             <h1>Transformation from XMl/TEI to HTML: Chiune Sugihara</h1>
+            <div class="intro">
+                <p>This page presents a TEI/XML-encoded text about Chiune Sugihara,
+                transformed into HTML using XSLT. Entities mentioned
+                in the text are highlighted below according to their type.</p>
+                <ul class="color-desc">
+                    <li><span class="person">Person</span>,</li>
+                    <li><span class="place">Place</span>,</li>
+                    <li><span class="work">Work / Title</span>,</li>
+                    <li><span class="organization">Organization</span>,</li>
+                    <li><span class="object">Object: Event / Concept / Infrastructure</span>,</li>
+                    <li><span class="quote">Quotation</span></li>
+                </ul>   
+            </div>
             </div>
             <xsl:apply-templates select="tei:TEI/tei:text/tei:body"/>
+            
         </div>
+    </div>
     </body>
   </html>
 </xsl:template>
@@ -85,8 +152,10 @@
 
     <!-- ★ divを透過的に処理(追加) ★ -->
     <xsl:template match="tei:div">
-    <xsl:apply-templates/>
-    </xsl:template>
+        <div class="section">
+            <xsl:apply-templates/>
+        </div>
+   </xsl:template>
 
     <xsl:template match="tei:head">
         <h2><xsl:apply-templates/></h2>
@@ -125,6 +194,11 @@
     <!--object-->
     <xsl:template match="tei:rs[@type='event'] | tei:rs[@type='infrastructure'] | tei:rs[@type='concept']">
     <span class="object"><xsl:apply-templates/></span>
+    </xsl:template>
+
+    <!--quote-->
+    <xsl:template match="tei:quote">
+    <span class="quote"><xsl:apply-templates/></span>
     </xsl:template>
 
 
