@@ -263,9 +263,7 @@
 
                 <org xml:id="japanese-foreign-ministry">
                     <orgName>Japanese Foreign Ministry</orgName>
-                    <location>
-                        <country></country>
-                    </location>
+                    <orgName type="variant">Japanese Foreign Ministry</orgName>
                     <idno type="Wikidata">https://www.wikidata.org/wiki/Q222241</idno>
                 </org>
 
