@@ -104,6 +104,14 @@
       <div type="Sugihara's Visas" n="4">
         <head>Sugihara's Visas</head>
         <p>
+          At the time, the Japanese government required that Japanese transit visas be issued only to those who had gone 
+          through appropriate immigration procedures, had enough funds and an onward final destination. Most of 
+          the refugees did not fulfill these criteria. <persName ref="#chiune">Sugihara</persName> dutifully contacted the 
+          <orgName ref="#japanese-foreign-ministry">Japanese Foreign Ministry</orgName> three times for instructions. 
+          Each time, the <orgName ref="#japanese-foreign-ministry">Ministry</orgName> responded that anybody granted 
+          a visa should be in possession of a destination visa to an onward country beyond Japan, without exception.
+
+
           Being aware that applicants were in danger if they stayed behind, <persName ref="#chiune">Sugihara</persName> 
           decided to ignore his orders and, from <date when="1940-07-18">July 18 to August 28, 1940</date>, 
           he issued over 2100 transit visas. Given his inferior post and the culture of the Japanese 
@@ -247,9 +255,18 @@
                         the World Holocaust Remembrance Center that was 
                         established in 1953 by the Knesset
                     </desc>
+                    <idno type="Wikidata">https://www.wikidata.org/wiki/Q156591</idno>
                     <location>
                         <country>Israel</country>
                     </location>
+                </org>
+
+                <org xml:id="japanese-foreign-ministry">
+                    <orgName>Japanese Foreign Ministry</orgName>
+                    <location>
+                        <country></country>
+                    </location>
+                    <idno type="Wikidata">https://www.wikidata.org/wiki/Q222241</idno>
                 </org>
 
             </listOrg>
@@ -326,6 +343,7 @@
             <listRelation>
                 <!-- Chiune Sugihara と 10エンティティ それぞれの直接関係 -->
 
+                <relation name="worksFor" active="#chiune" passive="#japanese-foreign-ministry"/>
                 <relation name="servedIn" active="#chiune" passive="#kaunas"/>
                 <relation name="affectedBy" active="#chiune" passive="#soviet-occupation"/>
                 <relation name="enabledEscapeVia" active="#chiune" passive="#trans-siberian-railway"/>
