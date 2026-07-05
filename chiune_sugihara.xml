@@ -39,10 +39,10 @@
     <!-- ============================================ -->
     <encodingDesc>
       <classDecl>
-        <taxonomy xml:id="project-categories">
+        <taxonomy xml:id="concept">
           <category xml:id="righteous-among-nations">
             <catDesc>Righteous Among the Nations</catDesc>
-            <idno type="wikidata">https://www.wikidata.org/wiki/Q112197</idno>
+            <idno type="Wikidata">https://www.wikidata.org/wiki/Q112197</idno>
             <note>
               Honorific title bestowed by the State of Israel, through
               Yad Vashem, on non-Jews who risked their lives to save Jews
