@@ -1,0 +1,15 @@
+@prefix ns1: <http://example.org/relation/> .
+
+<https://www.wikidata.org/wiki/Q161381> ns1:affectedBy <https://www.wikidata.org/wiki/Q14505142> ;
+    ns1:awardedTitle <https://www.wikidata.org/wiki/Q112197> ;
+    ns1:collaboratedWith <http://www.wikidata.org/entity/Q2649762> ;
+    ns1:commemoratedAt <https://www.wikidata.org/wiki/Q47417030> ;
+    ns1:enabledEscapeVia <https://www.wikidata.org/wiki/Q58767> ;
+    ns1:honoredBy <https://www.wikidata.org/wiki/Q156591> ;
+    ns1:isSubjectOf <https://www.wikidata.org/wiki/Q47417463>,
+        <https://www.worldcat.org/oclc/41319984> ;
+    ns1:servedIn <https://www.wikidata.org/wiki/Q4115712> ;
+    ns1:worksFor <https://www.wikidata.org/wiki/Q222241> .
+
+<http://www.wikidata.org/entity/Q2649762> ns1:awardedTitle <https://www.wikidata.org/wiki/Q112197> .
+
