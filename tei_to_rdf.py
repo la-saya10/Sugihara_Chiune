@@ -1,6 +1,6 @@
 import xml.etree.ElementTree as ET
 from rdflib import Graph, Namespace, Literal, URIRef
-from rdflib.namespace import RDF, RDFS, OWL, FOAF, SKOS
+from rdflib.namespace import RDF, OWL, FOAF, SKOS
 
 # ----- 1. Namespaces -----
 CRM      = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
@@ -125,16 +125,6 @@ for rel in root.iter(TEI + "relation"):
         g.add((id_to_uri[active], prop, id_to_uri[passive]))
 
 # ----- 7. Extra triples from conceptual model -----
-
-# World War II (indirect entity)
-wwii = SUGIHARA["world-war-ii"]
-g.add((wwii, RDF.type,   CRM.E5_Event))
-g.add((wwii, RDFS.label, Literal("World War II", lang="en")))
-g.add((wwii, OWL.sameAs, URIRef(WD["Q362"])))
-
-# Soviet occupation -> isPartOf -> World War II
-if "soviet-occupation" in id_to_uri:
-    g.add((id_to_uri["soviet-occupation"], DCT.isPartOf, wwii))
 
 # Soviet occupation -> took place at -> Kaunas
 if "soviet-occupation" in id_to_uri and "kaunas" in id_to_uri:
