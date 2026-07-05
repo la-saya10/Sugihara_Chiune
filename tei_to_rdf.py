@@ -66,10 +66,20 @@ for bibl in tree.findall(".//tei:listBibl/tei:bibl", ns):
 
 
 # Object
-for obj_element in tree.findall(".//tei:event[@type='event'] | .//tei:object[@type='infrastructure'] | .//tei:category[@type='concept']", ns):
+event_elements   = tree.findall(".//tei:event", ns)
+concept_elements = tree.findall(".//tei:category", ns)
+object_elements  = tree.findall(".//tei:object", ns)
+
+for obj_element in event_elements + concept_elements + object_elements:
     xml_id = obj_element.get("{http://www.w3.org/XML/1998/namespace}id")
-    wikidata_url = obj_element.find("tei:idno[@type='Wikidata']", ns).text
-    id_to_uri[xml_id] = URIRef(wikidata_url)
+    if xml_id is None:
+        continue
+
+    idno_elem = obj_element.find("tei:idno[@type='Wikidata']", ns)
+    if idno_elem is None:
+        continue
+
+    id_to_uri[xml_id] = URIRef(idno_elem.text)
 
 
 
