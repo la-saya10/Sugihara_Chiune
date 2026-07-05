@@ -1,8 +1,6 @@
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <https://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix sugihara: <http://example.org/sugihara/> .
@@ -33,7 +31,6 @@ sugihara:japanese-foreign-ministry a foaf:Organization ;
     foaf:name "Japanese Foreign Ministry" .
 
 sugihara:soviet-occupation a crm:E5_Event ;
-    dcterms:isPartOf sugihara:world-war-ii ;
     crm:P7_took_place_at sugihara:kaunas ;
     owl:sameAs wd:Q14505142 ;
     schema:name "Soviet occupation of the Baltic states" .
@@ -41,10 +38,6 @@ sugihara:soviet-occupation a crm:E5_Event ;
 sugihara:trans-siberian-railway a crm:E25_Human_Made_Feature ;
     owl:sameAs wd:Q58767 ;
     schema:name "Trans-Siberian Railway" .
-
-sugihara:world-war-ii a crm:E5_Event ;
-    rdfs:label "World War II"@en ;
-    owl:sameAs wd:Q362 .
 
 sugihara:kaunas a schema:City ;
     owl:sameAs wd:Q4115712 ;
