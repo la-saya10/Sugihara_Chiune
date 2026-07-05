@@ -1,15 +1,73 @@
-@prefix ns1: <http://example.org/relation/> .
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sugihara: <http://example.org/sugihara/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
 
-<https://www.wikidata.org/wiki/Q161381> ns1:affectedBy <https://www.wikidata.org/wiki/Q14505142> ;
-    ns1:awardedTitle <https://www.wikidata.org/wiki/Q112197> ;
-    ns1:collaboratedWith <http://www.wikidata.org/entity/Q2649762> ;
-    ns1:commemoratedAt <https://www.wikidata.org/wiki/Q47417030> ;
-    ns1:enabledEscapeVia <https://www.wikidata.org/wiki/Q58767> ;
-    ns1:honoredBy <https://www.wikidata.org/wiki/Q156591> ;
-    ns1:isSubjectOf <https://www.wikidata.org/wiki/Q47417463>,
-        <https://www.worldcat.org/oclc/41319984> ;
-    ns1:servedIn <https://www.wikidata.org/wiki/Q4115712> ;
-    ns1:worksFor <https://www.wikidata.org/wiki/Q222241> .
+sugihara:conspiracy-of-kindness a schema:Movie ;
+    owl:sameAs wd:Q47417463 ;
+    schema:about sugihara:chiune ;
+    schema:name "Sugihara: Conspiracy of Kindness" .
 
-<http://www.wikidata.org/entity/Q2649762> ns1:awardedTitle <https://www.wikidata.org/wiki/Q112197> .
+sugihara:hero-of-the-holocaust a schema:Book ;
+    schema:about sugihara:chiune ;
+    schema:name "A Special Fate: Chiune Sugihara: Hero of the Holocaust" .
+
+sugihara:memorial-hall a schema:Museum ;
+    owl:sameAs wd:Q47417030 ;
+    schema:about sugihara:chiune ;
+    schema:name "Chiune Sugihara Memorial Hall" .
+
+sugihara:jan-zwartendijk a foaf:Person ;
+    owl:sameAs wd:Q2649762,
+        <https://viaf.org/viaf/312620714> ;
+    foaf:name "Jan Zwartendijk" ;
+    schema:award sugihara:righteous-among-nations .
+
+sugihara:japanese-foreign-ministry a foaf:Organization ;
+    owl:sameAs wd:Q222241 ;
+    foaf:name "Japanese Foreign Ministry" .
+
+sugihara:soviet-occupation a crm:E5_Event ;
+    dcterms:isPartOf sugihara:world-war-ii ;
+    crm:P7_took_place_at sugihara:kaunas ;
+    owl:sameAs wd:Q14505142 ;
+    schema:name "Soviet occupation of the Baltic states" .
+
+sugihara:trans-siberian-railway a crm:E25_Human_Made_Feature ;
+    owl:sameAs wd:Q58767 ;
+    schema:name "Trans-Siberian Railway" .
+
+sugihara:world-war-ii a crm:E5_Event ;
+    rdfs:label "World War II"@en ;
+    owl:sameAs wd:Q362 .
+
+sugihara:kaunas a schema:City ;
+    owl:sameAs wd:Q4115712 ;
+    schema:name "Kaunas" .
+
+sugihara:righteous-among-nations a skos:Concept ;
+    owl:sameAs wd:Q112197 ;
+    skos:inScheme sugihara:yad-vashem ;
+    schema:name "Righteous Among the Nations" .
+
+sugihara:yad-vashem a foaf:Organization ;
+    owl:sameAs wd:Q156591 ;
+    foaf:name "Yad Vashem" .
+
+sugihara:chiune a foaf:Person ;
+    crm:P15_was_influenced_by sugihara:soviet-occupation ;
+    crm:P16_used_specific_object sugihara:trans-siberian-railway ;
+    owl:sameAs wd:Q161381,
+        <https://viaf.org/viaf/22953110> ;
+    foaf:name "Chiune Sugihara" ;
+    schema:award sugihara:righteous-among-nations ;
+    schema:colleague sugihara:jan-zwartendijk ;
+    schema:memberOf sugihara:yad-vashem ;
+    schema:workLocation sugihara:kaunas ;
+    schema:worksFor sugihara:japanese-foreign-ministry .
 
