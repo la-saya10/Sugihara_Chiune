@@ -322,7 +322,8 @@ tbody tr:nth-child(even) {
 
 .tei-xml,
 .tei-html,
-.transformed-html {
+.transformed-html,
+.tei-rdf {
     max-width: 800px;      /* 箱自体の幅を絞る(数値はお好みで) */
     margin: 0 auto;        /* 左右の余白を自動にして中央寄せ */
     text-align: left;      /* 念のため明示的に左揃えを指定 */
