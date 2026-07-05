@@ -1,12 +1,3 @@
-# ============================================================
-# TEI -> RDF transformation
-#
-# Reads chiune_sugihara.xml and produces output.ttl in Turtle format.
-# Uses only the classes and properties defined in the conceptual model.
-#
-# Run: python3 tei_to_rdf.py
-# ============================================================
-
 import xml.etree.ElementTree as ET
 from rdflib import Graph, Namespace, Literal, URIRef
 from rdflib.namespace import RDF, RDFS, OWL, FOAF, SKOS
