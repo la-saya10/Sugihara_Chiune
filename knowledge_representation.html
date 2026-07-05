@@ -65,7 +65,15 @@
       <div class="model-text">
         <h2>TEI/XML document</h2>
           <p>
-            This section presentes encoded XML/TEI document of exerpted sections of Wikipedia of Chiune Sugihara.             
+            Some exerpts of the Wikipedia article on Chiune Sugihara has been encoded as a TEI/XML 
+            document. Selected entities are annotated inline using elements such 
+            as <code>&lt;persName&gt;</code>, <code>&lt;placeName&gt;</code>, 
+            <code>&lt;orgName&gt;</code>, and <code>&lt;rs&gt;</code>. Each entity 
+            is described in the back matter using dedicated list elements 
+            (<code>listPerson</code>, <code>listPlace</code>, <code>listOrg</code>, 
+            <code>listBibl</code>, <code>listEvent</code>, <code>listObject</code>) 
+            and reconciled to authority files including Wikidata, VIAF, and OCLC. 
+            Quotation is also marked up using <code>&lt;quote&gt;</code>.             
           </p>
           <div class="code-scroll-box">
             <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fla-saya10%2FSugihara_Chiune%2Fblob%2Fmain%2Fchiune_sugihara.xml&style=monokai-sublime&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on&maxHeight=400"></script>
@@ -81,7 +89,13 @@
       <div class="model-text">
         <h2>TEI → HTML (XSLT)</h2>
           <p>
-            This section presentes XSL file that transforms TEI/XML into HTML file         
+            The TEI/XML document is transformed into a HTML page 
+            using a Python script built on the <code>xml.etree.ElementTree</code> 
+            library. The script reads the back matter to build an index of entities, 
+            then processes the body text, wrapping each annotated entity in a 
+            colour-coded span linked to its Wikidata entry. The output also includes 
+            an entity index table and a relations table derived from 
+            <code>listRelation</code>.  
           </p>
           <div class="code-scroll-box">
             <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fla-saya10%2FSugihara_Chiune%2Fblob%2Fmain%2Ftei_to_html.xsl&style=monokai-sublime&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on&maxHeight=400"></script>
@@ -110,7 +124,15 @@
       <div class="model-text">
         <h2>TEI → RDF</h2>
           <p>
-            This section presentes Python file that transforms TEI/XML into RDF file             
+            The TEI/XML document is transformed into an RDF dataset in Turtle 
+            format using a Python script built on the <code>rdflib</code> library. 
+            The script maps each entity to the class defined in the conceptual model 
+            (e.g. <code>foaf:Person</code>, <code>schema:City</code>, 
+            <code>crm:E5_Event</code>, <code>skos:Concept</code>) and each relation 
+            to the corresponding property (e.g. <code>schema:workLocation</code>, 
+            <code>crm:P15_was_influenced_by</code>). Every entity is linked to its 
+            Wikidata counterpart via <code>owl:sameAs</code>. 
+            The dataset contains 45 triples in total.           
           </p>
           <div class="code-scroll-box">
             <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fla-saya10%2FSugihara_Chiune%2Fblob%2Fmain%2Ftei_to_rdf.py&style=monokai-sublime&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on&maxHeight=400"></script>          </div>
