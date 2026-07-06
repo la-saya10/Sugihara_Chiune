@@ -374,200 +374,21 @@ tbody tr:nth-child(even) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.item-gallery {
-    display: flex; 
-    gap: 15px;
-    width: 100%;
-    flex-wrap: wrap;
-    flex-shrink: 0;
-
-
+body {
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 
-.item-wrapper {
-    background-color: #ffffff; /* 💡 ボックス全体を白で覆う */
-    border-radius: 8px;        /* 角を少し丸くして柔らかい印象に */
-    overflow: hidden;          /* 中の画像が角丸からはみ出るのを防ぐ */
-    height: auto;              /* 横並びになったとき高さを揃える */
-    width: calc((100% - 40px)/4); 
-    
-    /* 💡 ここで「うっすらとした綺麗な影」を作っています */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
-    
-    /* 中身を綺麗な縦並びにする設定 */
-    display: inline-block;
-    flex-direction: column;
-    margin: 5px;
+footer {
+  margin-top: 60px;
+  background-color: #25292b;
+  padding: 30px 40px 10px 40px;  
+  border-top: 1px solid #ddd;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #ffffff;
+  line-height: 2;
 }
-
-
-
-
-
-
-.img1 {background-image: url(../img/hokusai_1.jpg);}
-.img2 {background-image: url(../img/hokusai_manga.jpg);}  /**/
-.img3 {background-image: url(../img/japanese_passport.jpg);}   /*Passport*/
-.img4 {background-image: url(../img/prussian_blue.jpg);} /*Prussian Blue*/
-.img5 {background-image: url(../img/hokusai_movie.jpg);} /*HOKUSAI*/
-.img6 {background-image: url(../img/service_roussau.jpg);}
-
-
-.item-description {
-    position: static;
-    bottom: 0;
-    left: 0;
-    width: auto;
-    flex-grow: 1;
-    background: rgba(255, 255, 255, 0.75); /* 背景を黒の半透明にして文字を読みやすく */
-    color: #170f0f;
-    margin: 5px;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* 文字を上下中央に配置 */
-    align-items: center;
-    text-align: left;
-    
-    
-}
-
-
-.item-description h4 {
-    color: #020202;
-    margin-bottom: 10px;
-}
-.item-description p {
-    font-size: 0.9rem;
-    margin: 0;
-}
-
-
-
-
-
-
-/* ══════════════════════════════════════════
-   🔥 カーソルを置いたとき（Hover）の動き
-══════════════════════════════════════════ */
-
-/* マウスが乗ったら説明文を表示 */
-.item-wrapper:hover .item-description {
-    opacity: 1;
-    transform: scale(1);
-}
-
-/* マウスが乗ったら後ろの写真を少しだけズーム */
-.item-wrapper:hover .item-raw-img {
-    transform: scale(1.05);
-}
-
-
-/* ══════════════════════════════════════════
-   🧱 メゾネット（レンガ状）グリッドの設定
-══════════════════════════════════════════ */
-
-.item-gallery {
-    /* 画面幅に応じて、自動で「3列」に分割する（横に3個並ぶ） */
-    column-count: 3;
-    /* アイテム同士の横の隙間（Bootstrapの g-4 と同等） */
-    column-gap: 1.5rem; 
-    width: 100%;
-}
-
-.item-wrapper {
-    /* ❌ これが重要：アイテムが途中で次の列に分裂するのを防ぐ */
-    break-inside: avoid;
-    /* アイテム同士の縦の隙間 */
-    margin-bottom: 1.5rem; 
-}
-
-
-.img-box {
-    /* ① 画像の「外枠」の比率を完全に固定する */
-    aspect-ratio: 4 / 3; 
-    overflow: hidden;
-    margin-top: 10px;
-}
-
-.item-raw-img {
-    width: 100%;
-    height: 100%;
-    /* 💡 !important をつけて最優先にする */
-    object-fit: contain !important; 
-    object-position: center;
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-
-/* ══════════════════════════════════════════
-   🌌 拡大表示（オーバーレイ）のスタイル
-══════════════════════════════════════════ */
-.img-overlay {
-    display: none;        /* 初期状態は非表示 */
-    position: fixed;
-    z-index: 9999;        /* 画面の最前面に表示（ナビバーよりも上） */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9); /* 背景を濃い黒の半透明に */
-    justify-content: center;
-    align-items: center;
-}
-
-/* 拡大される画像自体の設定 */
-.overlay-content {
-    max-width: 90%;       /* 画面からはみ出さないように横幅最大90% */
-    max-height: 85%;      /* 縦幅も最大85%に抑えて綺麗に収める */
-    object-fit: contain;  /* 画像の比率は100%維持（縦長もそのまま表示） */
-    animation: zoomIn 0.3s ease; /* ふわっと大きくなるアニメーション */
-}
-
-/* 閉じるボタン（右上のバツ印） */
-.close-btn {
-    position: absolute;
-    top: 20px;
-    right: 35px;
-    color: #fff;
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-/* ふわっと開くアニメーション */
-@keyframes zoomIn {
-    from { transform: scale(0.9); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-}
-
-
-
-
 
 
