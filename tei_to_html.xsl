@@ -135,7 +135,7 @@
                     <li><span class="place">Place</span>,</li>
                     <li><span class="work">Work / Title</span>,</li>
                     <li><span class="organization">Organization</span>,</li>
-                    <li><span class="object">Object: Event / Concept / Infrastructure</span>,</li>
+                    <li><span class="object">Object: Event / Concept / Document</span>,</li>
                     <li><span class="quote">Quotation</span></li>
                 </ul>   
             </div>
