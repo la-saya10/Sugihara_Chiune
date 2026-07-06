@@ -1,3 +1,12 @@
+# ============================================================
+# TEI -> RDF transformation
+#
+# Reads chiune_sugihara.xml and produces output.ttl in Turtle format.
+# Uses only the classes and properties defined in the conceptual model.
+#
+# Run: python3 tei_to_rdf.py
+# ============================================================
+
 import xml.etree.ElementTree as ET
 from rdflib import Graph, Namespace, Literal, URIRef
 from rdflib.namespace import RDF, OWL, FOAF, SKOS
@@ -5,7 +14,6 @@ from rdflib.namespace import RDF, OWL, FOAF, SKOS
 # ----- 1. Namespaces -----
 CRM      = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
 SCHEMA   = Namespace("https://schema.org/")
-DCT      = Namespace("http://purl.org/dc/terms/")
 WD       = Namespace("http://www.wikidata.org/entity/")
 SUGIHARA = Namespace("http://example.org/sugihara/")
 
@@ -14,24 +22,24 @@ XML_ID = "{http://www.w3.org/XML/1998/namespace}id"
 
 # ----- 2. Conceptual model: entity id -> RDF class -----
 TYPES = {
-    "chiune":                FOAF.Person,
-    "jan-zwartendijk":       FOAF.Person,
-    "kaunas":                SCHEMA.City,
-    "memorial-hall":         SCHEMA.Museum,
-    "yad-vashem":            FOAF.Organization,
+    "chiune":                    FOAF.Person,
+    "jan-zwartendijk":           FOAF.Person,
+    "kaunas":                    SCHEMA.City,
+    "memorial-hall":             SCHEMA.Museum,
+    "yad-vashem":                FOAF.Organization,
     "japanese-foreign-ministry": FOAF.Organization,
-    "soviet-occupation":     CRM.E5_Event,
-    "trans-siberian-railway": CRM.E25_Human_Made_Feature,
-    "conspiracy-of-kindness": SCHEMA.Movie,
-    "hero-of-the-holocaust": SCHEMA.Book,
-    "righteous-among-nations": SKOS.Concept,
+    "soviet-occupation":         CRM.E5_Event,
+    "transit-visa":              CRM.E34_Inscription,   # 物理的文書（ビザ）
+    "conspiracy-of-kindness":    SCHEMA.Movie,
+    "hero-of-the-holocaust":     SCHEMA.Book,
+    "righteous-among-nations":   SKOS.Concept,
 }
 
 # ----- 3. Conceptual model: relation name -> RDF property -----
 RELATIONS = {
     "servedIn":         SCHEMA.workLocation,
     "affectedBy":       CRM.P15_was_influenced_by,
-    "enabledEscapeVia": CRM.P16_used_specific_object,
+    "issued":           CRM.P16_used_specific_object,   # Sugihara -> issued -> transit-visa
     "collaboratedWith": SCHEMA.colleague,
     "awardedTitle":     SCHEMA.award,
     "honoredBy":        SCHEMA.memberOf,
@@ -52,7 +60,6 @@ g.bind("foaf",     FOAF)
 g.bind("schema",   SCHEMA)
 g.bind("crm",      CRM)
 g.bind("skos",     SKOS)
-g.bind("dcterms",  DCT)
 g.bind("owl",      OWL)
 g.bind("wd",       WD)
 g.bind("sugihara", SUGIHARA)
@@ -138,6 +145,12 @@ if "righteous-among-nations" in id_to_uri and "yad-vashem" in id_to_uri:
            SKOS.inScheme,
            id_to_uri["yad-vashem"]))
 
+# Transit Visa -> skos:broader 
+if "transit-visa" in id_to_uri:
+    g.add((id_to_uri["transit-visa"],
+           SKOS.broader,
+           URIRef(WD["Q170404"])))
+
 # ----- 8. Serialize -----
 g.serialize(destination="output.ttl", format="turtle")
-print("Transformation is successfully done! Check output.ttl")
+print(f"Transformation is successfully finished! {len(g)} triples are made")

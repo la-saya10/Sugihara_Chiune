@@ -2,6 +2,7 @@
 .section {
     padding: 4rem 0 3rem;
     border-bottom: 1px solid var(--rule);
+    margin-bottom: 40px;
 }
 
 .container-index {
@@ -173,7 +174,7 @@
 
 
 /* ══════════════════════════════════════════════════════════════════
-            杉原千畝　肖像画
+            Chiune
 ════════════════════════════════════════════════════════════
 */
 
@@ -220,6 +221,21 @@
     margin-bottom: 0;          /* 一番最後の段落の下の隙間を消す */
 }
 
+
+
+/* ══════════════════════════════════════════════════════════════════
+         Mind Map
+════════════════════════════════════════════════════════════
+*/
+
+.mindmap-pic {
+    background-image: url(../img/mindmap.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 500px;
+}
 
 /* ══════════════════════════════════════════════════════════════════
           ITEMS
