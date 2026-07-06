@@ -1,208 +1,376 @@
- levels (Work → Expression → Manifestation → Item) instead of a single node. Finally, every entity is linked to its DBpedia twin with owl:sameAs, so the dataset connects outward to the wider web.
+from lxml import etree
+from rdflib import Graph, Namespace, URIRef, Literal
+from rdflib.namespace import RDF, RDFS, OWL, FOAF, XSD, SKOS
+from rdflib.namespace import DCTERMS as DCT
 
-# ============================================================
-# CSV -> RDF transformation
-#
-# This script reads every CSV file in the ../csv folder and turns
-# the "subject, predicate, object" rows into RDF triples, using the
-# same classes and properties as our conceptual model.
-#
-# The CSV files hold the EXTRA data (architects, parliament, central
-# bank, language, emblem, dates, dimensions...) that is not written
-# in the Wikipedia text, so it is not in the TEI file.
-#
-# Run it from the "Knowledge representation" folder:
-#     python3 csv_to_rdf.py
-# ============================================================
+# ─────────────────────────────────────────
+# 名前空間の定義
+# ─────────────────────────────────────────
+CRM      = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
+SCHEMA   = Namespace("https://schema.org/")
+WD       = Namespace("http://www.wikidata.org/entity/")
+SUGIHARA = Namespace("http://example.org/sugihara/")
 
-import os
-import csv                                  # built-in library to read CSV
-from rdflib import Graph, Namespace, Literal, URIRef
-from rdflib.namespace import RDF, XSD, FOAF, OWL   # rdf:type, xsd: datatypes, foaf:, owl:
+ns = {"tei": "http://www.tei-c.org/ns/1.0"}
 
-# ----- 1. Namespaces (same prefixes as the conceptual model) -----
-CRM    = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
-SCHEMA = Namespace("https://schema.org/")
-SKOS   = Namespace("http://www.w3.org/2004/02/skos/core#")
-DCT    = Namespace("http://purl.org/dc/terms/")
-FRBR   = Namespace("http://purl.org/vocab/frbr/core#")     # FRBR Work/Expression/Manifestation/Item
-WDT    = Namespace("http://www.wikidata.org/prop/direct/")
-WD     = Namespace("http://www.wikidata.org/entity/")
-DBP    = Namespace("http://dbpedia.org/resource/")         # the DBpedia twin of each entity
-# Our own namespace, for the FRBR levels of Nutuk that have no Wikidata id.
-EX     = Namespace("https://kubrato.github.io/KnowledgeRepresentation-Organization/id/")
+# ─────────────────────────────────────────
+# TEIファイルを読み込む
+# ─────────────────────────────────────────
+tree = etree.parse("chiune_sugihara.xml")
 
-# ----- 2. Every entity id used in the CSV files -> its Wikidata URI -----
-# The first 11 are the same entities as in the TEI file (so the two RDF
-# datasets join on the same URIs). The last 6 are the extra entities.
-WIKIDATA = {
-    "ataturk": "Q5152",   "turkey": "Q43",        "chp": "Q19079",
-    "anitkabir": "Q615404", "tl_banknote": "Q172872", "nutuk": "Q2005693",
-    "incredible_turk": "Q31190822", "republic_day": "Q803181",
-    "ankara": "Q3640", "kemalism": "Q269443", "law_5816": "Q1519065",
-    # extra entities (only in the CSV files)
-    "onat": "Q5372464", "arda": "Q6065347", "tbmm": "Q274918",
-    "tcmb": "Q580829", "turkish_language": "Q256", "six_arrows": "Q6030041",
-}
-
-# ----- 2b. The same entities in DBpedia (for owl:sameAs links) -----
-# Each value is the DBpedia article name. "incredible_turk" has no English
-# Wikipedia article, so it has no DBpedia twin and is left out on purpose.
-DBPEDIA = {
-    "ataturk": "Mustafa_Kemal_Atatürk", "turkey": "Turkey",
-    "chp": "Republican_People's_Party", "anitkabir": "Anıtkabir",
-    "tl_banknote": "Turkish_lira", "nutuk": "Nutuk",
-    "republic_day": "Republic_Day_(Turkey)", "ankara": "Ankara",
-    "kemalism": "Kemalism",
-    "law_5816": "Law_on_crimes_committed_against_Atatürk",
-    "onat": "Emin_Halid_Onat", "arda": "Orhan_Arda",
-    "tbmm": "Grand_National_Assembly_of_Turkey",
-    "tcmb": "Central_Bank_of_the_Republic_of_Turkey",
-    "turkish_language": "Turkish_language", "six_arrows": "The_Six_Arrows",
-}
-
-# ----- 3. The conceptual model mapping -----
-# "has type" value (in the CSV) -> the class of that entity.
-TYPE_CLASS = {
-    "mausoleum": SCHEMA.Mausoleum, "city": SCHEMA.City,
-    "political party": SCHEMA.PoliticalParty, "emblem": CRM.E36_Visual_Item,
-    "language": CRM.E56_Language, "person": CRM.E21_Person,
-    "assembly": CRM.E74_Group, "organization": CRM.E74_Group,
-    "movie": SCHEMA.Movie, "concept": SKOS.Concept,
-    "legislation": SCHEMA.Legislation,
-    "event": SCHEMA.Event, "object": CRM.E84_Information_Carrier,
-    "country": SCHEMA.Country,
-    # Nutuk is modelled with the four FRBR levels (Work -> Expression ->
-    # Manifestation -> Item) instead of a single schema:Book node.
-    "work": FRBR.Work, "expression": FRBR.Expression,
-    "manifestation": FRBR.Manifestation, "item": FRBR.Item,
-}
-
-# Every CSV predicate -> the property it becomes in RDF.
-# We spread the predicates over several vocabularies (schema, crm, dct, foaf,
-# skos, frbr, wdt) instead of leaning only on schema: and crm:.
-PROP = {
-    "has title": SCHEMA.name,
-    "has construction date": DCT.created,
-    "has foundation date": SCHEMA.foundingDate,
-    "has publication date": DCT.issued,
-    "has release date": DCT.issued,
-    "has date": DCT.date,
-    "has area": CRM.P43_has_dimension,
-    "has genre": SCHEMA.genre,
-    "is dedicated to": CRM.P67_refers_to,
-    "is located in": DCT.spatial,
-    "has architect": SCHEMA.architect,
-    "hosts": CRM.P7i_witnessed,
-    "is residence of": CRM.P74i_is_current_or_former_residence_of,
-    "is founded by": SCHEMA.founder,
-    "is based in": SCHEMA.location,
-    "follows": DCT.subject,
-    "has flag": CRM.P138i_has_representation,
-    "is about": DCT.subject,
-    "is enacted by": DCT.creator,
-    "protects": SCHEMA.about,
-    "has author": FOAF.maker,
-    "has language": DCT.language,
-    "is published in": SCHEMA.locationCreated,
-    "is delivered to": SCHEMA.about,
-    "depicts": FOAF.depicts,
-    "is issued by": CRM.P108i_was_produced_by,
-    "commemorates": DCT.subject,
-    "is celebrated in": DCT.spatial,
-    "had participant": CRM.P11_had_participant,
-    "has capital": WDT.P36,
-    "has currency": CRM.P108_has_produced,
-    "relates to": DCT.subject,
-    "has official language": DCT.language,
-    "is agency of": SCHEMA.parentOrganization,
-    "is defined by": SKOS.related,
-    "is based on": CRM.P67_refers_to,
-    # FRBR (WEMI) links used to model Nutuk at four levels.
-    "is realised in": FRBR.realization,    # Work       -> Expression
-    "is embodied in": FRBR.embodiment,     # Expression -> Manifestation
-    "is exemplified by": FRBR.exemplar,    # Manifestation -> Item
-}
-
-# Predicates whose object is a literal value (text or number), not an entity.
-DATE_PREDS    = {"has construction date", "has foundation date",
-                 "has publication date", "has release date", "has date"}
-DECIMAL_PREDS = {"has area"}
-STRING_PREDS  = {"has title", "has genre"}
-
-
-# Helper: turn an entity id ("ankara") into its URI. Most entities are
-# Wikidata entities; the extra FRBR levels of Nutuk live in our own (EX)
-# namespace because they have no Wikidata id.
-def uri(entity_id):
-    if entity_id in WIKIDATA:
-        return URIRef(WD + WIKIDATA[entity_id])
-    return URIRef(EX + entity_id)
-
-
-# ----- 4. Prepare the graph -----
+# ─────────────────────────────────────────
+# RDFグラフの初期化・名前空間のバインド
+# ─────────────────────────────────────────
 g = Graph()
-g.bind("crm", CRM)
-g.bind("schema", SCHEMA)
-g.bind("skos", SKOS)
-g.bind("dct", DCT)
-g.bind("foaf", FOAF)
-g.bind("frbr", FRBR)
-g.bind("owl", OWL)
-g.bind("wdt", WDT)
-g.bind("wd", WD)
-g.bind("dbpedia", DBP)
+g.bind("foaf",     FOAF)
+g.bind("schema",   SCHEMA)
+g.bind("crm",      CRM)
+g.bind("skos",     SKOS)
+g.bind("dcterms",  DCT)
+g.bind("owl",      OWL)
+g.bind("wd",       WD)
+g.bind("sugihara", SUGIHARA)
 
-# ----- 5. Read every CSV file in the ../csv folder -----
-HERE = os.path.dirname(os.path.abspath(__file__))   # folder of this script (to_rdf)
-BASE = os.path.dirname(HERE)                         # one level up: "Knowledge representation"
-csv_dir = os.path.join(BASE, "csv")
+# ─────────────────────────────────────────
+# ヘルパー関数
+# ─────────────────────────────────────────
+def get_wikidata_qid(element):
+    """idno[@type='Wikidata']からQIDを取得しWD URIRefを返す"""
+    idno = element.find("tei:idno[@type='Wikidata']", ns)
+    if idno is not None and idno.text:
+        url = idno.text.strip()
+        qid = url.rstrip("/").split("/")[-1]
+        return URIRef(WD[qid])
+    return None
 
-for filename in sorted(os.listdir(csv_dir)):
-    if not filename.endswith(".csv"):
+def get_text(element, tag):
+    """指定タグのテキストを取得"""
+    el = element.find(f"tei:{tag}", ns)
+    return el.text.strip() if el is not None and el.text else None
+
+# ─────────────────────────────────────────
+# xml:id → SUGIHARA URIRef の辞書を作る
+# ─────────────────────────────────────────
+# 問題③の修正：WikidataのURIではなくSUGIHARA名前空間のURIを主語に使う
+id_to_uri = {}
+
+for person in tree.findall(".//tei:person", ns):
+    xml_id = person.get("{http://www.w3.org/XML/1998/namespace}id")
+    if xml_id:
+        id_to_uri[xml_id] = SUGIHARA[xml_id]
+
+for place in tree.findall(".//tei:place", ns):
+    xml_id = place.get("{http://www.w3.org/XML/1998/namespace}id")
+    if xml_id:
+        id_to_uri[xml_id] = SUGIHARA[xml_id]
+
+for org in tree.findall(".//tei:org", ns):
+    xml_id = org.get("{http://www.w3.org/XML/1998/namespace}id")
+    if xml_id:
+        id_to_uri[xml_id] = SUGIHARA[xml_id]
+
+for bibl in tree.findall(".//tei:listBibl/tei:bibl", ns):
+    xml_id = bibl.get("{http://www.w3.org/XML/1998/namespace}id")
+    if xml_id:
+        id_to_uri[xml_id] = SUGIHARA[xml_id]
+
+for el in (tree.findall(".//tei:event", ns) +
+           tree.findall(".//tei:category", ns) +
+           tree.findall(".//tei:object", ns)):
+    xml_id = el.get("{http://www.w3.org/XML/1998/namespace}id")
+    if xml_id:
+        id_to_uri[xml_id] = SUGIHARA[xml_id]
+
+# ─────────────────────────────────────────
+# エンティティ → RDFクラス＋プロパティ
+# ─────────────────────────────────────────
+
+# ── listPerson ──
+for person in tree.findall(".//tei:person", ns):
+    xml_id = person.get("{http://www.w3.org/XML/1998/namespace}id")
+    if not xml_id:
         continue
-    with open(os.path.join(csv_dir, filename), encoding="utf-8") as f:
-        reader = csv.reader(f)
-        next(reader)                        # skip the header row
-        for row in reader:
-            # Skip empty lines and comment lines (they start with "#").
-            if not row or row[0].strip().startswith("#"):
-                continue
-            subject, predicate, obj = (cell.strip() for cell in row)
+    uri = SUGIHARA[xml_id]
 
-            # Case A: "has type" -> rdf:type with the class of the entity.
-            if predicate == "has type":
-                g.add((uri(subject), RDF.type, TYPE_CLASS[obj]))
-                # A person is also a foaf:Person (CIDOC-CRM + FOAF together).
-                if obj == "person":
-                    g.add((uri(subject), RDF.type, FOAF.Person))
+    g.add((uri, RDF.type, FOAF.Person))
 
-            # Case B: the object is a date literal.
-            # A full date (YYYY-MM-DD) is xsd:date; a year on its own is xsd:gYear.
-            elif predicate in DATE_PREDS:
-                date_type = XSD.date if obj.count("-") == 2 else XSD.gYear
-                g.add((uri(subject), PROP[predicate], Literal(obj, datatype=date_type)))
+    for pn in person.findall("tei:persName", ns):
+        lang = pn.get("{http://www.w3.org/XML/1998/namespace}lang")
+        if pn.text:
+            lit = Literal(pn.text.strip(), lang=lang) if lang else Literal(pn.text.strip())
+            g.add((uri, FOAF.name, lit))
 
-            # Case C: the object is a number (we keep only the number, not the unit).
-            elif predicate in DECIMAL_PREDS:
-                number = obj.split()[0]
-                g.add((uri(subject), PROP[predicate], Literal(number, datatype=XSD.decimal)))
+    birth = person.find("tei:birth", ns)
+    if birth is not None and birth.get("when"):
+        g.add((uri, SCHEMA.birthDate, Literal(birth.get("when"), datatype=XSD.date)))
 
-            # Case D: the object is a plain text literal.
-            elif predicate in STRING_PREDS:
-                g.add((uri(subject), PROP[predicate], Literal(obj)))
+    death = person.find("tei:death", ns)
+    if death is not None and death.get("when"):
+        g.add((uri, SCHEMA.deathDate, Literal(death.get("when"), datatype=XSD.date)))
 
-            # Case E: the object is another entity -> use its URI.
-            else:
-                g.add((uri(subject), PROP[predicate], uri(obj)))
+    occ = person.find("tei:occupation", ns)
+    if occ is not None and occ.text:
+        g.add((uri, SCHEMA.jobTitle, Literal(occ.text.strip())))
 
-# ----- 5b. Link every entity to its DBpedia twin with owl:sameAs -----
-# This is the Linked Open Data step: it says "this Wikidata entity and that
-# DBpedia entity are the same real-world thing", so our data joins the wider web.
-for entity_id, dbpedia_title in DBPEDIA.items():
-    g.add((uri(entity_id), OWL.sameAs, URIRef(DBP + dbpedia_title)))
+    wd = get_wikidata_qid(person)
+    if wd:
+        g.add((uri, OWL.sameAs, wd))
 
-# ----- 6. Write the RDF to a Turtle file -----
-out_file = os.path.join(BASE, "turtle", "ataturk_csv.ttl")
-g.serialize(destination=out_file, format="turtle")
-print("Done. Wrote", len(g), "triples to", out_file)
+    for idno in person.findall("tei:idno", ns):
+        if idno.get("type", "").upper() == "VIAF" and idno.text:
+            g.add((uri, OWL.sameAs, URIRef(idno.text.strip())))
+
+# ── listPlace ──
+for place in tree.findall(".//tei:place", ns):
+    xml_id = place.get("{http://www.w3.org/XML/1998/namespace}id")
+    if not xml_id:
+        continue
+    uri = SUGIHARA[xml_id]
+
+    ptype = place.get("type", "")
+    cls = SCHEMA.Museum if ptype == "museum" else SCHEMA.City if ptype == "city" else SCHEMA.Place
+    g.add((uri, RDF.type, cls))
+
+    pn = place.find(".//tei:placeName", ns)
+    if pn is not None and pn.text:
+        g.add((uri, SCHEMA.name, Literal(pn.text.strip())))
+
+    geo = place.find(".//tei:geo", ns)
+    if geo is not None and geo.text:
+        parts = geo.text.strip().replace(",", "").split()
+        if len(parts) == 2:
+            g.add((uri, SCHEMA.latitude,  Literal(parts[0], datatype=XSD.decimal)))
+            g.add((uri, SCHEMA.longitude, Literal(parts[1], datatype=XSD.decimal)))
+
+    country = place.find(".//tei:country", ns)
+    if country is not None and country.text:
+        g.add((uri, SCHEMA.addressCountry, Literal(country.text.strip())))
+
+    note = place.find("tei:note", ns)
+    if note is not None and note.text:
+        g.add((uri, SCHEMA.description, Literal(note.text.strip())))
+
+    wd = get_wikidata_qid(place)
+    if wd:
+        g.add((uri, OWL.sameAs, wd))
+
+# ── listOrg ──
+for org in tree.findall(".//tei:org", ns):
+    xml_id = org.get("{http://www.w3.org/XML/1998/namespace}id")
+    if not xml_id:
+        continue
+    uri = SUGIHARA[xml_id]
+
+    g.add((uri, RDF.type, FOAF.Organization))
+
+    for on in org.findall("tei:orgName", ns):
+        if on.text:
+            g.add((uri, FOAF.name, Literal(on.text.strip())))
+
+    desc = org.find("tei:desc", ns)
+    if desc is not None and desc.text:
+        g.add((uri, SCHEMA.description, Literal(desc.text.strip())))
+
+    country = org.find(".//tei:country", ns)
+    if country is not None and country.text:
+        g.add((uri, SCHEMA.addressCountry, Literal(country.text.strip())))
+
+    wd = get_wikidata_qid(org)
+    if wd:
+        g.add((uri, OWL.sameAs, wd))
+
+# ── listBibl ──
+BIBL_CLASS = {"documentary": SCHEMA.Movie, "book": SCHEMA.Book}
+
+for bibl in tree.findall(".//tei:listBibl/tei:bibl", ns):
+    xml_id = bibl.get("{http://www.w3.org/XML/1998/namespace}id")
+    if not xml_id:
+        continue
+    uri = SUGIHARA[xml_id]
+
+    btype = bibl.get("type", "book")
+    g.add((uri, RDF.type, BIBL_CLASS.get(btype, SCHEMA.Book)))
+
+    title = bibl.find("tei:title", ns)
+    if title is not None and title.text:
+        g.add((uri, SCHEMA.name, Literal(title.text.strip())))
+
+    author = bibl.find("tei:author", ns)
+    if author is not None and author.text:
+        g.add((uri, SCHEMA.author, Literal(author.text.strip())))
+
+    for resp in bibl.findall("tei:respStmt", ns):
+        role = get_text(resp, "resp")
+        name_el = resp.find("tei:name", ns)
+        if role and name_el is not None and name_el.text:
+            if role.lower() == "director":
+                g.add((uri, SCHEMA.director, Literal(name_el.text.strip())))
+
+    pub = bibl.find("tei:publisher", ns)
+    if pub is not None and pub.text:
+        g.add((uri, SCHEMA.publisher, Literal(pub.text.strip())))
+
+    date = bibl.find("tei:date", ns)
+    if date is not None and date.get("when"):
+        g.add((uri, SCHEMA.datePublished, Literal(date.get("when"))))
+
+    wd = get_wikidata_qid(bibl)
+    if wd:
+        g.add((uri, OWL.sameAs, wd))
+
+    for idno in bibl.findall("tei:idno", ns):
+        if idno.get("type", "").upper() == "OCLC" and idno.text:
+            g.add((uri, SCHEMA.identifier, Literal(f"OCLC:{idno.text.strip()}")))
+
+# ── listEvent ──
+for event in tree.findall(".//tei:event", ns):
+    xml_id = event.get("{http://www.w3.org/XML/1998/namespace}id")
+    if not xml_id:
+        continue
+    uri = SUGIHARA[xml_id]
+
+    g.add((uri, RDF.type, CRM.E5_Event))
+
+    head = event.find("tei:head", ns)
+    if head is not None and head.text:
+        g.add((uri, RDFS.label, Literal(head.text.strip(), lang="en")))
+
+    desc_p = event.find(".//tei:p", ns)
+    if desc_p is not None and desc_p.text:
+        g.add((uri, SCHEMA.description, Literal(desc_p.text.strip())))
+
+    date = event.find("tei:date", ns)
+    if date is not None and date.get("when"):
+        g.add((uri, SCHEMA.startDate,
+               Literal(date.get("when"), datatype=XSD.gYear)))
+
+    wd = get_wikidata_qid(event)
+    if wd:
+        g.add((uri, OWL.sameAs, wd))
+
+# ── listObject ──
+for obj in tree.findall(".//tei:object", ns):
+    xml_id = obj.get("{http://www.w3.org/XML/1998/namespace}id")
+    if not xml_id:
+        continue
+    uri = SUGIHARA[xml_id]
+
+    g.add((uri, RDF.type, CRM.E25_Human_Made_Feature))
+
+    name = obj.find(".//tei:objectName", ns)
+    if name is not None and name.text:
+        g.add((uri, SCHEMA.name, Literal(name.text.strip())))
+
+    note = obj.find("tei:note", ns)
+    if note is not None and note.text:
+        g.add((uri, SCHEMA.description, Literal(note.text.strip())))
+
+    wd = get_wikidata_qid(obj)
+    if wd:
+        g.add((uri, OWL.sameAs, wd))
+
+# ── classDecl/category（concept） ──
+for cat in tree.findall(".//tei:category", ns):
+    xml_id = cat.get("{http://www.w3.org/XML/1998/namespace}id")
+    if not xml_id:
+        continue
+    uri = SUGIHARA[xml_id]
+
+    g.add((uri, RDF.type, SKOS.Concept))
+
+    catdesc = cat.find("tei:catDesc", ns)
+    if catdesc is not None and catdesc.text:
+        g.add((uri, SKOS.prefLabel, Literal(catdesc.text.strip(), lang="en")))
+
+    note = cat.find("tei:note", ns)
+    if note is not None and note.text:
+        g.add((uri, SKOS.definition, Literal(note.text.strip(), lang="en")))
+
+    wd = get_wikidata_qid(cat)
+    if wd:
+        g.add((uri, OWL.sameAs, wd))
+
+# ─────────────────────────────────────────
+# listRelation → 既存ボキャブラリーのプロパティ
+# ─────────────────────────────────────────
+# 問題①の修正：EX:（独自）→ 既存ボキャブラリーのプロパティに置き換え
+RELATION_MAP = {
+    "servedIn":         SCHEMA.workLocation,
+    "affectedBy":       CRM.P15_was_influenced_by,
+    "enabledEscapeVia": CRM.P16_used_specific_object,
+    "collaboratedWith": SCHEMA.colleague,
+    "awardedTitle":     SCHEMA.award,
+    "honoredBy":        SCHEMA.memberOf,
+    "worksFor":         SCHEMA.worksFor,
+    # 逆向き（passive→active）
+    "commemoratedAt":   SCHEMA.about,
+    "isSubjectOf":      SCHEMA.about,
+}
+
+REVERSE_RELATIONS = {"commemoratedAt", "isSubjectOf"}
+
+for relation in tree.findall(".//tei:relation", ns):
+    rel_name = relation.get("name")
+    active   = relation.get("active", "").lstrip("#")
+    passive  = relation.get("passive", "").lstrip("#")
+
+    if not (rel_name and active and passive):
+        continue
+    if active not in id_to_uri or passive not in id_to_uri:
+        continue
+
+    prop = RELATION_MAP.get(rel_name)
+    if prop is None:
+        continue
+
+    active_uri  = id_to_uri[active]
+    passive_uri = id_to_uri[passive]
+
+    if rel_name in REVERSE_RELATIONS:
+        g.add((passive_uri, prop, active_uri))
+    else:
+        g.add((active_uri, prop, passive_uri))
+
+# ─────────────────────────────────────────
+# 追加トリプル（conceptual modelで決めた関係）
+# ─────────────────────────────────────────
+
+# World War II（間接エンティティ）
+wwii_uri = SUGIHARA["world-war-ii"]
+g.add((wwii_uri, RDF.type,    CRM.E5_Event))
+g.add((wwii_uri, RDFS.label,  Literal("World War II", lang="en")))
+g.add((wwii_uri, OWL.sameAs,  URIRef(WD["Q362"])))
+
+# Soviet occupation → isPartOf → World War II
+if "soviet-occupation" in id_to_uri:
+    g.add((id_to_uri["soviet-occupation"], DCT.isPartOf, wwii_uri))
+
+# Soviet occupation → took place at → Kaunas
+if "soviet-occupation" in id_to_uri and "kaunas" in id_to_uri:
+    g.add((id_to_uri["soviet-occupation"],
+           CRM.P7_took_place_at,
+           id_to_uri["kaunas"]))
+
+# Trans-Siberian Railway → took place at → Kaunas
+if "trans-siberian-railway" in id_to_uri and "kaunas" in id_to_uri:
+    g.add((id_to_uri["trans-siberian-railway"],
+           CRM.P7_took_place_at,
+           id_to_uri["kaunas"]))
+
+# Righteous Among the Nations → inScheme → Yad Vashem
+if "righteous-among-nations" in id_to_uri and "yad-vashem" in id_to_uri:
+    g.add((id_to_uri["righteous-among-nations"],
+           SKOS.inScheme,
+           id_to_uri["yad-vashem"]))
+
+# Jan Zwartendijk → workLocation → Kaunas
+if "jan-zwartendijk" in id_to_uri and "kaunas" in id_to_uri:
+    g.add((id_to_uri["jan-zwartendijk"],
+           SCHEMA.workLocation,
+           id_to_uri["kaunas"]))
+
+# ─────────────────────────────────────────
+# Turtle形式で出力
+# ─────────────────────────────────────────
+g.serialize(destination="output.ttl", format="turtle")
+print(f"完了: output.ttl を生成しました（{len(g)} トリプル）")
