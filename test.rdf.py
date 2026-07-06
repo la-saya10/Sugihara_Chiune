@@ -335,15 +335,8 @@ for relation in tree.findall(".//tei:relation", ns):
 # 追加トリプル（conceptual modelで決めた関係）
 # ─────────────────────────────────────────
 
-# World War II（間接エンティティ）
-wwii_uri = SUGIHARA["world-war-ii"]
-g.add((wwii_uri, RDF.type,    CRM.E5_Event))
-g.add((wwii_uri, RDFS.label,  Literal("World War II", lang="en")))
-g.add((wwii_uri, OWL.sameAs,  URIRef(WD["Q362"])))
 
-# Soviet occupation → isPartOf → World War II
-if "soviet-occupation" in id_to_uri:
-    g.add((id_to_uri["soviet-occupation"], DCT.isPartOf, wwii_uri))
+
 
 # Soviet occupation → took place at → Kaunas
 if "soviet-occupation" in id_to_uri and "kaunas" in id_to_uri:
@@ -351,11 +344,11 @@ if "soviet-occupation" in id_to_uri and "kaunas" in id_to_uri:
            CRM.P7_took_place_at,
            id_to_uri["kaunas"]))
 
-# Trans-Siberian Railway → took place at → Kaunas
-if "trans-siberian-railway" in id_to_uri and "kaunas" in id_to_uri:
-    g.add((id_to_uri["trans-siberian-railway"],
-           CRM.P7_took_place_at,
-           id_to_uri["kaunas"]))
+# Transit Visa -> skos:broader 
+if "transit-visa" in id_to_uri:
+    g.add((id_to_uri["transit-visa"],
+           SKOS.broader,
+           URIRef(WD["Q170404"])))
 
 # Righteous Among the Nations → inScheme → Yad Vashem
 if "righteous-among-nations" in id_to_uri and "yad-vashem" in id_to_uri:
@@ -372,5 +365,5 @@ if "jan-zwartendijk" in id_to_uri and "kaunas" in id_to_uri:
 # ─────────────────────────────────────────
 # Turtle形式で出力
 # ─────────────────────────────────────────
-g.serialize(destination="output.ttl", format="turtle")
+g.serialize(destination="output_test.ttl", format="turtle")
 print(f"完了: output.ttl を生成しました（{len(g)} トリプル）")

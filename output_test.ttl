@@ -1,5 +1,4 @@
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -58,16 +57,11 @@ sugihara:japanese-foreign-ministry a foaf:Organization ;
 
 sugihara:soviet-occupation a crm:E5_Event ;
     rdfs:label "Soviet occupation of the Baltic states"@en ;
-    dcterms:isPartOf sugihara:world-war-ii ;
     crm:P7_took_place_at sugihara:kaunas ;
     owl:sameAs wd:Q14505142 ;
     schema:description """Military takover and annexation of Estonia, Latvia, and Lithuania
                     by the Soviet Union.""" ;
     schema:startDate "1940"^^xsd:gYear .
-
-sugihara:world-war-ii a crm:E5_Event ;
-    rdfs:label "World War II"@en ;
-    owl:sameAs wd:Q362 .
 
 sugihara:righteous-among-nations a skos:Concept ;
     owl:sameAs wd:Q112197 ;
