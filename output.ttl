@@ -1,111 +1,67 @@
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <https://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix sugihara: <http://example.org/sugihara/> .
 @prefix wd: <http://www.wikidata.org/entity/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 sugihara:conspiracy-of-kindness a schema:Movie ;
     owl:sameAs wd:Q47417463 ;
     schema:about sugihara:chiune ;
-    schema:datePublished "2000-08-06" ;
-    schema:director "Robert Kirk" ;
-    schema:identifier "OCLC:60779186" ;
-    schema:name "Sugihara: Conspiracy of Kindness" ;
-    schema:publisher "WGBH Boston Video" .
+    schema:name "Sugihara: Conspiracy of Kindness" .
 
 sugihara:hero-of-the-holocaust a schema:Book ;
     schema:about sugihara:chiune ;
-    schema:author "Alison Leslie Gold" ;
-    schema:datePublished "2000" ;
-    schema:identifier "OCLC:41319984" ;
-    schema:name "A Special Fate: Chiune Sugihara: Hero of the Holocaust" ;
-    schema:publisher "Scholastic Press" .
+    schema:name "A Special Fate: Chiune Sugihara: Hero of the Holocaust" .
 
 sugihara:memorial-hall a schema:Museum ;
     owl:sameAs wd:Q47417030 ;
     schema:about sugihara:chiune ;
-    schema:addressCountry "Japan" ;
-    schema:latitude 35.466667 ;
-    schema:longitude 137.166667 ;
     schema:name "Chiune Sugihara Memorial Hall" .
-
-sugihara:transit-visa a crm:E25_Human_Made_Feature ;
-    owl:sameAs wd:Q170404 ;
-    skos:broader wd:Q170404 ;
-    schema:description """Japanese transit visa issued by Chiune Sugihara to Jewish 
-                    refugees in Kaunas between July 18 and August 28, 1940, 
-                    enabling passage through Japanese territory.""" ;
-    schema:name "Transit Visa" .
 
 sugihara:jan-zwartendijk a foaf:Person ;
     owl:sameAs wd:Q2649762,
         <https://viaf.org/viaf/312620714> ;
     foaf:name "Jan Zwartendijk" ;
-    schema:award sugihara:righteous-among-nations ;
-    schema:birthDate "1896-07-29"^^xsd:date ;
-    schema:deathDate "1976-09-14"^^xsd:date ;
-    schema:jobTitle "diplomat" ;
-    schema:workLocation sugihara:kaunas .
+    schema:award sugihara:righteous-among-nations .
 
 sugihara:japanese-foreign-ministry a foaf:Organization ;
     owl:sameAs wd:Q222241 ;
     foaf:name "Japanese Foreign Ministry" .
 
 sugihara:soviet-occupation a crm:E5_Event ;
-    rdfs:label "Soviet occupation of the Baltic states"@en ;
-    dcterms:isPartOf sugihara:world-war-ii ;
     crm:P7_took_place_at sugihara:kaunas ;
     owl:sameAs wd:Q14505142 ;
-    schema:description """Military takover and annexation of Estonia, Latvia, and Lithuania
-                    by the Soviet Union.""" ;
-    schema:startDate "1940"^^xsd:gYear .
+    schema:name "Soviet occupation of the Baltic states" .
 
-sugihara:world-war-ii a crm:E5_Event ;
-    rdfs:label "World War II"@en ;
-    owl:sameAs wd:Q362 .
-
-sugihara:righteous-among-nations a skos:Concept ;
-    owl:sameAs wd:Q112197 ;
-    skos:definition """Honorific title bestowed by the State of Israel, through
-              Yad Vashem, on non-Jews who risked their lives to save Jews
-              during the Holocaust."""@en ;
-    skos:inScheme sugihara:yad-vashem ;
-    skos:prefLabel "Righteous Among the Nations"@en .
-
-sugihara:yad-vashem a foaf:Organization ;
-    owl:sameAs wd:Q156591 ;
-    foaf:name "Yad Vashem" ;
-    schema:addressCountry "Israel" ;
-    schema:description """the World Holocaust Remembrance Center that was 
-                        established in 1953 by the Knesset""" .
-
-sugihara:chiune a foaf:Person ;
-    crm:P15_was_influenced_by sugihara:soviet-occupation ;
-    owl:sameAs wd:Q161381,
-        <https://viaf.org/viaf/22953110> ;
-    foaf:name "Chiune Sugihara",
-        "杉原 千畝"@ja ;
-    schema:award sugihara:righteous-among-nations ;
-    schema:birthDate "1900-01-01"^^xsd:date ;
-    schema:colleague sugihara:jan-zwartendijk ;
-    schema:deathDate "1986-07-31"^^xsd:date ;
-    schema:jobTitle "diplomat" ;
-    schema:memberOf sugihara:yad-vashem ;
-    schema:workLocation sugihara:kaunas ;
-    schema:worksFor sugihara:japanese-foreign-ministry .
+sugihara:transit-visa a crm:E34_Inscription ;
+    owl:sameAs wd:Q170404 ;
+    skos:broader wd:Q170404 ;
+    schema:name "Transit Visa" .
 
 sugihara:kaunas a schema:City ;
     owl:sameAs wd:Q4115712 ;
-    schema:addressCountry "Lithuania" ;
-    schema:description """City in Lithuania. Location of the Japanese consulate where
-                    Chiune Sugihara served as a diplomat (1939-1940), issuing
-                    transit visas to Jewish refugees.""" ;
-    schema:latitude 54.90156 ;
-    schema:longitude 23.90909 ;
     schema:name "Kaunas" .
+
+sugihara:righteous-among-nations a skos:Concept ;
+    owl:sameAs wd:Q112197 ;
+    skos:inScheme sugihara:yad-vashem ;
+    schema:name "Righteous Among the Nations" .
+
+sugihara:yad-vashem a foaf:Organization ;
+    owl:sameAs wd:Q156591 ;
+    foaf:name "Yad Vashem" .
+
+sugihara:chiune a foaf:Person ;
+    crm:P15_was_influenced_by sugihara:soviet-occupation ;
+    crm:P16_used_specific_object sugihara:transit-visa ;
+    owl:sameAs wd:Q161381,
+        <https://viaf.org/viaf/22953110> ;
+    foaf:name "Chiune Sugihara" ;
+    schema:award sugihara:righteous-among-nations ;
+    schema:colleague sugihara:jan-zwartendijk ;
+    schema:memberOf sugihara:yad-vashem ;
+    schema:workLocation sugihara:kaunas ;
+    schema:worksFor sugihara:japanese-foreign-ministry .
 
