@@ -71,7 +71,7 @@
           1 January 1900 – 31 July 1986) was a Japanese diplomat who served as vice-consul 
           for the Japanese Empire in <placeName ref="#kaunas">Kaunas</placeName>, Lithuania. 
           During the Second World War, <persName ref="#chiune">Sugihara</persName> helped 
-          thousands of Jews flee Europe by issuing <rs type="object" ref="#transit-visa">transit visas</rs> 
+          thousands of Jews flee Europe by issuing <rs type="document" ref="#transit-visa">transit visas</rs> 
           to them so that they could travel through Japanese territory, risking his career 
           and the lives of his family. The fleeing Jews were refugees from German-occupied 
           Western Poland and Soviet-occupied Eastern Poland, as well as residents of Lithuania.
@@ -108,7 +108,7 @@
       <div type="Sugihara's Visas" n="4">
         <head>Sugihara's Visas</head>
         <p>
-          At the time, the Japanese government required that Japanese <rs type="object" ref="#transit-visa">transit visas</rs> 
+          At the time, the Japanese government required that Japanese <rs type="document" ref="#transit-visa">transit visas</rs> 
           be issued only to those who had gone through appropriate immigration procedures, had 
           enough funds and an onward final destination. Most of the refugees did not fulfill 
           these criteria. <persName ref="#chiune">Sugihara</persName> dutifully contacted the 
@@ -120,7 +120,7 @@
 
           Being aware that applicants were in danger if they stayed behind, <persName ref="#chiune">Sugihara</persName> 
           decided to ignore his orders and, from <date when="1940-07-18">July 18 to August 28, 1940</date>, 
-          he issued over 2100 <rs type="object" ref="#transit-visa">transit visas</rs>. Given his 
+          he issued over 2100 <rs type="document" ref="#transit-visa">transit visas</rs>. Given his 
           inferior post and the culture of the Japanese Foreign Service bureaucracy, this was an 
           unusual act of disobedience. He spoke to Soviet officials who agreed to let the Jews travel 
           through the country via the Trans-Siberian Railway.His wife Yukiko who supported and 

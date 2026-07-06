@@ -190,7 +190,7 @@
 
 
     <!--object-->
-    <xsl:template match="tei:rs[@type='event'] | tei:rs[@type='infrastructure'] | tei:rs[@type='concept']">
+    <xsl:template match="tei:rs[@type='event'] | tei:rs[@type='document'] | tei:rs[@type='concept']">
     <span class="object"><xsl:apply-templates/></span>
     </xsl:template>
 
