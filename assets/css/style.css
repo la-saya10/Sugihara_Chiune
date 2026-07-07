@@ -392,3 +392,15 @@ footer {
 }
 
 
+
+.github-link {
+    color: #f1f1f1; /* アイコンの色。currentColorで指定した色に反映される */
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.github-link:hover {
+    color: #f1f1f1;
+    transform: scale(1.1); /* ホバーで少し拡大 */
+}
+
+
