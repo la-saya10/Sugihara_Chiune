@@ -358,7 +358,10 @@
                 <relation name="commemoratedAt" active="#chiune" passive="#memorial-hall"/>
                 <relation name="isSubjectOf" active="#chiune" passive="#conspiracy-of-kindness"/>
                 <relation name="isSubjectOf" active="#chiune" passive="#hero-of-the-holocaust"/>
+
                 <relation name="awardedTitle" active="#jan-zwartendijk" passive="#righteous-among-nations"/>
+                
+                <relation name="displays" active="#memorial-hall" passive="#transit-visa"/>
 
             </listRelation>
         

@@ -18,6 +18,7 @@ sugihara:hero-of-the-holocaust a schema:Book ;
 sugihara:memorial-hall a schema:Museum ;
     owl:sameAs wd:Q47417030 ;
     schema:about sugihara:chiune ;
+    schema:displayLocation sugihara:transit-visa ;
     schema:name "Chiune Sugihara Memorial Hall" .
 
 sugihara:jan-zwartendijk a foaf:Person ;
@@ -35,11 +36,6 @@ sugihara:soviet-occupation a crm:E5_Event ;
     owl:sameAs wd:Q14505142 ;
     schema:name "Soviet occupation of the Baltic states" .
 
-sugihara:transit-visa a crm:E34_Inscription ;
-    owl:sameAs wd:Q170404 ;
-    skos:broader wd:Q170404 ;
-    schema:name "Transit Visa" .
-
 sugihara:kaunas a schema:City ;
     owl:sameAs wd:Q4115712 ;
     schema:name "Kaunas" .
@@ -48,6 +44,10 @@ sugihara:righteous-among-nations a skos:Concept ;
     owl:sameAs wd:Q112197 ;
     skos:inScheme sugihara:yad-vashem ;
     schema:name "Righteous Among the Nations" .
+
+sugihara:transit-visa a crm:E34_Inscription ;
+    crm:P2_has_type wd:Q170404 ;
+    schema:name "Transit Visa" .
 
 sugihara:yad-vashem a foaf:Organization ;
     owl:sameAs wd:Q156591 ;

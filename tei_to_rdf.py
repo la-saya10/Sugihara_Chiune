@@ -34,6 +34,7 @@ TYPES = {
     "hero-of-the-holocaust":     SCHEMA.Book,
     "righteous-among-nations":   SKOS.Concept,
 }
+NO_SAMEAS = {"transit-visa"}
 
 # ----- 3. Conceptual model: relation name -> RDF property -----
 RELATIONS = {
@@ -44,9 +45,11 @@ RELATIONS = {
     "awardedTitle":     SCHEMA.award,
     "honoredBy":        SCHEMA.memberOf,
     "worksFor":         SCHEMA.worksFor,
+    "displays":         SCHEMA.displayLocation,
     # reverse relations (passive -> active)
     "commemoratedAt":   SCHEMA.about,
     "isSubjectOf":      SCHEMA.about,
+    
 }
 REVERSE = {"commemoratedAt", "isSubjectOf"}
 
@@ -105,9 +108,10 @@ for el in root.iter():
         g.add((uri, prop, Literal(name)))
 
     # owl:sameAs -> Wikidata
-    wd = get_wikidata(el)
-    if wd:
-        g.add((uri, OWL.sameAs, wd))
+    if xml_id not in NO_SAMEAS:
+        wd = get_wikidata(el)
+        if wd:
+            g.add((uri, OWL.sameAs, wd))
 
     # owl:sameAs -> VIAF (persons only)
     viaf = el.find(f"{TEI}idno[@type='VIAF']")
@@ -145,10 +149,10 @@ if "righteous-among-nations" in id_to_uri and "yad-vashem" in id_to_uri:
            SKOS.inScheme,
            id_to_uri["yad-vashem"]))
 
-# Transit Visa -> skos:broader 
+# Transit Visa -> crm:P2_has_type
 if "transit-visa" in id_to_uri:
     g.add((id_to_uri["transit-visa"],
-           SKOS.broader,
+           CRM.P2_has_type,
            URIRef(WD["Q170404"])))
 
 # ----- 8. Serialize -----
