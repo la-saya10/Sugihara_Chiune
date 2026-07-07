@@ -301,6 +301,7 @@ tbody tr:nth-child(even) {
    /*「うっすらとした綺麗な影」を作る */
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   margin-bottom: 100px;       /* 💡 下の箱との間に40pxの隙間を作ります */
+  scroll-margin-top: 45px; 
 }
 
 
@@ -352,6 +353,7 @@ tbody tr:nth-child(even) {
     margin: 0 auto;        /* 左右の余白を自動にして中央寄せ */
     text-align: left;      /* 念のため明示的に左揃えを指定 */
     margin-bottom: 110px;
+    scroll-margin-top: 65px; 
 }
 
 
