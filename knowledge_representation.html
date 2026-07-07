@@ -141,8 +141,10 @@
             <code>crm:E5_Event</code>, <code>skos:Concept</code>) and each relation 
             to the corresponding property (e.g. <code>schema:workLocation</code>, 
             <code>crm:P15_was_influenced_by</code>). Every entity is linked to its 
-            Wikidata counterpart via <code>owl:sameAs</code>. 
-            The dataset contains 45 triples in total.           
+            Wikidata counterpart via <code>owl:sameAs</code> where an exact match 
+            exists. Where no precise Wikidata entry is available — as in the case 
+            of Transit Visa — a broader concept is indicated using 
+            <code>crm:P2_has_type</code> instead.          
           </p>
           <a href="https://github.com/la-saya10/Sugihara_Chiune/blob/main/output.ttl">
             Check output file
