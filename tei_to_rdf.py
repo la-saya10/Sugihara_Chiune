@@ -29,7 +29,7 @@ TYPES = {
     "yad-vashem":                FOAF.Organization,
     "japanese-foreign-ministry": FOAF.Organization,
     "soviet-occupation":         CRM.E5_Event,
-    "transit-visa":              CRM.E34_Inscription,   # 物理的文書（ビザ）
+    "transit-visa":              CRM.E34_Inscription,   
     "conspiracy-of-kindness":    SCHEMA.Movie,
     "hero-of-the-holocaust":     SCHEMA.Book,
     "righteous-among-nations":   SKOS.Concept,
