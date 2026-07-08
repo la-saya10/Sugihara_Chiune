@@ -17,6 +17,7 @@ SCHEMA   = Namespace("https://schema.org/")
 WD       = Namespace("http://www.wikidata.org/entity/")
 SUGIHARA = Namespace("http://example.org/sugihara/")
 DCT      = Namespace("http://purl.org/dc/terms/")
+EDM      = Namespace("http://www.europeana.eu/schemas/edm/")
 
 TEI    = "{http://www.tei-c.org/ns/1.0}"
 XML_ID = "{http://www.w3.org/XML/1998/namespace}id"
@@ -48,7 +49,8 @@ RELATIONS = {
     "displays":               SCHEMA.displayLocation,
     "isIssuedIn":             SCHEMA.locationCreated,
     "wasRefusedBy":           CRM.P15_was_influenced_by,
-    "wasIssuedDuring":         DCT.temporal,
+    "isDisplayedAt":          EDM.isRelatedTo,
+    "wasIssuedDuring":        DCT.temporal,
     # reverse relations (passive -> active)
     "commemoratedAt":         SCHEMA.about,
     "isSubjectOf":            SCHEMA.about,
@@ -70,7 +72,8 @@ g.bind("skos",     SKOS)
 g.bind("owl",      OWL)
 g.bind("wd",       WD)
 g.bind("sugihara", SUGIHARA)
-g.bind("dcterms", DCT)
+g.bind("dcterms",  DCT)
+g.bind("edm",      EDM)
 
 # Helper: get the human-readable name of an entity element
 def get_name(el):

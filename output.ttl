@@ -1,5 +1,6 @@
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix edm: <http://www.europeana.eu/schemas/edm/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix schema: <https://schema.org/> .
@@ -16,12 +17,6 @@ sugihara:hero-of-the-holocaust a schema:Book ;
     schema:about sugihara:chiune ;
     schema:name "A Special Fate: Chiune Sugihara: Hero of the Holocaust" .
 
-sugihara:memorial-hall a schema:Museum ;
-    owl:sameAs wd:Q47417030 ;
-    schema:about sugihara:chiune ;
-    schema:displayLocation sugihara:transit-visa ;
-    schema:name "Chiune Sugihara Memorial Hall" .
-
 sugihara:righteous-among-nations a skos:Concept ;
     dcterms:creator sugihara:yad-vashem ;
     owl:sameAs wd:Q112197 ;
@@ -35,6 +30,21 @@ sugihara:jan-zwartendijk a foaf:Person ;
     schema:recognizedBy sugihara:yad-vashem ;
     schema:workLocation sugihara:kaunas .
 
+sugihara:memorial-hall a schema:Museum ;
+    owl:sameAs wd:Q47417030 ;
+    schema:about sugihara:chiune ;
+    schema:displayLocation sugihara:transit-visa ;
+    schema:name "Chiune Sugihara Memorial Hall" .
+
+sugihara:transit-visa a schema:Certification ;
+    dcterms:creator sugihara:chiune ;
+    dcterms:temporal sugihara:soviet-occupation ;
+    crm:P15_was_influenced_by sugihara:japanese-foreign-ministry ;
+    crm:P2_has_type wd:Q170404 ;
+    edm:isRelatedTo sugihara:memorial-hall ;
+    schema:locationCreated sugihara:kaunas ;
+    schema:name "Transit Visa" .
+
 sugihara:japanese-foreign-ministry a foaf:Organization ;
     owl:sameAs wd:Q222241 ;
     foaf:name "Japanese Foreign Ministry" .
@@ -44,15 +54,11 @@ sugihara:soviet-occupation a crm:E5_Event ;
     owl:sameAs wd:Q14505142 ;
     schema:name "Soviet occupation of the Baltic states" .
 
-sugihara:transit-visa a schema:Certification ;
-    dcterms:temporal sugihara:soviet-occupation ;
-    crm:P15_was_influenced_by sugihara:japanese-foreign-ministry ;
-    crm:P2_has_type wd:Q170404 ;
-    schema:locationCreated sugihara:kaunas ;
-    schema:name "Transit Visa" .
+sugihara:yad-vashem a foaf:Organization ;
+    owl:sameAs wd:Q156591 ;
+    foaf:name "Yad Vashem" .
 
 sugihara:chiune a foaf:Person ;
-    dcterms:creator sugihara:transit-visa ;
     crm:P15_was_influenced_by sugihara:soviet-occupation ;
     owl:sameAs wd:Q161381,
         <https://viaf.org/viaf/22953110> ;
@@ -62,10 +68,6 @@ sugihara:chiune a foaf:Person ;
     schema:recognizedBy sugihara:yad-vashem ;
     schema:workLocation sugihara:kaunas ;
     schema:worksFor sugihara:japanese-foreign-ministry .
-
-sugihara:yad-vashem a foaf:Organization ;
-    owl:sameAs wd:Q156591 ;
-    foaf:name "Yad Vashem" .
 
 sugihara:kaunas a schema:City ;
     owl:sameAs wd:Q4115712 ;
