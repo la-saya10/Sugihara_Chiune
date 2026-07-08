@@ -48,6 +48,7 @@ RELATIONS = {
     "displays":               SCHEMA.displayLocation,
     "isIssuedIn":             SCHEMA.locationCreated,
     "wasRefusedBy":           CRM.P15_was_influenced_by,
+    "wasIssuedDuring":         DCT.temporal,
     # reverse relations (passive -> active)
     "commemoratedAt":         SCHEMA.about,
     "isSubjectOf":            SCHEMA.about,
@@ -69,6 +70,7 @@ g.bind("skos",     SKOS)
 g.bind("owl",      OWL)
 g.bind("wd",       WD)
 g.bind("sugihara", SUGIHARA)
+g.bind("dcterms", DCT)
 
 # Helper: get the human-readable name of an entity element
 def get_name(el):
