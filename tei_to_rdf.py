@@ -9,13 +9,14 @@
 
 import xml.etree.ElementTree as ET
 from rdflib import Graph, Namespace, Literal, URIRef
-from rdflib.namespace import RDF, OWL, FOAF, SKOS
+from rdflib.namespace import RDF, OWL, FOAF, SKOS, DCTERMS as DCT
 
 # ----- 1. Namespaces -----
 CRM      = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
 SCHEMA   = Namespace("https://schema.org/")
 WD       = Namespace("http://www.wikidata.org/entity/")
 SUGIHARA = Namespace("http://example.org/sugihara/")
+DCT      = Namespace("http://purl.org/dc/terms/")
 
 TEI    = "{http://www.tei-c.org/ns/1.0}"
 XML_ID = "{http://www.w3.org/XML/1998/namespace}id"
@@ -40,10 +41,10 @@ NO_SAMEAS = {"transit-visa"}
 RELATIONS = {
     "servedIn":         SCHEMA.workLocation,
     "affectedBy":       CRM.P15_was_influenced_by,
-    "issued":           CRM.P16_used_specific_object,   # Sugihara -> issued -> transit-visa
+    "issued":           DCT.creator,   
+    "isCreatedBy":      DCT.creator,  
     "collaboratedWith": SCHEMA.colleague,
-    "awardedTitle":     SCHEMA.award,
-    "honoredBy":        SCHEMA.memberOf,
+    "honoredBy":        SCHEMA.recognizedBy,
     "worksFor":         SCHEMA.worksFor,
     "displays":         SCHEMA.displayLocation,
     # reverse relations (passive -> active)
@@ -143,17 +144,30 @@ if "soviet-occupation" in id_to_uri and "kaunas" in id_to_uri:
            CRM.P7_took_place_at,
            id_to_uri["kaunas"]))
 
-# Righteous Among the Nations -> inScheme -> Yad Vashem
-if "righteous-among-nations" in id_to_uri and "yad-vashem" in id_to_uri:
-    g.add((id_to_uri["righteous-among-nations"],
-           SKOS.inScheme,
-           id_to_uri["yad-vashem"]))
 
 # Transit Visa -> crm:P2_has_type
 if "transit-visa" in id_to_uri:
     g.add((id_to_uri["transit-visa"],
            CRM.P2_has_type,
            URIRef(WD["Q170404"])))
+
+
+
+
+
+# Sugihara -> award -> "Righteous Among the Nations"（文字列）
+if "chiune" in id_to_uri:
+    g.add((id_to_uri["chiune"],
+           SCHEMA.award,
+           Literal("Righteous Among the Nations")))
+
+# Zwartendijk -> award -> "Righteous Among the Nations"（文字列）
+if "jan-zwartendijk" in id_to_uri:
+    g.add((id_to_uri["jan-zwartendijk"],
+           SCHEMA.award,
+           Literal("Righteous Among the Nations")))
+
+
 
 # ----- 8. Serialize -----
 g.serialize(destination="output.ttl", format="turtle")

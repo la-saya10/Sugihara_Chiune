@@ -353,14 +353,15 @@
                 <relation name="affectedBy" active="#chiune" passive="#soviet-occupation"/>
                 <relation name="issued" active="#chiune" passive="#transit-visa"/>
                 <relation name="collaboratedWith" active="#chiune" passive="#jan-zwartendijk"/>
-                <relation name="awardedTitle" active="#chiune" passive="#righteous-among-nations"/>
                 <relation name="honoredBy" active="#chiune" passive="#yad-vashem"/>
                 <relation name="commemoratedAt" active="#chiune" passive="#memorial-hall"/>
                 <relation name="isSubjectOf" active="#chiune" passive="#conspiracy-of-kindness"/>
                 <relation name="isSubjectOf" active="#chiune" passive="#hero-of-the-holocaust"/>
 
-                <relation name="awardedTitle" active="#jan-zwartendijk" passive="#righteous-among-nations"/>
-                
+              # 杉原がかかわっていない関係↓
+                <relation name="honoredBy" active="#jan-zwartendijk" passive="#yad-vashem"/>
+                <relation name="isCreatedBy" active="#yad-vashem" passive="#righteous-among-nations"/>
+                <relation name="servedIn" active="#jan-zwartendijk" passive="#kaunas"/>
                 <relation name="displays" active="#memorial-hall" passive="#transit-visa"/>
 
             </listRelation>

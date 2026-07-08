@@ -1,4 +1,5 @@
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix schema: <https://schema.org/> .
@@ -25,43 +26,45 @@ sugihara:jan-zwartendijk a foaf:Person ;
     owl:sameAs wd:Q2649762,
         <https://viaf.org/viaf/312620714> ;
     foaf:name "Jan Zwartendijk" ;
-    schema:award sugihara:righteous-among-nations .
+    schema:award "Righteous Among the Nations" ;
+    schema:recognizedBy sugihara:yad-vashem ;
+    schema:workLocation sugihara:kaunas .
 
 sugihara:japanese-foreign-ministry a foaf:Organization ;
     owl:sameAs wd:Q222241 ;
     foaf:name "Japanese Foreign Ministry" .
+
+sugihara:righteous-among-nations a skos:Concept ;
+    owl:sameAs wd:Q112197 ;
+    schema:name "Righteous Among the Nations" .
 
 sugihara:soviet-occupation a crm:E5_Event ;
     crm:P7_took_place_at sugihara:kaunas ;
     owl:sameAs wd:Q14505142 ;
     schema:name "Soviet occupation of the Baltic states" .
 
-sugihara:kaunas a schema:City ;
-    owl:sameAs wd:Q4115712 ;
-    schema:name "Kaunas" .
-
-sugihara:righteous-among-nations a skos:Concept ;
-    owl:sameAs wd:Q112197 ;
-    skos:inScheme sugihara:yad-vashem ;
-    schema:name "Righteous Among the Nations" .
-
 sugihara:transit-visa a crm:E34_Inscription ;
     crm:P2_has_type wd:Q170404 ;
     schema:name "Transit Visa" .
 
 sugihara:yad-vashem a foaf:Organization ;
+    dcterms:creator sugihara:righteous-among-nations ;
     owl:sameAs wd:Q156591 ;
     foaf:name "Yad Vashem" .
 
 sugihara:chiune a foaf:Person ;
+    dcterms:creator sugihara:transit-visa ;
     crm:P15_was_influenced_by sugihara:soviet-occupation ;
-    crm:P16_used_specific_object sugihara:transit-visa ;
     owl:sameAs wd:Q161381,
         <https://viaf.org/viaf/22953110> ;
     foaf:name "Chiune Sugihara" ;
-    schema:award sugihara:righteous-among-nations ;
+    schema:award "Righteous Among the Nations" ;
     schema:colleague sugihara:jan-zwartendijk ;
-    schema:memberOf sugihara:yad-vashem ;
+    schema:recognizedBy sugihara:yad-vashem ;
     schema:workLocation sugihara:kaunas ;
     schema:worksFor sugihara:japanese-foreign-ministry .
+
+sugihara:kaunas a schema:City ;
+    owl:sameAs wd:Q4115712 ;
+    schema:name "Kaunas" .
 
