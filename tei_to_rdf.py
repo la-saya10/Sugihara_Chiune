@@ -30,7 +30,7 @@ TYPES = {
     "yad-vashem":                FOAF.Organization,
     "japanese-foreign-ministry": FOAF.Organization,
     "soviet-occupation":         CRM.E5_Event,
-    "transit-visa":              CRM.E34_Inscription,   
+    "transit-visa":              SCHEMA.Certification,   
     "conspiracy-of-kindness":    SCHEMA.Movie,
     "hero-of-the-holocaust":     SCHEMA.Book,
     "righteous-among-nations":   SKOS.Concept,
@@ -39,20 +39,22 @@ NO_SAMEAS = {"transit-visa"}
 
 # ----- 3. Conceptual model: relation name -> RDF property -----
 RELATIONS = {
-    "servedIn":         SCHEMA.workLocation,
-    "affectedBy":       CRM.P15_was_influenced_by,
-    "issued":           DCT.creator,   
-    "isCreatedBy":      DCT.creator,  
-    "collaboratedWith": SCHEMA.colleague,
-    "honoredBy":        SCHEMA.recognizedBy,
-    "worksFor":         SCHEMA.worksFor,
-    "displays":         SCHEMA.displayLocation,
+    "servedIn":               SCHEMA.workLocation,
+    "affectedBy":             CRM.P15_was_influenced_by,
+    "issued":                 DCT.creator,   
+    "collaboratedWith":       SCHEMA.colleague,
+    "honoredBy":              SCHEMA.recognizedBy,
+    "worksFor":               SCHEMA.worksFor,
+    "displays":               SCHEMA.displayLocation,
+    "isIssuedIn":             SCHEMA.locationCreated,
+    "wasRefusedBy":           CRM.P15_was_influenced_by,
     # reverse relations (passive -> active)
-    "commemoratedAt":   SCHEMA.about,
-    "isSubjectOf":      SCHEMA.about,
-    
+    "commemoratedAt":         SCHEMA.about,
+    "isSubjectOf":            SCHEMA.about,
+    "isCreatedBy":            DCT.creator,  
 }
-REVERSE = {"commemoratedAt", "isSubjectOf"}
+
+REVERSE = {"commemoratedAt", "isSubjectOf", "isCreatedBy"}
 
 # ----- 4. Parse TEI file -----
 tree = ET.parse("chiune_sugihara.xml")

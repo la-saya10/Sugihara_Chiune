@@ -22,6 +22,11 @@ sugihara:memorial-hall a schema:Museum ;
     schema:displayLocation sugihara:transit-visa ;
     schema:name "Chiune Sugihara Memorial Hall" .
 
+sugihara:righteous-among-nations a skos:Concept ;
+    dcterms:creator sugihara:yad-vashem ;
+    owl:sameAs wd:Q112197 ;
+    schema:name "Righteous Among the Nations" .
+
 sugihara:jan-zwartendijk a foaf:Person ;
     owl:sameAs wd:Q2649762,
         <https://viaf.org/viaf/312620714> ;
@@ -30,27 +35,20 @@ sugihara:jan-zwartendijk a foaf:Person ;
     schema:recognizedBy sugihara:yad-vashem ;
     schema:workLocation sugihara:kaunas .
 
-sugihara:japanese-foreign-ministry a foaf:Organization ;
-    owl:sameAs wd:Q222241 ;
-    foaf:name "Japanese Foreign Ministry" .
-
-sugihara:righteous-among-nations a skos:Concept ;
-    owl:sameAs wd:Q112197 ;
-    schema:name "Righteous Among the Nations" .
-
 sugihara:soviet-occupation a crm:E5_Event ;
     crm:P7_took_place_at sugihara:kaunas ;
     owl:sameAs wd:Q14505142 ;
     schema:name "Soviet occupation of the Baltic states" .
 
-sugihara:transit-visa a crm:E34_Inscription ;
-    crm:P2_has_type wd:Q170404 ;
-    schema:name "Transit Visa" .
+sugihara:japanese-foreign-ministry a foaf:Organization ;
+    owl:sameAs wd:Q222241 ;
+    foaf:name "Japanese Foreign Ministry" .
 
-sugihara:yad-vashem a foaf:Organization ;
-    dcterms:creator sugihara:righteous-among-nations ;
-    owl:sameAs wd:Q156591 ;
-    foaf:name "Yad Vashem" .
+sugihara:transit-visa a schema:Certification ;
+    crm:P15_was_influenced_by sugihara:japanese-foreign-ministry ;
+    crm:P2_has_type wd:Q170404 ;
+    schema:locationCreated sugihara:kaunas ;
+    schema:name "Transit Visa" .
 
 sugihara:chiune a foaf:Person ;
     dcterms:creator sugihara:transit-visa ;
@@ -63,6 +61,10 @@ sugihara:chiune a foaf:Person ;
     schema:recognizedBy sugihara:yad-vashem ;
     schema:workLocation sugihara:kaunas ;
     schema:worksFor sugihara:japanese-foreign-ministry .
+
+sugihara:yad-vashem a foaf:Organization ;
+    owl:sameAs wd:Q156591 ;
+    foaf:name "Yad Vashem" .
 
 sugihara:kaunas a schema:City ;
     owl:sameAs wd:Q4115712 ;
