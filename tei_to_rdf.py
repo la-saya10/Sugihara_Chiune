@@ -46,7 +46,6 @@ RELATIONS = {
     "collaboratedWith":       SCHEMA.colleague,
     "honoredBy":              SCHEMA.recognizedBy,
     "worksFor":               SCHEMA.worksFor,
-    "displays":               SCHEMA.displayLocation,
     "isIssuedIn":             SCHEMA.locationCreated,
     "wasRefusedBy":           CRM.P15_was_influenced_by,
     "isDisplayedAt":          EDM.isRelatedTo,

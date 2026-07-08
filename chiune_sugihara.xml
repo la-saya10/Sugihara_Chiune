@@ -362,12 +362,11 @@
                 <relation name="honoredBy" active="#jan-zwartendijk" passive="#yad-vashem"/>
                 <relation name="isCreatedBy" active="#yad-vashem" passive="#righteous-among-nations"/>
                 <relation name="servedIn" active="#jan-zwartendijk" passive="#kaunas"/>
-                <relation name="displays" active="#memorial-hall" passive="#transit-visa"/>
                 <relation name="wasRefusedBy" active="#transit-visa" passive="#japanese-foreign-ministry"/>
                 <relation name="isIssuedIn" active="#transit-visa" passive="#kaunas"/>
                 <relation name="wasIssuedDuring" active="#transit-visa" passive="#soviet-occupation"/>
                 <relation name="isDisplayedAt" active="#transit-visa" passive="#memorial-hall"/>
-                
+
             </listRelation>
         
         </back> 

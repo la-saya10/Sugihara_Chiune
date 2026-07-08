@@ -22,6 +22,15 @@ sugihara:righteous-among-nations a skos:Concept ;
     owl:sameAs wd:Q112197 ;
     schema:name "Righteous Among the Nations" .
 
+sugihara:transit-visa a schema:Certification ;
+    dcterms:creator sugihara:chiune ;
+    dcterms:temporal sugihara:soviet-occupation ;
+    crm:P15_was_influenced_by sugihara:japanese-foreign-ministry ;
+    crm:P2_has_type wd:Q170404 ;
+    edm:isRelatedTo sugihara:memorial-hall ;
+    schema:locationCreated sugihara:kaunas ;
+    schema:name "Transit Visa" .
+
 sugihara:jan-zwartendijk a foaf:Person ;
     owl:sameAs wd:Q2649762,
         <https://viaf.org/viaf/312620714> ;
@@ -33,17 +42,7 @@ sugihara:jan-zwartendijk a foaf:Person ;
 sugihara:memorial-hall a schema:Museum ;
     owl:sameAs wd:Q47417030 ;
     schema:about sugihara:chiune ;
-    schema:displayLocation sugihara:transit-visa ;
     schema:name "Chiune Sugihara Memorial Hall" .
-
-sugihara:transit-visa a schema:Certification ;
-    dcterms:creator sugihara:chiune ;
-    dcterms:temporal sugihara:soviet-occupation ;
-    crm:P15_was_influenced_by sugihara:japanese-foreign-ministry ;
-    crm:P2_has_type wd:Q170404 ;
-    edm:isRelatedTo sugihara:memorial-hall ;
-    schema:locationCreated sugihara:kaunas ;
-    schema:name "Transit Visa" .
 
 sugihara:japanese-foreign-ministry a foaf:Organization ;
     owl:sameAs wd:Q222241 ;
