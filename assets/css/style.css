@@ -206,8 +206,8 @@
 ════════════════════════════════════════════════════════════
 */
 .about-text {
-    width: 55%;                /* 画像と同じサイズにしてバランスを取る */
-    height: 100%;              /* 親の高さ40vhぴったりに合わせる */
+    width: 55%;               
+    height: 100%;              
     
     /* 文章全体を上下の真ん中に寄せる設定 */
     display: flex;
@@ -218,12 +218,12 @@
 /* 文字の細かい調整 */
 .about-text p {
     text-align: left;
-    line-height: 1.6;          /* 行間を広げて読みやすくする */
+    line-height: 1.6;          
     margin-bottom: 15px;  
     margin-top: 20px;     
 }
 .about-text p:last-child {
-    margin-bottom: 0;          /* 一番最後の段落の下の隙間を消す */
+    margin-bottom: 0;          
 }
 
 
