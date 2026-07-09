@@ -2,7 +2,6 @@
 # TEI -> RDF transformation
 #
 # Reads chiune_sugihara.xml and produces output.ttl in Turtle format.
-# Uses only the classes and properties defined in the conceptual model.
 #
 # Run: python3 tei_to_rdf.py
 # ============================================================
@@ -22,7 +21,7 @@ EDM      = Namespace("http://www.europeana.eu/schemas/edm/")
 TEI    = "{http://www.tei-c.org/ns/1.0}"
 XML_ID = "{http://www.w3.org/XML/1998/namespace}id"
 
-# ----- 2. Conceptual model: entity id -> RDF class -----
+# ----- 2. RDF class dictionary={xml:id : class}-----
 TYPES = {
     "chiune":                    FOAF.Person,
     "jan-zwartendijk":           FOAF.Person,
@@ -77,7 +76,7 @@ g.bind("edm",      EDM)
 # Helper: get the human-readable name of an entity element
 def get_name(el):
     for tag in ("persName", "placeName", "orgName", "title",
-                "head", "label", "catDesc"):
+                "head", "catDesc"):
         child = el.find(TEI + tag)
         if child is not None and child.text:
             return child.text.strip()
