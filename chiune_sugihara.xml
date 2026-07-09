@@ -352,7 +352,7 @@
                 <relation name="worksFor" active="#chiune" passive="#japanese-foreign-ministry"/>
                 <relation name="servedIn" active="#chiune" passive="#kaunas"/>
                 <relation name="affectedBy" active="#chiune" passive="#soviet-occupation"/>
-                <relation name="issued" active="#transit-visa" passive="#chiune"/>
+                <relation name="issued" active="#chiune" passive="#transit-visa"/>
                 <relation name="collaboratedWith" active="#chiune" passive="#jan-zwartendijk"/>
                 <relation name="honoredBy" active="#chiune" passive="#yad-vashem"/>
                 <relation name="commemoratedAt" active="#chiune" passive="#memorial-hall"/>

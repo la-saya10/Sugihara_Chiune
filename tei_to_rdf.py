@@ -55,7 +55,7 @@ RELATIONS = {
     "isCreatedBy":            DCT.creator,  
 }
 
-REVERSE = {"commemoratedAt", "isSubjectOf", "isCreatedBy"}
+REVERSE = {"issued", "commemoratedAt", "isSubjectOf", "isCreatedBy"}
 
 # ----- 4. Parse TEI file -----
 tree = ET.parse("chiune_sugihara.xml")
