@@ -112,9 +112,6 @@
         }
 
 
-  
-
-
 
 
 
@@ -140,7 +137,8 @@
                 </ul>   
             </div>
             </div>
-            <xsl:apply-templates select="tei:TEI/tei:text/tei:body"/>
+            <xsl:apply-templates select="tei:TEI/tei:text/tei:body"/> 
+            <!-- XSLTは「このタグを書いた場所に、処理結果がそのまま出力される」という仕組み-->
         </div>
    
     </body>
@@ -153,7 +151,7 @@
         <div class="section">
             <xsl:apply-templates/>
         </div>
-   </xsl:template>
+    </xsl:template>
 
     <xsl:template match="tei:head">
         <h2><xsl:apply-templates/></h2>
