@@ -136,16 +136,17 @@
         <p>
           In <date when="1984">1984</date>, <orgName ref="#yad-vashem">Yad Vashem</orgName> bestowed the 
           <rs type="concept" ana="#righteous-among-nations">Righteous Among the Nations</rs>
-          title on <persName ref="#chiune">Chiune Sugihara</persName>, the only Japanese national to have been so honored. 
-          He was too ill to travel to receive the award at the Israeli embassy in Tokyo, so his wife and one or more of his 
-          children accepted the honor on his behalf. <!--the awardはタグ付けする？-->
+          title on <persName ref="#chiune">Chiune Sugihara</persName>, the only Japanese national 
+          to have been so honored. He was too ill to travel to receive the award at the Israeli 
+          embassy in Tokyo, so his wife and one or more of his children accepted the honor 
+          on his behalf. <!--the awardはタグ付けする？-->
 
           Sugihara Street in Vilnius, Lithuania, Chiune (Sempo) Sugihara Street in Jaffa, Israel, and the 
-          asteroid 25893 Sugihara are named after him. In <date when="1992">1992</date>, the town of Yaotsu opened 
-          the Park of Humanity, on a hill overlooking the town. In <date when="2000">2000</date>, the 
-          <placeName ref="#memorial-hall">Chiune Sugihara Memorial Hall</placeName> was opened to the public. Since its 
-          establishment, more than 600,000 visitors, Japanese and foreign, visited and studied about 
-          <persName ref="#chiune">Sugihara</persName> and his virtue.<!--him はタグ付けする？-->
+          asteroid 25893 Sugihara are named after him. In <date when="1992">1992</date>, the town of 
+          Yaotsu opened the Park of Humanity, on a hill overlooking the town. In <date when="2000">2000</date>, 
+          the <placeName ref="#memorial-hall">Chiune Sugihara Memorial Hall</placeName> was opened to 
+          the public. Since its establishment, more than 600,000 visitors, Japanese and foreign, 
+          visited and studied about <persName ref="#chiune">Sugihara</persName> and his virtue.<!--him はタグ付けする？-->
         </p>
       </div>
 
@@ -246,7 +247,7 @@
                         <geo>35.466667 137.166667</geo>
                     </location>
                     <idno type="Wikidata">https://www.wikidata.org/wiki/Q47417030</idno>
-                </place>
+                 </place>
 
             </listPlace>
         
