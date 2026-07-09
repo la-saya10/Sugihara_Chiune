@@ -93,6 +93,9 @@ def get_wikidata(el):
         return URIRef(WD[qid])
     return None
 
+
+
+
 # Walk all elements to find entities (those with xml:id in TYPES)
 id_to_uri = {}
 
