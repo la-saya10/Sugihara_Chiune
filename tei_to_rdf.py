@@ -47,8 +47,8 @@ RELATIONS = {
     "worksFor":               SCHEMA.worksFor,
     "isIssuedIn":             SCHEMA.locationCreated,
     "wasRefusedBy":           CRM.P15_was_influenced_by,
-    "isDisplayedAt":          EDM.isRelatedTo,
-    "wasIssuedDuring":        DCT.temporal,
+    "isDisplayedAt":          CRM.P55_has_current_location,
+    "wasIssuedDuring":        DCT.temporal, 
     # reverse relations (passive -> active)
     "commemoratedAt":         SCHEMA.about,
     "isSubjectOf":            SCHEMA.about,
