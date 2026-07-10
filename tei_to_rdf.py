@@ -40,8 +40,7 @@ NO_SAMEAS = {"transit-visa"}
 # ----- 3. Conceptual model: relation name -> RDF property -----
 RELATIONS = {
     "servedIn":               SCHEMA.workLocation,
-    "affectedBy":             CRM.P15_was_influenced_by,
-    "issued":                 DCT.creator,   
+    "affectedBy":             CRM.P15_was_influenced_by, 
     "collaboratedWith":       SCHEMA.colleague,
     "honoredBy":              SCHEMA.recognizedBy,
     "worksFor":               SCHEMA.worksFor,
@@ -49,7 +48,9 @@ RELATIONS = {
     "wasRefusedBy":           CRM.P15_was_influenced_by,
     "isDisplayedAt":          CRM.P55_has_current_location,
     "wasIssuedDuring":        DCT.temporal, 
+    "tookPlaceAt":            CRM.P7_took_place_at,
     # reverse relations (passive -> active)
+    "issued":                 DCT.creator,  
     "commemoratedAt":         SCHEMA.about,
     "isSubjectOf":            SCHEMA.about,
     "isCreatedBy":            DCT.creator,  
@@ -146,13 +147,6 @@ for rel in root.iter(TEI + "relation"):
 
 # ----- 7. Extra triples from conceptual model -----
 
-# Soviet occupation -> took place at -> Kaunas
-if "soviet-occupation" in id_to_uri and "kaunas" in id_to_uri:
-    g.add((id_to_uri["soviet-occupation"],
-           CRM.P7_took_place_at,
-           id_to_uri["kaunas"]))
-
-
 # Transit Visa -> crm:P2_has_type
 if "transit-visa" in id_to_uri:
     g.add((id_to_uri["transit-visa"],
@@ -160,16 +154,13 @@ if "transit-visa" in id_to_uri:
            URIRef(WD["Q170404"])))
 
 
-
-
-
-# Sugihara -> award -> "Righteous Among the Nations"（文字列）
+# Sugihara -> award -> "Righteous Among the Nations"（string）
 if "chiune" in id_to_uri:
     g.add((id_to_uri["chiune"],
            SCHEMA.award,
            Literal("Righteous Among the Nations")))
 
-# Zwartendijk -> award -> "Righteous Among the Nations"（文字列）
+# Zwartendijk -> award -> "Righteous Among the Nations"（string）
 if "jan-zwartendijk" in id_to_uri:
     g.add((id_to_uri["jan-zwartendijk"],
            SCHEMA.award,
