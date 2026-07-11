@@ -74,7 +74,7 @@ g.bind("sugihara", SUGIHARA)
 g.bind("dcterms",  DCT)
 g.bind("edm",      EDM)
 
-# Helper: get the human-readable name of an entity element
+# Get the name of an entity element
 def get_name(el):
     for tag in ("persName", "placeName", "orgName", "title",
                 "head", "catDesc"):
@@ -86,7 +86,7 @@ def get_name(el):
         return obj_name.text.strip()
     return el.get(XML_ID, "")
 
-# Helper: get Wikidata QID URI from an element
+# Get Wikidata QID URI from an element
 def get_wikidata(el):
     idno = el.find(f"{TEI}idno[@type='Wikidata']")
     if idno is not None and idno.text:
@@ -114,7 +114,10 @@ for el in root.iter():
     # name
     name = get_name(el)
     if name:
-        prop = FOAF.name if TYPES[xml_id] in (FOAF.Person, FOAF.Organization) else SCHEMA.name
+        if TYPES[xml_id] in (FOAF.Person, FOAF.Organization):
+            prop = FOAF.name
+        else:
+            prop = SCHEMA.name
         g.add((uri, prop, Literal(name)))
 
     # owl:sameAs -> Wikidata
@@ -144,8 +147,9 @@ for rel in root.iter(TEI + "relation"):
         g.add((id_to_uri[passive], prop, id_to_uri[active]))
     else:
         g.add((id_to_uri[active], prop, id_to_uri[passive]))
+        
 
-# ----- 7. Extra triples from conceptual model -----
+# ----- 7. Extra triples  -----
 
 # Transit Visa -> crm:P2_has_type
 if "transit-visa" in id_to_uri:
