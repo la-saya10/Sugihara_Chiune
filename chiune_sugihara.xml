@@ -15,7 +15,7 @@
       <publicationStmt>
         <publisher>University of Bologna</publisher>
         <date when="2026">2026</date>
-        <availability status="free"> <!--これなに？-->
+        <availability status="free"> 
           <p>For educational purposes only</p>
         </availability>
       </publicationStmt>
@@ -34,8 +34,7 @@
 
  
     <!-- ============================================ -->
-    <!-- encodingDesc : "Righteous Among the Nations" のような  -->
-    <!-- 概念・分類をここで定義する（ステップ3で本格的に使う）    -->
+    <!-- encodingDesc : "Righteous Among the Nations" -->
     <!-- ============================================ -->
     <encodingDesc>
       <classDecl>
@@ -58,7 +57,7 @@
   </teiHeader>
  
   <!-- ============================================ -->
-  <!-- 2. BODY : 本文＋エンティティリスト                 -->
+  <!--    2. BODY             -->
   <!-- ============================================ -->
   <text>
  
@@ -139,7 +138,7 @@
           title on <persName ref="#chiune">Chiune Sugihara</persName>, the only Japanese national 
           to have been so honored. He was too ill to travel to receive the award at the Israeli 
           embassy in Tokyo, so his wife and one or more of his children accepted the honor 
-          on his behalf. <!--the awardはタグ付けする？-->
+          on his behalf. 
 
           Sugihara Street in Vilnius, Lithuania, Chiune (Sempo) Sugihara Street in Jaffa, Israel, and the 
           asteroid 25893 Sugihara are named after him. In <date when="1992">1992</date>, the town of 
@@ -347,7 +346,7 @@
 
 
             <listRelation>
-                <!-- Chiune Sugihara と 10エンティティ それぞれの直接関係 -->
+                <!-- Relations between Chiune Sugihara and entities -->
 
                 <relation name="worksFor" active="#chiune" passive="#japanese-foreign-ministry"/>
                 <relation name="servedIn" active="#chiune" passive="#kaunas"/>
@@ -359,7 +358,7 @@
                 <relation name="isSubjectOf" active="#chiune" passive="#conspiracy-of-kindness"/>
                 <relation name="isSubjectOf" active="#chiune" passive="#hero-of-the-holocaust"/>
 
-               <!-- 杉原がかかわっていない関係↓-->
+               <!-- Relations between entities -->
                 <relation name="honoredBy" active="#jan-zwartendijk" passive="#yad-vashem"/>
                 <relation name="tookPlaceAt" active="#soviet-occupation" passive="#kaunas"/>
                 <relation name="isCreatedBy" active="#yad-vashem" passive="#righteous-among-nations"/>

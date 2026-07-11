@@ -2,8 +2,6 @@
 <xsl:stylesheet version="1.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:tei="http://www.tei-c.org/ns/1.0">
-    <!--xsl:と付くタグはXSLTの命令だと解釈してという意味-->
-    <!--tei:と付くタグはTEI名前空間の要素を指すと解釈してという意味-->
 
 
     <xsl:output method="html" encoding="UTF-8" indent="yes"/>
@@ -138,7 +136,6 @@
             </div>
             </div>
             <xsl:apply-templates select="tei:TEI/tei:text/tei:body"/> 
-            <!-- XSLTは「このタグを書いた場所に、処理結果がそのまま出力される」という仕組み-->
         </div>
    
     </body>
@@ -146,7 +143,6 @@
 </xsl:template>
 
 
-    <!-- ★ divを透過的に処理(追加) ★ -->
     <xsl:template match="tei:div">
         <div class="section">
             <xsl:apply-templates/>
