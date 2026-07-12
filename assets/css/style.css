@@ -199,13 +199,13 @@
     width: 55%;               
     height: 100%;              
     
-    /* 文章全体を上下の真ん中に寄せる設定 */
+  
     display: flex;
     flex-direction: column;    
     justify-content: center;   
 }
 
-/* 文字の細かい調整 */
+
 .about-text p {
     text-align: left;
     line-height: 1.6;          
@@ -229,7 +229,7 @@
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
-    height: 650px;
+    height: 700px;
 }
 
 
@@ -346,7 +346,6 @@ tbody tr:nth-child(even) {
 
 
 
-/* emgithubの埋め込み内のテーブル行は、縞模様を無効化する */
 .emgithub-file table tr,
 .emgithub-file table tr:nth-child(even),
 .emgithub-file table tr:nth-child(odd) {
@@ -383,13 +382,13 @@ footer {
 
 
 .github-link {
-    color: #f1f1f1; /* アイコンの色。currentColorで指定した色に反映される */
+    color: #f1f1f1; 
     transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .github-link:hover {
     color: #f1f1f1;
-    transform: scale(1.1); /* ホバーで少し拡大 */
+    transform: scale(1.1); 
 }
 
 
