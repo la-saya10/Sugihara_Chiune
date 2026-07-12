@@ -58,9 +58,11 @@ RELATIONS = {
 
 REVERSE = {"issued", "commemoratedAt", "isSubjectOf", "isCreatedBy"}
 
+
 # ----- 4. Parse TEI file -----
 tree = ET.parse("chiune_sugihara.xml")
 root = tree.getroot()
+
 
 # ----- 5. Build graph -----
 g = Graph()
@@ -73,6 +75,7 @@ g.bind("wd",       WD)
 g.bind("sugihara", SUGIHARA)
 g.bind("dcterms",  DCT)
 g.bind("edm",      EDM)
+
 
 # Get the name of an entity element
 def get_name(el):
