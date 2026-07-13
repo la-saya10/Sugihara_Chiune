@@ -75,13 +75,11 @@
   border-radius: 4px;
 }
 
-/* 子メニューの中のリンクスタイル */
 .dropdown-menu a {
   padding: 10px 15px;
   font-size: 0.9rem;
 }
 
-/* 【重要】親メニュー（.dropdown）にマウスが乗ったら、子メニューを表示する */
 .dropdown:hover .dropdown-menu {
   display: block;
 }
@@ -90,23 +88,20 @@
 
 
 /* ══════════════════════════════════════════════════════════════════
-          main-visual - メインビジュアル
+          main-visual 
 ════════════════════════════════════════════════════════════
 */
 
 .main-visual {
-    width: 100%;  /* 画像を表示する箱の指定 */
-    height: calc(100vh - 60px); /* 画面ぴったりから、ナビの高さ（60px）を引いた残りの縦幅にする */
-    /*background-image: url("../img/hokusai_wave.jpg");  表示したい画像のパス*/
+    width: 100%;  
+    height: calc(100vh - 60px); 
     
     
-    background-size: cover;       /* 箱いっぱいに画像を広げる */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../img/visa.jpg"); /* 👈 【変更】画像の上に、黒い半透明の膜（rgbaの最後の0.4が薄さ）を重ねる */
-    background-position: center;  /* 画像の中心を真ん中に合わせる */
-    background-repeat: no-repeat; /* 画像が格子状に繰り返さないようにする */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../img/visa.jpg");
+    background-repeat: no-repeat; 
     display: flex;
-    align-items: center;       /* 上下方向の真ん中 */
-    justify-content: center;    /* 左右方向の真ん中 */
+    align-items: center;       
+    justify-content: center;   
 
 
 }
@@ -115,9 +110,8 @@
 
 
 .section-eyebrow {
-    font-size: 24px;  /* ここに好きな数字を入れます（初期値は大体16pxくらい） */
+    font-size: 24px;  
     
-    /* 💡 もし文字を太くしたい場合はこれも追加してください */
     font-weight: bold; 
 }
 
@@ -130,10 +124,10 @@
 }
 
 .visual-text h1 {
-    font-size: 3.5rem;         /* タイトルを特大サイズにする */
-    font-weight: bold;         /* 太文字にする */
-    letter-spacing: 4px;       /* 文字の間隔を少し広げてオシャレにする */
-    margin-bottom: 10px;       /* 下のサブタイトルとの隙間 */
+    font-size: 3.5rem;        
+    font-weight: bold;         
+    letter-spacing: 4px;       
+    margin-bottom: 10px;      
 }
 
 .name-jp {
@@ -154,15 +148,15 @@
 
 
 .flex-container {
-    display: flex;                 /* 絶対に横並びにする魔法 */
-    flex-direction: row;           /* 横並びを確定させる */
-    align-items: flex-start;       /* 子要素の上が綺麗に揃うようにする */
-    justify-content: space-between;/* 左右の両端に振り分ける */
+    display: flex;                 
+    flex-direction: row;          
+    align-items: flex-start;       
+    justify-content: space-between;
     
     width: 100%;
-    height: auto;                  /* 【変更】高さを固定せず、中身に合わせて自動調整にする */
-    padding: 0 40px;               /* 画面の左右の余白 */
-    margin: 30px 0;                /* 上下の余白 */
+    height: auto;                 
+    padding: 0 40px;             
+    margin: 30px 0;               
     box-sizing: border-box;    
 }
 
@@ -178,13 +172,11 @@
     margin: 30px 0px 30px 40px;
     width: 30%;
     background-image: url(../img/sugihara.jpg);
-    background-color: #f7d8d8; /* 💡 ボックス全体を白で覆う */
-    border-radius: 8px;        /* 角を少し丸くして柔らかい印象に */
-    overflow: hidden;          /* 中の画像が角丸からはみ出るのを防ぐ */
-     /*「うっすらとした綺麗な影」を作る */
+    background-color: #f7d8d8; 
+    border-radius: 8px;       
+    overflow: hidden;          
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     
-    /*以下は 画像を箱のサイズに綺麗にフィットさせる3点セット */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -239,6 +231,13 @@
 */
 
 
+.table-desc p {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    
+}
+
 .entity-table {
   width: 80%;
   border-collapse: collapse;
@@ -258,7 +257,7 @@ th, td {
 
 
 thead tr {
-  background-color: #7289a0; 
+  background-color: #2c3e50;
   color: #ffffff;              
 }
 
