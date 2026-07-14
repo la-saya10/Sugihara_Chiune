@@ -145,7 +145,7 @@
           Yaotsu opened the Park of Humanity, on a hill overlooking the town. In <date when="2000">2000</date>, 
           the <placeName ref="#memorial-hall">Chiune Sugihara Memorial Hall</placeName> was opened to 
           the public. Since its establishment, more than 600,000 visitors, Japanese and foreign, 
-          visited and studied about <persName ref="#chiune">Sugihara</persName> and his virtue.<!--him はタグ付けする？-->
+          visited and studied about <persName ref="#chiune">Sugihara</persName> and his virtue.
         </p>
       </div>
 
@@ -291,6 +291,7 @@
                   <idno type="Wikidata">https://www.wikidata.org/wiki/Q47417463</idno>
                   <idno type="OCLC">60779186</idno>
                   <date when="2000-08-06">2000-08-06</date>
+                  <textLang mainLang="en">English</textLang>
                 </bibl>
           
                 <bibl xml:id="hero-of-the-holocaust" type="book">
