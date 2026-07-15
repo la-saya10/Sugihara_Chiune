@@ -191,7 +191,9 @@
                  <person xml:id="chiune">
                     <persName>Chiune Sugihara</persName>
                     <persName xml:lang="ja">杉原 千畝</persName>
-                    <birth when="1900-01-01"/>
+                    <birth when="1900-01-01">
+                      <placeName>Yaotsu</placeName>
+                    </birth>
                     <death when="1986-07-31"/>
                     <occupation>diplomat</occupation>
                     <idno type="Wikidata">https://www.wikidata.org/wiki/Q161381</idno>
@@ -227,9 +229,9 @@
                     </location>
                     <idno type="Wikidata">https://www.wikidata.org/wiki/Q4115712</idno>
                     <note>
-                    City in Lithuania. Location of the Japanese consulate where
-                    Chiune Sugihara served as a diplomat (1939-1940), issuing
-                    transit visas to Jewish refugees.
+                      City in Lithuania. Location of the Dutch consulate and 
+                      Japanese consulate where Chiune Sugihara served as a 
+                      diplomat (1939-1940), issuing transit visas to Jewish refugees. 
                     </note>
                 </place>
 
@@ -240,9 +242,10 @@
                     <location>
                         <address>
                             <settlement>Yaotsu</settlement>
-                            <region>Gifu Prefecture</region>
+                            <region>Gifu</region>
                             <country>Japan</country>
                         </address>
+                        <date type="opened" when="2000">2000</date>
                         <geo>35.466667 137.166667</geo>
                     </location>
                     <idno type="Wikidata">https://www.wikidata.org/wiki/Q47417030</idno>
@@ -262,15 +265,21 @@
                         the World Holocaust Remembrance Center that was 
                         established in 1953 by the Knesset
                     </desc>
+                    <date type="founded" when="1953"/>
                     <idno type="Wikidata">https://www.wikidata.org/wiki/Q156591</idno>
                     <location>
                         <country>Israel</country>
                     </location>
                 </org>
 
+
                 <org xml:id="japanese-foreign-ministry">
                     <orgName>Japanese Foreign Ministry</orgName>
                     <orgName type="variant">Ministry of Foreign Affairs of Japan</orgName>
+                    <location>
+                      <country>Japan</country>
+                    </location>
+                    <note>Founded in 1869.</note>
                     <idno type="Wikidata">https://www.wikidata.org/wiki/Q222241</idno>
                 </org>
 
@@ -287,6 +296,7 @@
                       <resp>director</resp>
                       <name>Robert Kirk</name>
                   </respStmt>
+                  <term type="genre">Documentary</term>                  
                   <publisher>WGBH Boston Video</publisher>
                   <idno type="Wikidata">https://www.wikidata.org/wiki/Q47417463</idno>
                   <idno type="OCLC">60779186</idno>
@@ -298,8 +308,11 @@
                   <title>A Special Fate: Chiune Sugihara: Hero of the Holocaust</title>
                   <author>Alison Leslie Gold</author>
                   <publisher>Scholastic Press</publisher>
+                  <pubPlace>New York</pubPlace>
+                  <idno type="ISBN">978-0590389260</idno>
                   <idno type="OCLC">41319984</idno>
                   <date when="2000">2000</date>
+                  <textLang mainLang="en">English</textLang>
                 </bibl>
 
             </listBibl>
@@ -313,11 +326,12 @@
                 <head>Soviet occupation of the Baltic states</head>
                 <desc>
                     <p>
-                    Military takover and annexation of Estonia, Latvia, and Lithuania
-                    by the Soviet Union.
+                      Military takeover and annexation of Estonia, Latvia, 
+                      and Lithuania by the Soviet Union. Part of World War II.
                     </p>
                 </desc>
                 <date when="1940">1940</date>
+                <date type="end" when="1941"/>
                 <idno type="Wikidata">https://www.wikidata.org/wiki/Q14505142</idno>
                 </event>
 
@@ -339,6 +353,7 @@
                     refugees in Kaunas between July 18 and August 28, 1940, 
                     enabling passage through Japanese territory.
                   </note>
+                  <textLang mainLang="ja" otherLangs="fr">Japanese, French</textLang>
                 </object>
 
             </listObject>
