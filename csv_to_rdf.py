@@ -20,6 +20,7 @@ PROP = {
     "hosted":             CRM.P7i_witnessed,
     "caused closure of":  CRM.P93_took_out_of_existence,
     "was born in":        SCHEMA.birthPlace,
+    "has identifier":      OWL.sameAs
 }
 
 def uri(entity_id):
@@ -57,5 +58,4 @@ g.bind("wd", WD)
 g.bind("owl", OWL)
 
 g.serialize(destination="output_from_csv.ttl", format="turtle")
-print(f"Transformation is successfully done! {len(g)} triples are made.")
-print(g.serialize(format="turtle"))
+print(f"Transformation is successfully done! {len(g)} triples are made. Check output_from_csv.ttl")

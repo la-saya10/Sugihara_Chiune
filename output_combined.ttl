@@ -22,6 +22,7 @@ sugihara:hero-of-the-holocaust a schema:Book ;
     dcterms:date "2000"^^xsd:gYear ;
     schema:about sugihara:chiune ;
     schema:author "Alison Leslie Gold" ;
+    schema:inLanguage "English" ;
     schema:name "A Special Fate: Chiune Sugihara: Hero of the Holocaust" ;
     schema:publisher "Scholastic Press" .
 
@@ -54,7 +55,7 @@ sugihara:jan-zwartendijk a foaf:Person ;
 sugihara:memorial-hall a schema:Museum ;
     owl:sameAs wd:Q47417030 ;
     schema:about sugihara:chiune ;
-    schema:addressCountry "Japan" ;
+    schema:address "Japan" ;
     schema:addressLocality "Yaotsu" ;
     schema:addressRegion "Gifu" ;
     schema:name "Chiune Sugihara Memorial Hall" ;
@@ -65,10 +66,10 @@ sugihara:yaotsu a schema:Place ;
     foaf:name "Yaotsu" .
 
 sugihara:dutch-consulate a foaf:Organization ;
-    foaf:name "Dutch Consulate in Kaunas" .
+    foaf:name "Dutch Consulate" .
 
 sugihara:japanese-consulate a foaf:Organization ;
-    foaf:name "Japanese Consulate in Kaunas" ;
+    foaf:name "Japanese Consulate" ;
     schema:parentOrganization sugihara:japanese-foreign-ministry .
 
 sugihara:soviet-occupation a crm:E5_Event ;
@@ -83,12 +84,12 @@ sugihara:soviet-occupation a crm:E5_Event ;
 sugihara:japanese-foreign-ministry a foaf:Organization ;
     owl:sameAs wd:Q222241 ;
     foaf:name "Japanese Foreign Ministry" ;
-    schema:addressCountry "Japan" .
+    schema:address "Japan" .
 
 sugihara:yad-vashem a foaf:Organization ;
     owl:sameAs wd:Q156591 ;
     foaf:name "Yad Vashem" ;
-    schema:addressCountry "Israel" ;
+    schema:address "Israel" ;
     schema:foundingDate "1953"^^xsd:gYear .
 
 sugihara:chiune a foaf:Person ;
@@ -110,6 +111,6 @@ sugihara:kaunas a schema:City ;
     crm:P7i_witnessed sugihara:dutch-consulate,
         sugihara:japanese-consulate ;
     owl:sameAs wd:Q4115712 ;
-    schema:addressCountry "Lithuania" ;
+    schema:address "Lithuania" ;
     schema:name "Kaunas" .
 

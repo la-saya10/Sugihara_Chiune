@@ -55,7 +55,7 @@ sugihara:jan-zwartendijk a foaf:Person ;
 sugihara:memorial-hall a schema:Museum ;
     owl:sameAs wd:Q47417030 ;
     schema:about sugihara:chiune ;
-    schema:addressCountry "Japan" ;
+    schema:address "Japan" ;
     schema:addressLocality "Yaotsu" ;
     schema:addressRegion "Gifu" ;
     schema:name "Chiune Sugihara Memorial Hall" ;
@@ -64,7 +64,7 @@ sugihara:memorial-hall a schema:Museum ;
 sugihara:japanese-foreign-ministry a foaf:Organization ;
     owl:sameAs wd:Q222241 ;
     foaf:name "Japanese Foreign Ministry" ;
-    schema:addressCountry "Japan" .
+    schema:address "Japan" .
 
 sugihara:soviet-occupation a crm:E5_Event ;
     dcterms:date "1940"^^xsd:gYear ;
@@ -76,7 +76,7 @@ sugihara:soviet-occupation a crm:E5_Event ;
 sugihara:yad-vashem a foaf:Organization ;
     owl:sameAs wd:Q156591 ;
     foaf:name "Yad Vashem" ;
-    schema:addressCountry "Israel" ;
+    schema:address "Israel" ;
     schema:foundingDate "1953"^^xsd:gYear .
 
 sugihara:chiune a foaf:Person ;
@@ -95,6 +95,6 @@ sugihara:chiune a foaf:Person ;
 
 sugihara:kaunas a schema:City ;
     owl:sameAs wd:Q4115712 ;
-    schema:addressCountry "Lithuania" ;
+    schema:address "Lithuania" ;
     schema:name "Kaunas" .
 
