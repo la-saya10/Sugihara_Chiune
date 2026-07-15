@@ -1,0 +1,26 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix schema: <https://schema.org/> .
+@prefix sugihara: <http://example.org/sugihara/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+sugihara:chiune schema:birthPlace sugihara:yaotsu .
+
+sugihara:kaunas crm:P7i_witnessed sugihara:dutch-consulate,
+        sugihara:japanese-consulate .
+
+sugihara:soviet-occupation crm:P93_took_out_of_existence sugihara:dutch-consulate,
+        sugihara:japanese-consulate .
+
+sugihara:yaotsu a schema:Place ;
+    owl:sameAs wd:Q1346952 ;
+    foaf:name "Yaotsu" .
+
+sugihara:dutch-consulate a foaf:Organization ;
+    foaf:name "Dutch Consulate in Kaunas" .
+
+sugihara:japanese-consulate a foaf:Organization ;
+    foaf:name "Japanese Consulate in Kaunas" ;
+    schema:parentOrganization sugihara:japanese-foreign-ministry .
+
