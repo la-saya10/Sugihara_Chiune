@@ -1,0 +1,100 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sugihara: <http://example.org/sugihara/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+sugihara:conspiracy-of-kindness a schema:Movie ;
+    dcterms:date "2000-08-06"^^xsd:date ;
+    owl:sameAs wd:Q47417463 ;
+    schema:about sugihara:chiune ;
+    schema:director "Robert Kirk" ;
+    schema:genre "Documentary" ;
+    schema:inLanguage "English" ;
+    schema:name "Sugihara: Conspiracy of Kindness" ;
+    schema:publisher "WGBH Boston Video" .
+
+sugihara:hero-of-the-holocaust a schema:Book ;
+    dcterms:date "2000"^^xsd:gYear ;
+    schema:about sugihara:chiune ;
+    schema:author "Alison Leslie Gold" ;
+    schema:inLanguage "English" ;
+    schema:name "A Special Fate: Chiune Sugihara: Hero of the Holocaust" ;
+    schema:publisher "Scholastic Press" .
+
+sugihara:righteous-among-nations a skos:Concept ;
+    dcterms:creator sugihara:yad-vashem ;
+    owl:sameAs wd:Q112197 ;
+    schema:name "Righteous Among the Nations" .
+
+sugihara:transit-visa a schema:Certification ;
+    dcterms:creator sugihara:chiune ;
+    dcterms:temporal sugihara:soviet-occupation ;
+    crm:P15_was_influenced_by sugihara:japanese-foreign-ministry ;
+    crm:P2_has_type wd:Q170404 ;
+    crm:P55_has_current_location sugihara:memorial-hall ;
+    schema:inLanguage "Japanese, French" ;
+    schema:locationCreated sugihara:kaunas ;
+    schema:name "Transit Visa" .
+
+sugihara:jan-zwartendijk a foaf:Person ;
+    owl:sameAs wd:Q2649762,
+        <https://viaf.org/viaf/312620714> ;
+    foaf:name "Jan Zwartendijk" ;
+    schema:award "Righteous Among the Nations" ;
+    schema:birthDate "1896-07-29"^^xsd:date ;
+    schema:deathDate "1976-09-14"^^xsd:date ;
+    schema:jobTitle "diplomat" ;
+    schema:recognizedBy sugihara:yad-vashem ;
+    schema:workLocation sugihara:kaunas .
+
+sugihara:memorial-hall a schema:Museum ;
+    owl:sameAs wd:Q47417030 ;
+    schema:about sugihara:chiune ;
+    schema:addressCountry "Japan" ;
+    schema:addressLocality "Yaotsu" ;
+    schema:addressRegion "Gifu" ;
+    schema:name "Chiune Sugihara Memorial Hall" ;
+    schema:startDate "2000"^^xsd:gYear .
+
+sugihara:japanese-foreign-ministry a foaf:Organization ;
+    owl:sameAs wd:Q222241 ;
+    foaf:name "Japanese Foreign Ministry" ;
+    schema:addressCountry "Japan" .
+
+sugihara:soviet-occupation a crm:E5_Event ;
+    dcterms:date "1940"^^xsd:gYear ;
+    crm:P7_took_place_at sugihara:kaunas ;
+    owl:sameAs wd:Q14505142 ;
+    schema:endDate "1941"^^xsd:gYear ;
+    schema:name "Soviet occupation of the Baltic states" .
+
+sugihara:yad-vashem a foaf:Organization ;
+    owl:sameAs wd:Q156591 ;
+    foaf:name "Yad Vashem" ;
+    schema:addressCountry "Israel" ;
+    schema:foundingDate "1953"^^xsd:gYear .
+
+sugihara:chiune a foaf:Person ;
+    crm:P15_was_influenced_by sugihara:soviet-occupation ;
+    owl:sameAs wd:Q161381,
+        <https://viaf.org/viaf/22953110> ;
+    foaf:name "Chiune Sugihara" ;
+    schema:award "Righteous Among the Nations" ;
+    schema:birthDate "1900-01-01"^^xsd:date ;
+    schema:colleague sugihara:jan-zwartendijk ;
+    schema:deathDate "1986-07-31"^^xsd:date ;
+    schema:jobTitle "diplomat" ;
+    schema:recognizedBy sugihara:yad-vashem ;
+    schema:workLocation sugihara:kaunas ;
+    schema:worksFor sugihara:japanese-foreign-ministry .
+
+sugihara:kaunas a schema:City ;
+    owl:sameAs wd:Q4115712 ;
+    schema:addressCountry "Lithuania" ;
+    schema:name "Kaunas" .
+
