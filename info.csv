@@ -1,0 +1,18 @@
+subject,predicate,object
+japanese-consulate,has type,organization
+japanese-consulate,has title,Japanese Consulate in Kaunas
+japanese-consulate,is agency of,japanese-foreign-ministry
+kaunas,hosted,japanese-consulate
+
+dutch-consulate,has type,organization
+dutch-consulate,has title,Dutch Consulate in Kaunas
+kaunas,hosted,dutch-consulate
+
+soviet-occupation,caused closure of,japanese-consulate
+soviet-occupation,caused closure of,dutch-consulate
+
+yaotsu,has type,place
+yaotsu,has identifer,Q1346952
+yaotsu,has title,Yaotsu
+chiune,was born in, yaotsu
+
