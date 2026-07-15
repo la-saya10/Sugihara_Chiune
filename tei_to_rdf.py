@@ -61,7 +61,7 @@ FIELD_MAP = {
     "date_opened":  SCHEMA.startDate,
     "term_genre":   SCHEMA.genre,
     "textLang":     SCHEMA.inLanguage,
-    "country":      SCHEMA.location,
+    "country":      SCHEMA.address,
     "region":       SCHEMA.addressRegion,
     "settlement":   SCHEMA.addressLocality,
 }
