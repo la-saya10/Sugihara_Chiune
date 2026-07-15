@@ -334,7 +334,8 @@ tbody tr:nth-child(even) {
 .tei-xml,
 .tei-html,
 .transformed-html,
-.tei-rdf {
+.tei-rdf,
+.csv-to-rdf {
     max-width: 800px;      
     margin: 0 auto;        
     text-align: left;      
