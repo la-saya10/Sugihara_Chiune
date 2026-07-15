@@ -70,7 +70,7 @@ FIELD_MAP = {
 DATE_FIELDS = {"birth", "death", "date", "date_founded", "date_end", "date_opened"}
 
 def date_literal(value):
-    """ハイフンが2個あればYYYY-MM-DD形式とみなしxsd:date、無ければxsd:gYear"""
+    #ハイフンが2個あればYYYY-MM-DD形式とみなしxsd:date、無ければxsd:gYear
     date_type = XSD.date if value.count("-") == 2 else XSD.gYear
     return Literal(value, datatype=date_type)
 
@@ -104,8 +104,12 @@ def get_wikidata(el):
         return URIRef(WD[qid])
     return None
 
+
+
+
+
 def collect_generic(el, uri):
-    """note/desc以外の子タグを、ネストも含めて再帰的にすべてトリプル化する"""
+   #note/desc以外の子タグを、ネストも含めて再帰的にすべてトリプル化する"""
     for child in el:
         tag = child.tag.split("}")[-1]
         if tag in EXCLUDE:
@@ -136,6 +140,9 @@ def collect_generic(el, uri):
                     g.add((uri, prop, Literal(value)))
 
         collect_generic(child, uri)
+
+
+
 
 id_to_uri = {}
 for el in root.iter():
@@ -176,7 +183,9 @@ for rel in root.iter(TEI + "relation"):
         g.add((id_to_uri[passive], prop, id_to_uri[active]))
     else:
         g.add((id_to_uri[active], prop, id_to_uri[passive]))
+        
 
+# -----  Extra triples  -----
 if "transit-visa" in id_to_uri:
     g.add((id_to_uri["transit-visa"], CRM.P2_has_type, URIRef(WD["Q170404"])))
 if "chiune" in id_to_uri:
