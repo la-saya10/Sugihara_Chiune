@@ -18,9 +18,9 @@ sugihara:yaotsu a schema:Place ;
     foaf:name "Yaotsu" .
 
 sugihara:dutch-consulate a foaf:Organization ;
-    foaf:name "Dutch Consulate in Kaunas" .
+    foaf:name "Dutch Consulate" .
 
 sugihara:japanese-consulate a foaf:Organization ;
-    foaf:name "Japanese Consulate in Kaunas" ;
+    foaf:name "Japanese Consulate" ;
     schema:parentOrganization sugihara:japanese-foreign-ministry .
 
