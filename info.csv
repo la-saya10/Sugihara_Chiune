@@ -1,11 +1,11 @@
 subject,predicate,object
 japanese-consulate,has type,organization
-japanese-consulate,has title,Japanese Consulate in Kaunas
+japanese-consulate,has title,Japanese Consulate
 japanese-consulate,is agency of,japanese-foreign-ministry
 kaunas,hosted,japanese-consulate
 
 dutch-consulate,has type,organization
-dutch-consulate,has title,Dutch Consulate in Kaunas
+dutch-consulate,has title,Dutch Consulate
 kaunas,hosted,dutch-consulate
 
 soviet-occupation,caused closure of,japanese-consulate
