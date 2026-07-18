@@ -121,7 +121,9 @@
             infrastructure), and purple for a textual phenomenon. Each highlighted 
             entity links directly to its corresponding Wikidata entry.    
           </p>
-          <a href="https://la-saya10.github.io/Sugihara_Chiune/encoding.html" target="_blank">View transformed HTML in browser</a>
+          <div class="link-row">
+            <a href="https://la-saya10.github.io/Sugihara_Chiune/encoding.html" target="_blank">View transformed HTML in browser</a>
+          </div>
           <div class="code-scroll-box">
             <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fla-saya10%2FSugihara_Chiune%2Fblob%2Fmain%2Fencoding.html&style=monokai-sublime&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on&maxHeight=400"></script>
           </div>
@@ -146,9 +148,9 @@
             of Transit Visa — a broader concept is indicated using 
             <code>crm:P2_has_type</code> instead.          
           </p>
-          <a href="https://github.com/la-saya10/Sugihara_Chiune/blob/main/output.ttl">
-            View output file
-          </a>
+          <div class="link-row">
+            <a href="https://github.com/la-saya10/Sugihara_Chiune/blob/main/output_from_tei.ttl">View output_from_tei.ttl</a>
+          </div>
           <div class="code-scroll-box">
             <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fla-saya10%2FSugihara_Chiune%2Fblob%2Fmain%2Ftei_to_rdf.py&style=monokai-sublime&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on&maxHeight=400"></script>          
           </div>
@@ -169,7 +171,9 @@
             recorded in a simple CSV file and converted into RDF triples using the csv_to_rdf.py 
             script below.
           </p>
-          <a href="https://github.com/la-saya10/Sugihara_Chiune/blob/main/info.csv">View csv file</a>
+          <div class="link-row">
+            <a href="https://github.com/la-saya10/Sugihara_Chiune/blob/main/info.csv">View csv file</a>
+          </div>
           <div class="code-scroll-box">
           <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fla-saya10%2FSugihara_Chiune%2Fblob%2Fmain%2Fcsv_to_rdf.py&style=monokai-sublime&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on&maxHeight=400"></script>          </div>
       </div>
@@ -182,11 +186,14 @@
       <div class="csv-to-rdf" id="rdf-visualization">
         <div class="model-text">
           <h2>RDF Visualization</h2>
-          <p>After we transformed and merged all of the triples into a single TTL file, 
+          <p>After we transformed and combined all of the triples into a single TTL file, 
             I then created a visualization of the whole dataset using RDF Grapher, allowing 
             the connections between entities to be explored visually.
           </p>
-          <a href="https://github.com/la-saya10/Sugihara_Chiune/blob/main/combine.py" class="cap">View combine.py</a>
+          <div class="link-row">
+            <a href="https://github.com/la-saya10/Sugihara_Chiune/blob/main/combine.py">View combine.py</a>
+            <a href="https://github.com/la-saya10/Sugihara_Chiune/blob/main/output_combined.ttl">View output_combined.ttl</a>
+          </div>
           <img src="assets/img/rdf-grapher.png"
               alt="RDF graph visualization of the full Sugihara dataset"
               class="zoomable-image">
