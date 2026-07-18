@@ -352,7 +352,10 @@ tbody tr:nth-child(even) {
     background: transparent !important;
 }
 
-
+.cap {
+  display: inline-block;
+  margin-bottom: 20px;
+}
 
 .code-scroll-box {
     
