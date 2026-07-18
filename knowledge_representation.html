@@ -48,6 +48,7 @@
         <li><a href="#transformed/html">Transformed HTML</a></li>
         <li><a href="#tei/rdf">TEI → RDF (Python)</a></li>
         <li><a href="#csv/rdf">CSV → RDF</a></li>
+        <li><a href="#rdf-visualization">RDF Visualization</a></li>
 
       </ul>
     </li>
@@ -173,6 +174,135 @@
           <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fla-saya10%2FSugihara_Chiune%2Fblob%2Fmain%2Fcsv_to_rdf.py&style=monokai-sublime&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on&maxHeight=400"></script>          </div>
       </div>
     </div>
+
+
+
+
+    <section id="rdf-visualization" class="intro section">
+      <div class="csv-to-rdf" id="rdf-visualization">
+        <div class="model-text">
+          <h2>RDF Visualization</h2>
+          <p>After we transformed all of the triples into a ttl file, we then created a visualization of the whole dataset, using RDF Grapher.</p>
+          <a href="https://github.com/la-saya10/Sugihara_Chiune/blob/main/combine.py">View combine.py</a>
+          <img src="assets/img/rdf-grapher.png"
+              alt="RDF graph visualization of the full Sugihara dataset"
+              class="zoomable-image">
+          <p class="zoomable-caption">Click on the image to view a zoomable version in full size.</p>
+        </div>
+      </div>
+
+      <div id="imageModal" class="image-modal">
+        <img id="modalImage" class="modal-image" src="" alt="">
+      </div>
+    </section>
+
+   <script>
+    let currentZoom = 1;
+    let isDragging = false;
+    let startX, startY, translateX = 0, translateY = 0;
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const zoomableImages = document.querySelectorAll('.zoomable-image');
+        zoomableImages.forEach(img => {
+            img.addEventListener('click', function() {
+                openModal(this);
+            });
+        });
+        document.getElementById('imageModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+        document.addEventListener('keydown', function(e) {
+            if (document.getElementById('imageModal').style.display === 'block') {
+                if (e.key === 'Escape') {
+                    closeModal();
+                } else if (e.key === '+' || e.key === '=') {
+                    zoomIn();
+                } else if (e.key === '-') {
+                    zoomOut();
+                } else if (e.key === '0') {
+                    resetZoom();
+                }
+            }
+        });
+
+        document.getElementById('modalImage').addEventListener('wheel', function(e) {
+            e.preventDefault();
+            if (e.deltaY < 0) {
+                zoomIn();
+            } else {
+                zoomOut();
+            }
+        });
+    });
+
+    function openModal(img) {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        modal.style.display = 'block';
+        modalImg.src = img.dataset.zoomSrc || img.src;
+        modalImg.alt = img.alt;
+        currentZoom = 1;
+        translateX = 0;
+        translateY = 0;
+        updateImageTransform();
+        addDragFunctionality(modalImg);
+    }
+    function closeModal() {
+        document.getElementById('imageModal').style.display = 'none';
+    }
+    function zoomIn() {
+        currentZoom = Math.min(currentZoom * 1.2, 5);
+        updateImageTransform();
+    }
+    function zoomOut() {
+        currentZoom = Math.max(currentZoom / 1.2, 0.5);
+        updateImageTransform();
+    }
+    function resetZoom() {
+        currentZoom = 1;
+        translateX = 0;
+        translateY = 0;
+        updateImageTransform();
+    }
+    function updateImageTransform() {
+        const modalImg = document.getElementById('modalImage');
+        modalImg.style.transform = `translate(-50%, -50%) translate(${translateX}px, ${translateY}px) scale(${currentZoom})`;
+    }
+    function addDragFunctionality(img) {
+        img.addEventListener('mousedown', startDrag);
+        img.addEventListener('mousemove', drag);
+        img.addEventListener('mouseup', endDrag);
+        img.addEventListener('mouseleave', endDrag);
+        img.addEventListener('touchstart', startDrag);
+        img.addEventListener('touchmove', drag);
+        img.addEventListener('touchend', endDrag);
+    }
+    function startDrag(e) {
+        if (currentZoom > 1) {
+            isDragging = true;
+            const clientX = e.clientX || e.touches[0].clientX;
+            const clientY = e.clientY || e.touches[0].clientY;
+            startX = clientX - translateX;
+            startY = clientY - translateY;
+            e.preventDefault();
+        }
+    }
+    function drag(e) {
+        if (isDragging && currentZoom > 1) {
+            const clientX = e.clientX || e.touches[0].clientX;
+            const clientY = e.clientY || e.touches[0].clientY;
+            translateX = clientX - startX;
+            translateY = clientY - startY;
+            updateImageTransform();
+            e.preventDefault();
+        }
+    }
+    function endDrag() {
+        isDragging = false;
+    }
+   </script>
 
          
 
