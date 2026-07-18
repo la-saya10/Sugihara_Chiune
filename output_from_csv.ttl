@@ -7,20 +7,40 @@
 
 sugihara:chiune schema:birthPlace sugihara:yaotsu .
 
-sugihara:kaunas crm:P7i_witnessed sugihara:dutch-consulate,
-        sugihara:japanese-consulate .
+sugihara:conspiracy-of-kindness schema:director sugihara:robert-kirk ;
+    schema:publisher sugihara:wgbh-boston-video .
 
-sugihara:soviet-occupation crm:P93_took_out_of_existence sugihara:dutch-consulate,
-        sugihara:japanese-consulate .
+sugihara:hero-of-the-holocaust schema:author sugihara:alison-leslie-gold ;
+    schema:publisher sugihara:scholastic-press .
+
+sugihara:alison-leslie-gold a foaf:Person ;
+    owl:sameAs wd:Q4727120 .
+
+sugihara:dutch-consulate a foaf:Organization ;
+    crm:P15_was_influenced_by sugihara:soviet-occupation ;
+    schema:location sugihara:kaunas ;
+    schema:name "Dutch Consulate" .
+
+sugihara:japanese-consulate a foaf:Organization ;
+    crm:P15_was_influenced_by sugihara:soviet-occupation ;
+    schema:location sugihara:kaunas ;
+    schema:name "Japanese Consulate" ;
+    schema:parentOrganization sugihara:japanese-foreign-ministry .
+
+sugihara:robert-kirk a foaf:Person .
+
+sugihara:scholastic-press a foaf:Organization ;
+    owl:sameAs wd:Q1155729 ;
+    schema:name "Scholastic Press" .
+
+sugihara:wgbh-boston-video a foaf:Organization ;
+    owl:sameAs wd:Q3564675 ;
+    schema:name "WGBH Boston Video" .
 
 sugihara:yaotsu a schema:Place ;
     owl:sameAs wd:Q1346952 ;
-    foaf:name "Yaotsu" .
+    schema:name "Yaotsu" .
 
-sugihara:dutch-consulate a foaf:Organization ;
-    foaf:name "Dutch Consulate" .
-
-sugihara:japanese-consulate a foaf:Organization ;
-    foaf:name "Japanese Consulate" ;
-    schema:parentOrganization sugihara:japanese-foreign-ministry .
+sugihara:kaunas schema:containsPlace sugihara:dutch-consulate,
+        sugihara:japanese-consulate .
 

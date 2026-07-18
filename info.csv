@@ -6,13 +6,29 @@ kaunas,hosted,japanese-consulate
 
 dutch-consulate,has type,organization
 dutch-consulate,has title,Dutch Consulate
-kaunas,hosted,dutch-consulate
 
-soviet-occupation,caused closure of,japanese-consulate
-soviet-occupation,caused closure of,dutch-consulate
+japanese-consulate,was closed by,soviet-occupation
+dutch-consulate,was closed by,soviet-occupation
 
 yaotsu,has type,place
-yaotsu,has identifer,Q1346952
+yaotsu,has identifier,Q1346952
 yaotsu,has title,Yaotsu
 chiune,was born in, yaotsu
 
+
+japanese-consulate,was located in,kaunas
+dutch-consulate,was located in,kaunas
+hero-of-the-holocaust,has author,Alison Leslie Gold
+Alison Leslie Gold,has type,person
+Alison Leslie Gold,has identifier,Q4727120
+hero-of-the-holocaust,has publisher,Scholastic Press
+scholastic-press,has title,Scholastic Press
+Scholastic Press,has type, organization
+Scholastic Press,has identifier,Q1155729
+
+conspiracy-of-kindness,has director,Robert Kirk
+Robert Kirk,has type,person
+conspiracy-of-kindness,has publisher,WGBH Boston Video
+WGBH Boston Video,has title,WGBH Boston Video
+WGBH Boston Video,has type,organization
+WGBH Boston Video,has identifier,Q3564675

@@ -12,19 +12,15 @@ sugihara:conspiracy-of-kindness a schema:Movie ;
     dcterms:date "2000-08-06"^^xsd:date ;
     owl:sameAs wd:Q47417463 ;
     schema:about sugihara:chiune ;
-    schema:director "Robert Kirk" ;
     schema:genre "Documentary" ;
     schema:inLanguage "English" ;
-    schema:name "Sugihara: Conspiracy of Kindness" ;
-    schema:publisher "WGBH Boston Video" .
+    schema:name "Sugihara: Conspiracy of Kindness" .
 
 sugihara:hero-of-the-holocaust a schema:Book ;
     dcterms:date "2000"^^xsd:gYear ;
     schema:about sugihara:chiune ;
-    schema:author "Alison Leslie Gold" ;
     schema:inLanguage "English" ;
-    schema:name "A Special Fate: Chiune Sugihara: Hero of the Holocaust" ;
-    schema:publisher "Scholastic Press" .
+    schema:name "A Special Fate: Chiune Sugihara: Hero of the Holocaust" .
 
 sugihara:righteous-among-nations a skos:Concept ;
     dcterms:creator sugihara:yad-vashem ;
@@ -55,7 +51,7 @@ sugihara:jan-zwartendijk a foaf:Person ;
 sugihara:memorial-hall a schema:Museum ;
     owl:sameAs wd:Q47417030 ;
     schema:about sugihara:chiune ;
-    schema:address "Japan" ;
+    schema:addressCountry "Japan" ;
     schema:addressLocality "Yaotsu" ;
     schema:addressRegion "Gifu" ;
     schema:name "Chiune Sugihara Memorial Hall" ;
@@ -64,7 +60,7 @@ sugihara:memorial-hall a schema:Museum ;
 sugihara:japanese-foreign-ministry a foaf:Organization ;
     owl:sameAs wd:Q222241 ;
     foaf:name "Japanese Foreign Ministry" ;
-    schema:address "Japan" .
+    schema:addressCountry "Japan" .
 
 sugihara:soviet-occupation a crm:E5_Event ;
     dcterms:date "1940"^^xsd:gYear ;
@@ -76,7 +72,7 @@ sugihara:soviet-occupation a crm:E5_Event ;
 sugihara:yad-vashem a foaf:Organization ;
     owl:sameAs wd:Q156591 ;
     foaf:name "Yad Vashem" ;
-    schema:address "Israel" ;
+    schema:addressCountry "Israel" ;
     schema:foundingDate "1953"^^xsd:gYear .
 
 sugihara:chiune a foaf:Person ;
@@ -95,6 +91,6 @@ sugihara:chiune a foaf:Person ;
 
 sugihara:kaunas a schema:City ;
     owl:sameAs wd:Q4115712 ;
-    schema:address "Lithuania" ;
+    schema:addressCountry "Lithuania" ;
     schema:name "Kaunas" .
 

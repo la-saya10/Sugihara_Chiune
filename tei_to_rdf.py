@@ -45,7 +45,7 @@ RELATIONS = {
 REVERSE = {"issued", "commemoratedAt", "isSubjectOf", "isCreatedBy"}
 
 # note/desc/geo/pubPlaceはRDF化しない(除外リスト)
-EXCLUDE = {"note", "desc", "geo", "pubPlace"}
+EXCLUDE = {"note", "desc", "geo", "pubPlace", "author", "publisher"}
 HANDLED = {"idno", "persName", "placeName", "orgName", "title",
            "head", "catDesc", "objectIdentifier", "respStmt", "objectName"}
 
@@ -53,15 +53,13 @@ FIELD_MAP = {
     "birth":        SCHEMA.birthDate,
     "death":        SCHEMA.deathDate,
     "occupation":   SCHEMA.jobTitle,
-    "author":       SCHEMA.author,
-    "publisher":    SCHEMA.publisher,
     "date":         DCT.date,
     "date_founded": SCHEMA.foundingDate,
     "date_end":     SCHEMA.endDate,
     "date_opened":  SCHEMA.startDate,
     "term_genre":   SCHEMA.genre,
     "textLang":     SCHEMA.inLanguage,
-    "country":      SCHEMA.address,
+    "country":      SCHEMA.addressCountry,
     "region":       SCHEMA.addressRegion,
     "settlement":   SCHEMA.addressLocality,
 }
@@ -116,10 +114,6 @@ def collect_generic(el, uri):
             continue
 
         if tag == "respStmt":
-            resp = child.find(TEI + "resp")
-            resp_name = child.find(TEI + "name")
-            if resp is not None and resp.text == "director" and resp_name is not None and resp_name.text:
-                g.add((uri, SCHEMA.director, Literal(resp_name.text.strip())))
             continue
 
         if tag not in HANDLED:

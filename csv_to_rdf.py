@@ -7,24 +7,28 @@ SCHEMA   = Namespace("https://schema.org/")
 CRM      = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
 WD       = Namespace("http://www.wikidata.org/entity/")
 
-# CSVの"has type"の値 -> RDFクラス
 TYPE_CLASS = {
     "organization":  FOAF.Organization,
-    "place":         SCHEMA.Place,   
+    "place":         SCHEMA.Place,
+    "person":        FOAF.Person,
 }
 
-# CSVの述語 -> RDFプロパティ
 PROP = {
-    "has title":         None,  # 特別扱い(下のname処理を参照)
-    "is agency of":       SCHEMA.parentOrganization,
-    "hosted":             CRM.P7i_witnessed,
-    "caused closure of":  CRM.P93_took_out_of_existence,
-    "was born in":        SCHEMA.birthPlace,
-    "has identifier":      OWL.sameAs
+    "has title":           None,
+    "has type":            RDF.type,        # ①コロンと末尾カンマを追加
+    "is agency of":        SCHEMA.parentOrganization,
+    "was located in":      SCHEMA.location,
+    "was closed by":       CRM.P15_was_influenced_by,
+    "was born in":         SCHEMA.birthPlace,
+    "has publisher":       SCHEMA.publisher,  # ②SCHEMA:→SCHEMA.、末尾カンマを追加
+    "has identifier":      OWL.sameAs,       # ③末尾カンマを追加
+    "has author":          SCHEMA.author,    # 追加
+    "has director":        SCHEMA.director,  # 追加
 }
 
 def uri(entity_id):
-    return SUGIHARA[entity_id]  # 既存のXML由来のIDも新しいIDも、同じ名前空間で統一する
+    slug = entity_id.strip().lower().replace(" ", "-")
+    return SUGIHARA[slug]
 
 g = Graph()
 g.bind("sugihara", SUGIHARA)
@@ -34,7 +38,6 @@ g.bind("foaf", FOAF)
 
 with open("info.csv", encoding="utf-8") as f:
     for row in csv.DictReader(f):
-        # 空行(subjectが空)はスキップする
         if not row.get("subject") or not row["subject"].strip():
             continue
 
@@ -46,13 +49,15 @@ with open("info.csv", encoding="utf-8") as f:
             g.add((uri(subject), RDF.type, TYPE_CLASS[obj]))
 
         elif predicate == "has title":
-            g.add((uri(subject), FOAF.name, Literal(obj)))
+            g.add((uri(subject), SCHEMA.name, Literal(obj)))
 
-        elif predicate == "has identifer":
+        elif predicate == "has identifier": 
             g.add((uri(subject), OWL.sameAs, URIRef(WD[obj])))
 
         else:
             g.add((uri(subject), PROP[predicate], uri(obj)))
+
+    
 
 g.bind("wd", WD)
 g.bind("owl", OWL)
