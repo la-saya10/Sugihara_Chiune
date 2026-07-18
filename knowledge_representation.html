@@ -161,9 +161,12 @@
       <div class="model-text">
         <h2>CSV to RDF Transformation</h2>
           <p>
-            The CSV file includes several relations relevant to the knowledge graph 
-            that could not be captured within the TEI <listRelation> structure. The 
-            csv_to_rdf.py script converts this tabular data into RDF triples
+            While the TEI encoding captures the core entities and relationships central 
+            to Chiune Sugihara's story, several additional facts implied by the source text 
+            fell outside the scope of the TEI back matter. To incorporate this supplementary 
+            information without expanding the TEI structure itself, these facts were instead 
+            recorded in a simple CSV file and converted into RDF triples using the csv_to_rdf.py 
+            script below.
           </p>
           <a href="https://github.com/la-saya10/Sugihara_Chiune/blob/main/info.csv">View csv file</a>
           <div class="code-scroll-box">

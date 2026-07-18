@@ -1,14 +1,15 @@
 subject,predicate,object
 japanese-consulate,has type,organization
 japanese-consulate,has title,Japanese Consulate
+japanese-consulate,was located in,kaunas
 japanese-consulate,is agency of,japanese-foreign-ministry
-kaunas,hosted,japanese-consulate
+japanese-consulate,was closed by,soviet-occupation
+
 
 dutch-consulate,has type,organization
 dutch-consulate,has title,Dutch Consulate
-
-japanese-consulate,was closed by,soviet-occupation
 dutch-consulate,was closed by,soviet-occupation
+dutch-consulate,was located in,kaunas
 
 yaotsu,has type,place
 yaotsu,has identifier,Q1346952
@@ -16,8 +17,6 @@ yaotsu,has title,Yaotsu
 chiune,was born in, yaotsu
 
 
-japanese-consulate,was located in,kaunas
-dutch-consulate,was located in,kaunas
 hero-of-the-holocaust,has author,Alison Leslie Gold
 Alison Leslie Gold,has type,person
 Alison Leslie Gold,has identifier,Q4727120
@@ -25,6 +24,7 @@ hero-of-the-holocaust,has publisher,Scholastic Press
 scholastic-press,has title,Scholastic Press
 Scholastic Press,has type, organization
 Scholastic Press,has identifier,Q1155729
+
 
 conspiracy-of-kindness,has director,Robert Kirk
 Robert Kirk,has type,person

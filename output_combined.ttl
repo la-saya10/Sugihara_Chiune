@@ -18,6 +18,11 @@ sugihara:conspiracy-of-kindness a schema:Movie ;
     schema:name "Sugihara: Conspiracy of Kindness" ;
     schema:publisher sugihara:wgbh-boston-video .
 
+sugihara:dutch-consulate a foaf:Organization ;
+    crm:P15_was_influenced_by sugihara:soviet-occupation ;
+    schema:location sugihara:kaunas ;
+    schema:name "Dutch Consulate" .
+
 sugihara:hero-of-the-holocaust a schema:Book ;
     dcterms:date "2000"^^xsd:gYear ;
     schema:about sugihara:chiune ;
@@ -25,6 +30,12 @@ sugihara:hero-of-the-holocaust a schema:Book ;
     schema:inLanguage "English" ;
     schema:name "A Special Fate: Chiune Sugihara: Hero of the Holocaust" ;
     schema:publisher sugihara:scholastic-press .
+
+sugihara:japanese-consulate a foaf:Organization ;
+    crm:P15_was_influenced_by sugihara:soviet-occupation ;
+    schema:location sugihara:kaunas ;
+    schema:name "Japanese Consulate" ;
+    schema:parentOrganization sugihara:japanese-foreign-ministry .
 
 sugihara:righteous-among-nations a skos:Concept ;
     dcterms:creator sugihara:yad-vashem ;
@@ -44,11 +55,6 @@ sugihara:transit-visa a schema:Certification ;
 sugihara:alison-leslie-gold a foaf:Person ;
     owl:sameAs wd:Q4727120 .
 
-sugihara:dutch-consulate a foaf:Organization ;
-    crm:P15_was_influenced_by sugihara:soviet-occupation ;
-    schema:location sugihara:kaunas ;
-    schema:name "Dutch Consulate" .
-
 sugihara:jan-zwartendijk a foaf:Person ;
     owl:sameAs wd:Q2649762,
         <https://viaf.org/viaf/312620714> ;
@@ -59,12 +65,6 @@ sugihara:jan-zwartendijk a foaf:Person ;
     schema:jobTitle "diplomat" ;
     schema:recognizedBy sugihara:yad-vashem ;
     schema:workLocation sugihara:kaunas .
-
-sugihara:japanese-consulate a foaf:Organization ;
-    crm:P15_was_influenced_by sugihara:soviet-occupation ;
-    schema:location sugihara:kaunas ;
-    schema:name "Japanese Consulate" ;
-    schema:parentOrganization sugihara:japanese-foreign-ministry .
 
 sugihara:memorial-hall a schema:Museum ;
     owl:sameAs wd:Q47417030 ;
@@ -125,7 +125,5 @@ sugihara:soviet-occupation a crm:E5_Event ;
 sugihara:kaunas a schema:City ;
     owl:sameAs wd:Q4115712 ;
     schema:addressCountry "Lithuania" ;
-    schema:containsPlace sugihara:dutch-consulate,
-        sugihara:japanese-consulate ;
     schema:name "Kaunas" .
 

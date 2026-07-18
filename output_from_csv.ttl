@@ -10,22 +10,22 @@ sugihara:chiune schema:birthPlace sugihara:yaotsu .
 sugihara:conspiracy-of-kindness schema:director sugihara:robert-kirk ;
     schema:publisher sugihara:wgbh-boston-video .
 
-sugihara:hero-of-the-holocaust schema:author sugihara:alison-leslie-gold ;
-    schema:publisher sugihara:scholastic-press .
-
-sugihara:alison-leslie-gold a foaf:Person ;
-    owl:sameAs wd:Q4727120 .
-
 sugihara:dutch-consulate a foaf:Organization ;
     crm:P15_was_influenced_by sugihara:soviet-occupation ;
     schema:location sugihara:kaunas ;
     schema:name "Dutch Consulate" .
+
+sugihara:hero-of-the-holocaust schema:author sugihara:alison-leslie-gold ;
+    schema:publisher sugihara:scholastic-press .
 
 sugihara:japanese-consulate a foaf:Organization ;
     crm:P15_was_influenced_by sugihara:soviet-occupation ;
     schema:location sugihara:kaunas ;
     schema:name "Japanese Consulate" ;
     schema:parentOrganization sugihara:japanese-foreign-ministry .
+
+sugihara:alison-leslie-gold a foaf:Person ;
+    owl:sameAs wd:Q4727120 .
 
 sugihara:robert-kirk a foaf:Person .
 
@@ -40,7 +40,4 @@ sugihara:wgbh-boston-video a foaf:Organization ;
 sugihara:yaotsu a schema:Place ;
     owl:sameAs wd:Q1346952 ;
     schema:name "Yaotsu" .
-
-sugihara:kaunas schema:containsPlace sugihara:dutch-consulate,
-        sugihara:japanese-consulate .
 
