@@ -5,4 +5,4 @@ g.parse("output_from_tei.ttl", format="turtle")   # rdf from xml
 g.parse("output_from_csv.ttl", format="turtle")   # rdf from csv
 
 g.serialize(destination="output_combined.ttl", format="turtle")
-print(f"Merge completed: {len(g)} triples saved to output_combined.ttl.")
+print(f"Combination completed successfully. {len(g)} triples saved to output_combined.ttl.")

@@ -64,7 +64,6 @@ FIELD_MAP = {
     "settlement":   SCHEMA.addressLocality,
 }
 
-# 日付を表すフィールド(この中に入っているものだけXSD型を付ける)
 DATE_FIELDS = {"birth", "death", "date", "date_founded", "date_end", "date_opened"}
 
 def date_literal(value):
