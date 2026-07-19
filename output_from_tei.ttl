@@ -53,7 +53,6 @@ sugihara:memorial-hall a schema:Museum ;
     schema:about sugihara:chiune ;
     schema:addressCountry "Japan" ;
     schema:addressLocality "Yaotsu" ;
-    schema:addressRegion "Gifu" ;
     schema:name "Chiune Sugihara Memorial Hall" ;
     schema:startDate "2000"^^xsd:gYear .
 
