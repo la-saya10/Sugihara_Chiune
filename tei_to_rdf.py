@@ -60,7 +60,6 @@ FIELD_MAP = {
     "term_genre":   SCHEMA.genre,
     "textLang":     SCHEMA.inLanguage,
     "country":      SCHEMA.addressCountry,
-    "region":       SCHEMA.addressRegion,
     "settlement":   SCHEMA.addressLocality,
 }
 
