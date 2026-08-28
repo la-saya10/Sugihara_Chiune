@@ -44,7 +44,6 @@ RELATIONS = {
 }
 REVERSE = {"issued", "commemoratedAt", "isSubjectOf", "isCreatedBy"}
 
-# note/desc/geo/pubPlaceはRDF化しない(除外リスト)
 EXCLUDE = {"note", "desc", "geo", "pubPlace", "author", "publisher"}
 HANDLED = {"idno", "persName", "placeName", "orgName", "title",
            "head", "catDesc", "objectIdentifier", "respStmt", "objectName"}
@@ -66,7 +65,7 @@ FIELD_MAP = {
 DATE_FIELDS = {"birth", "death", "date", "date_founded", "date_end", "date_opened"}
 
 def date_literal(value):
-    #ハイフンが2個あればYYYY-MM-DD形式とみなしxsd:date、無ければxsd:gYear
+    
     date_type = XSD.date if value.count("-") == 2 else XSD.gYear
     return Literal(value, datatype=date_type)
 
@@ -105,7 +104,6 @@ def get_wikidata(el):
 
 
 def collect_generic(el, uri):
-   #note/desc以外の子タグを、ネストも含めて再帰的にすべてトリプル化する
     for child in el:
         tag = child.tag.split("}")[-1]
         if tag in EXCLUDE:
