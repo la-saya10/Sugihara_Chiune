@@ -206,7 +206,7 @@
                     <birth when="1896-07-29"/>
                     <death when="1976-09-14"/>
                     <occupation>diplomat</occupation>
-                    <idno type="Wikidata">http://www.wikidata.org/entity/Q2649762</idno>
+                    <idno type="Wikidata">https://www.wikidata.org/entity/Q2649762</idno>
                     <idno type="VIAF">https://viaf.org/viaf/312620714</idno>
                 </person>
 
