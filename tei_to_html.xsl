@@ -70,7 +70,7 @@
 
 
         .section {
-            background-color: #f0f0f0;   /* 薄い灰色 */
+            background-color: #f0f0f0;  
             padding: 20px;
             margin-bottom: 20px;
             border-radius: 8px;
