@@ -79,7 +79,8 @@
 
 
         .quote  { 
-            font-style: italic; color: #291cea; 
+            font-style: italic; 
+            color: #291cea; 
             font-weight: bold; 
         }
 
