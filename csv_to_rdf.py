@@ -15,15 +15,15 @@ TYPE_CLASS = {
 
 PROP = {
     "has title":           None,
-    "has type":            RDF.type,        # ①コロンと末尾カンマを追加
+    "has type":            RDF.type,        
     "is agency of":        SCHEMA.parentOrganization,
     "was located in":      SCHEMA.location,
     "was closed by":       CRM.P15_was_influenced_by,
     "was born in":         SCHEMA.birthPlace,
-    "has publisher":       SCHEMA.publisher,  # ②SCHEMA:→SCHEMA.、末尾カンマを追加
-    "has identifier":      OWL.sameAs,       # ③末尾カンマを追加
-    "has author":          SCHEMA.author,    # 追加
-    "has director":        SCHEMA.director,  # 追加
+    "has publisher":       SCHEMA.publisher,  
+    "has identifier":      OWL.sameAs,     
+    "has author":          SCHEMA.author,    
+    "has director":        SCHEMA.director,
 }
 
 def uri(entity_id):
