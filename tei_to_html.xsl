@@ -121,7 +121,7 @@
     <body>
         <div class="container">
             <div class="header">
-            <h1>Transformation from XMl/TEI to HTML: Chiune Sugihara</h1>
+            <h1>Transformation from TEI/XML to HTML: Chiune Sugihara</h1>
             <div class="intro">
                 <p>This page presents a TEI/XML-encoded text about Chiune Sugihara,
                 transformed into HTML using XSLT. Entities mentioned
