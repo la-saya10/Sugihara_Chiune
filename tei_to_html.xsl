@@ -145,9 +145,7 @@
 
 
     <xsl:template match="tei:div">
-        <div class="section">
-            <xsl:apply-templates/>
-        </div>
+        <div class="section"><xsl:apply-templates/></div>
     </xsl:template>
 
     <xsl:template match="tei:head">
@@ -163,35 +161,35 @@
 
     <!-- persName -->
     <xsl:template match="tei:persName">
-    <span class="person"><xsl:apply-templates/></span>
+        <span class="person"><xsl:apply-templates/></span>
     </xsl:template>
 
 
     <!-- placeName -->
     <xsl:template match="tei:placeName">
-    <span class="place"><xsl:apply-templates/></span>
+        <span class="place"><xsl:apply-templates/></span>
     </xsl:template>
 
 
     <!-- title -->
     <xsl:template match="tei:title">
-    <span class="work"><xsl:apply-templates/></span>
+        <span class="work"><xsl:apply-templates/></span>
     </xsl:template> 
 
     <!--OrgName-->
     <xsl:template match="tei:orgName">
-    <span class="organization"><xsl:apply-templates/></span>
+        <span class="organization"><xsl:apply-templates/></span>
     </xsl:template>
 
 
     <!--object-->
     <xsl:template match="tei:rs[@type='event'] | tei:rs[@type='document'] | tei:rs[@type='concept']">
-    <span class="object"><xsl:apply-templates/></span>
+        <span class="object"><xsl:apply-templates/></span>
     </xsl:template>
 
     <!--quote-->
     <xsl:template match="tei:quote">
-    <span class="quote"><xsl:apply-templates/></span>
+        <span class="quote"><xsl:apply-templates/></span>
     </xsl:template>
 
 
