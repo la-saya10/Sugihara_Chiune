@@ -183,7 +183,7 @@ if "chiune" in id_to_uri:
 if "jan-zwartendijk" in id_to_uri:
     g.add((id_to_uri["jan-zwartendijk"], SCHEMA.award, Literal("Righteous Among the Nations")))
 
-g.serialize(destination="output_from_tei2.ttl", format="turtle")
+g.serialize(destination="output_from_tei.ttl", format="turtle")
 print(f"Transformation is successfully finished! {len(g)} triples are made")
 
 
