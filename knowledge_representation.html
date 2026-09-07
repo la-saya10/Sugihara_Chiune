@@ -88,13 +88,13 @@
         
         
     
-<!--Transformation from TEI/XML to HTML file-->
+<!--Transformation from XML/TEI to HTML file-->
     <div class="tei-html" id="tei/html">
       <div class="model-text">
         <h2>TEI → HTML (XSLT)</h2>
           <p>
-            The TEI/XML document is transformed into an HTML page using an XSLT stylesheet, 
-            processed via Python's lxml library. The stylesheet matches annotated entities 
+            The XML/TEI document is transformed into an HTML page using an XSLT stylesheet 
+            (executed via the <code>transform.py</code> script). The stylesheet matches annotated entities 
             within the body text (persons, places, organizations, works, and typed rs elements) 
             and wraps each in a colour-coded <span> according to its entity type.  
           </p>
@@ -114,12 +114,10 @@
       <div class="model-text">
         <h2>Transformed HTML file</h2>
           <p>
-            The output of the TEI to HTML transformation is presented below. 
-            Entities are highlighted in colour according to their type: 
-            red for persons, blue for places, green for bibliographic works, 
-            light green for organisations, pink for objects (event, concept, 
-            infrastructure), and purple for a textual phenomenon. Each highlighted 
-            entity links directly to its corresponding Wikidata entry.    
+            The output of the TEI-to-HTML transformation is presented below. Entities are 
+            color-coded by type: red for persons, blue for places, green for bibliographic 
+            works, olive/light-green for organizations, purple for objects (events, documents, 
+            and concepts), and blue italic for quotations.
           </p>
           <div class="link-row">
             <a href="https://la-saya10.github.io/Sugihara_Chiune/encoding.html" target="_blank">View transformed HTML in browser</a>
