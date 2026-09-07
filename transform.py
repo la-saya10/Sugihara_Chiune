@@ -11,7 +11,7 @@ xml_doc = etree.parse("chiune_tei.xml")
 result = transform(xml_doc)
 
 # Save the result as an HTML file
-with open("encoding2.html", "w", encoding="utf-8") as f:
+with open("encoding.html", "w", encoding="utf-8") as f:
     f.write(str(result))
 
 print("Transformation is successfully finished! Check encoding.html")
