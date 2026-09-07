@@ -42,15 +42,10 @@ sugihara:righteous-among-nations a skos:Concept ;
     owl:sameAs wd:Q112197 ;
     schema:name "Righteous Among the Nations" .
 
-sugihara:transit-visa a schema:Certification ;
-    dcterms:creator sugihara:chiune ;
-    dcterms:temporal sugihara:soviet-occupation ;
-    crm:P15_was_influenced_by sugihara:japanese-foreign-ministry ;
-    crm:P2_has_type wd:Q170404 ;
-    crm:P55_has_current_location sugihara:memorial-hall ;
-    schema:inLanguage "Japanese, French" ;
-    schema:locationCreated sugihara:kaunas ;
-    schema:name "Transit Visa" .
+sugihara:yukiko-quote a crm:E33_Linguistic_Object ;
+    crm:P67_refers_to sugihara:chiune,
+        sugihara:transit-visa ;
+    schema:name "yukiko-quote" .
 
 sugihara:alison-leslie-gold a foaf:Person ;
     owl:sameAs wd:Q4727120 .
@@ -80,6 +75,16 @@ sugihara:scholastic-press a foaf:Organization ;
     owl:sameAs wd:Q1155729 ;
     schema:name "Scholastic Press" .
 
+sugihara:transit-visa a schema:Certification ;
+    dcterms:creator sugihara:chiune ;
+    dcterms:temporal sugihara:soviet-occupation ;
+    crm:P15_was_influenced_by sugihara:japanese-foreign-ministry ;
+    crm:P2_has_type wd:Q170404 ;
+    crm:P55_has_current_location sugihara:memorial-hall ;
+    schema:inLanguage "Japanese, French" ;
+    schema:locationCreated sugihara:kaunas ;
+    schema:name "Transit Visa" .
+
 sugihara:wgbh-boston-video a foaf:Organization ;
     owl:sameAs wd:Q3564675 ;
     schema:name "WGBH Boston Video" .
@@ -99,6 +104,13 @@ sugihara:yad-vashem a foaf:Organization ;
     schema:addressCountry "Israel" ;
     schema:foundingDate "1953"^^xsd:gYear .
 
+sugihara:soviet-occupation a crm:E5_Event ;
+    dcterms:date "1940"^^xsd:gYear ;
+    crm:P7_took_place_at sugihara:kaunas ;
+    owl:sameAs wd:Q14505142 ;
+    schema:endDate "1941"^^xsd:gYear ;
+    schema:name "Soviet occupation of the Baltic states" .
+
 sugihara:chiune a foaf:Person ;
     crm:P15_was_influenced_by sugihara:soviet-occupation ;
     owl:sameAs wd:Q161381,
@@ -113,13 +125,6 @@ sugihara:chiune a foaf:Person ;
     schema:recognizedBy sugihara:yad-vashem ;
     schema:workLocation sugihara:kaunas ;
     schema:worksFor sugihara:japanese-foreign-ministry .
-
-sugihara:soviet-occupation a crm:E5_Event ;
-    dcterms:date "1940"^^xsd:gYear ;
-    crm:P7_took_place_at sugihara:kaunas ;
-    owl:sameAs wd:Q14505142 ;
-    schema:endDate "1941"^^xsd:gYear ;
-    schema:name "Soviet occupation of the Baltic states" .
 
 sugihara:kaunas a schema:City ;
     owl:sameAs wd:Q4115712 ;

@@ -23,6 +23,7 @@ TYPES = {
     "conspiracy-of-kindness":    SCHEMA.Movie,
     "hero-of-the-holocaust":     SCHEMA.Book,
     "righteous-among-nations":   SKOS.Concept,
+    "yukiko-quote"           :   CRM.E33_Linguistic_Object
 }
 NO_SAMEAS = {"transit-visa"}
 
@@ -41,8 +42,11 @@ RELATIONS = {
     "commemoratedAt": SCHEMA.about,
     "isSubjectOf": SCHEMA.about,
     "isCreatedBy": DCT.creator,
+    "isReferedTo": CRM.P67_refers_to,
+    "mentions": CRM.P67_refers_to
+
 }
-REVERSE = {"issued", "commemoratedAt", "isSubjectOf", "isCreatedBy"}
+REVERSE = {"issued", "commemoratedAt", "isSubjectOf", "isCreatedBy", "isReferedTo"}
 
 EXCLUDE = {"note", "desc", "geo", "pubPlace", "author", "publisher"}
 HANDLED = {"idno", "persName", "placeName", "orgName", "title",

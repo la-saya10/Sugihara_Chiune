@@ -4,5 +4,5 @@ g = Graph()
 g.parse("output_from_tei.ttl", format="turtle")   # rdf from xml
 g.parse("output_from_csv.ttl", format="turtle")   # rdf from csv
 
-g.serialize(destination="output_combined2.ttl", format="turtle")
+g.serialize(destination="output_combined.ttl", format="turtle")
 print(f"Combination completed successfully. {len(g)} triples saved to output_combined.ttl.")

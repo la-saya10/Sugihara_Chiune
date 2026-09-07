@@ -219,6 +219,7 @@
       <relation name="commemoratedAt" active="#chiune" passive="#memorial-hall"/>
       <relation name="isSubjectOf" active="#chiune" passive="#conspiracy-of-kindness"/>
       <relation name="isSubjectOf" active="#chiune" passive="#hero-of-the-holocaust"/>
+      <relation name="isReferedTo"  active="#chiune" passive="#yukiko-quote"/>
 
       <!-- Relations between other entities -->
       <relation name="honoredBy" active="#jan-zwartendijk" passive="#yad-vashem"/>
@@ -229,6 +230,7 @@
       <relation name="isIssuedIn" active="#transit-visa" passive="#kaunas"/>
       <relation name="wasIssuedDuring" active="#transit-visa" passive="#soviet-occupation"/>
       <relation name="isDisplayedAt" active="#transit-visa" passive="#memorial-hall"/>
+      <relation name="mentions" active="#yukiko-quote"  passive="#transit-visa"/>
     </listRelation>
 
   </standOff>
@@ -299,9 +301,11 @@
           through the country via the Trans-Siberian Railway. His wife Yukiko who supported and
           encouraged him later recalled, 
           <cit>
-            <quote>"My husband and I talked about the visas before he issued them. We understood
-            that both the Japanese and German governments disagreed with our ideas, but we went
-            ahead anyhow."</quote>  
+            <quote xml:id="yukiko-quote">
+              "My husband and I talked about the visas before he issued them. We understood that both 
+              the Japanese and German governments disagreed with our ideas, but we went ahead anyhow."
+            </quote>  
+            <bibl>Visas for Life</bibl>
           </cit>
         </p>
       </div>

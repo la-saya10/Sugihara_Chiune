@@ -27,15 +27,10 @@ sugihara:righteous-among-nations a skos:Concept ;
     owl:sameAs wd:Q112197 ;
     schema:name "Righteous Among the Nations" .
 
-sugihara:transit-visa a schema:Certification ;
-    dcterms:creator sugihara:chiune ;
-    dcterms:temporal sugihara:soviet-occupation ;
-    crm:P15_was_influenced_by sugihara:japanese-foreign-ministry ;
-    crm:P2_has_type wd:Q170404 ;
-    crm:P55_has_current_location sugihara:memorial-hall ;
-    schema:inLanguage "Japanese, French" ;
-    schema:locationCreated sugihara:kaunas ;
-    schema:name "Transit Visa" .
+sugihara:yukiko-quote a crm:E33_Linguistic_Object ;
+    crm:P67_refers_to sugihara:chiune,
+        sugihara:transit-visa ;
+    schema:name "yukiko-quote" .
 
 sugihara:jan-zwartendijk a foaf:Person ;
     owl:sameAs wd:Q2649762,
@@ -56,6 +51,16 @@ sugihara:memorial-hall a schema:Museum ;
     schema:name "Chiune Sugihara Memorial Hall" ;
     schema:startDate "2000"^^xsd:gYear .
 
+sugihara:transit-visa a schema:Certification ;
+    dcterms:creator sugihara:chiune ;
+    dcterms:temporal sugihara:soviet-occupation ;
+    crm:P15_was_influenced_by sugihara:japanese-foreign-ministry ;
+    crm:P2_has_type wd:Q170404 ;
+    crm:P55_has_current_location sugihara:memorial-hall ;
+    schema:inLanguage "Japanese, French" ;
+    schema:locationCreated sugihara:kaunas ;
+    schema:name "Transit Visa" .
+
 sugihara:japanese-foreign-ministry a foaf:Organization ;
     owl:sameAs wd:Q222241 ;
     foaf:name "Japanese Foreign Ministry" ;
@@ -74,6 +79,11 @@ sugihara:yad-vashem a foaf:Organization ;
     schema:addressCountry "Israel" ;
     schema:foundingDate "1953"^^xsd:gYear .
 
+sugihara:kaunas a schema:City ;
+    owl:sameAs wd:Q4115712 ;
+    schema:addressCountry "Lithuania" ;
+    schema:name "Kaunas" .
+
 sugihara:chiune a foaf:Person ;
     crm:P15_was_influenced_by sugihara:soviet-occupation ;
     owl:sameAs wd:Q161381,
@@ -87,9 +97,4 @@ sugihara:chiune a foaf:Person ;
     schema:recognizedBy sugihara:yad-vashem ;
     schema:workLocation sugihara:kaunas ;
     schema:worksFor sugihara:japanese-foreign-ministry .
-
-sugihara:kaunas a schema:City ;
-    owl:sameAs wd:Q4115712 ;
-    schema:addressCountry "Lithuania" ;
-    schema:name "Kaunas" .
 
