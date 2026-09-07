@@ -185,11 +185,3 @@ if "jan-zwartendijk" in id_to_uri:
 
 g.serialize(destination="output_from_tei.ttl", format="turtle")
 print(f"Transformation is successfully finished! {len(g)} triples are made")
-
-
-
-
-
-
-
-
