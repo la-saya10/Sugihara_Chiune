@@ -69,15 +69,13 @@
       <div class="model-text">
         <h2>XML/TEI document</h2>
           <p>
-            Excerpts of the Wikipedia article on Chiune Sugihara have been encoded as an XML/TEI 
-            document. Selected entities are annotated inline using elements such 
-            as <code>&lt;persName&gt;</code>, <code>&lt;placeName&gt;</code>, 
-            <code>&lt;orgName&gt;</code>, and <code>&lt;rs&gt;</code>. Each entity 
-            is described in the back matter using dedicated list elements 
-            (<code>listPerson</code>, <code>listPlace</code>, <code>listOrg</code>, 
-            <code>listBibl</code>, <code>listEvent</code>, <code>listObject</code>) 
-            and reconciled to authority files including Wikidata, VIAF, and OCLC. 
-            Quotation is also marked up using <code>&lt;quote&gt;</code>.             
+            TEI/XML representation of the Chiune Sugihara Wikipedia article, encoding people, 
+            organizations, places, events, documents, bibliographic sources, concepts, and a 
+            quotation. People, organizations, and places are described in <code>particDesc</code> 
+            and <code>settingDesc</code>, while events, documents, and bibliographic sources are 
+            described in <code>standOff</code>. Entities are connected through relationships in 
+            <code>listRelation</code> and reconciled with authority files where applicable: 
+            Wikidata for most entities, VIAF for persons, and OCLC for bibliographic works.            
           </p>
           <div class="code-scroll-box">
             <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fla-saya10%2FSugihara_Chiune%2Fblob%2Fmain%2Fchiune_tei.xml&style=monokai-sublime&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on&maxHeight=400"></script>
