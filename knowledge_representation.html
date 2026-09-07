@@ -134,16 +134,11 @@
       <div class="model-text">
         <h2>TEI → RDF</h2>
           <p>
-            The XML/TEI document is transformed into an RDF dataset in Turtle 
-            format using a Python script built on the <code>rdflib</code> library. 
-            The script maps each entity to the class defined in the conceptual model 
-            (e.g. <code>foaf:Person</code>, <code>schema:City</code>, 
-            <code>crm:E5_Event</code>, <code>skos:Concept</code>) and each relation 
-            to the corresponding property (e.g. <code>schema:workLocation</code>, 
-            <code>crm:P15_was_influenced_by</code>). Most entities are linked to their 
-            Wikidata counterpart via `owl:sameAs`. Where the closest Wikidata entry 
-            denotes a general type rather than an individual — as with Transit Visa — 
-            <code>crm:P2_has_type</code> is used instead.
+            This Python script converts the TEI/XML document into an RDF dataset in 
+            Turtle format using the rdflib library. It identifies entities and relations 
+            encoded in the TEI document, maps them to appropriate RDF classes and properties, 
+            and links entities to external resources such as Wikidata and VIAF where available. 
+            The resulting RDF graph is saved as <code>output_from_tei.ttl</code>.
           </p>
           <div class="link-row">
             <a href="https://github.com/la-saya10/Sugihara_Chiune/blob/main/output_from_tei.ttl">View output_from_tei.ttl</a>
@@ -182,7 +177,7 @@
         <div class="model-text">
           <h2>RDF Visualization</h2>
           <p>
-            Using <code>combine.py</code>, <code>output_from_teif.ttl</code> and <code>output_from_csv.ttl</code> 
+            Using <code>combine.py</code>, <code>output_from_tei.ttl</code> and <code>output_from_csv.ttl</code> 
             were combined into a single TTL file, <code>output_combined.ttl</code>. RDF Grapher was then used 
             to visualize the complete dataset, enabling the visual exploration of relationships between entities.
           <div class="link-row">
