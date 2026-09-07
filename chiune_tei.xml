@@ -36,7 +36,7 @@
     <encodingDesc>
       <classDecl>
 
-        <!-- Concept taxonomy (unchanged from original) -->
+        <!-- Concept taxonomy  -->
         <taxonomy xml:id="concept">
           <category xml:id="righteous-among-nations">
             <catDesc>Righteous Among the Nations</catDesc>
