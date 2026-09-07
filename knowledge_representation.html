@@ -92,9 +92,11 @@
         <h2>TEI → HTML (XSLT)</h2>
           <p>
             The XML/TEI document is transformed into an HTML page using an XSLT stylesheet 
-            (executed via the <code>transform.py</code> script). The stylesheet matches annotated entities 
-            within the body text (persons, places, organizations, works, and typed rs elements) 
-            and wraps each in a colour-coded <span> according to its entity type.  
+            (executed via the <code>transform.py</code> script). The stylesheet preserves the 
+            document's structure (sections, headings, and paragraphs) while matching annotated 
+            entities within the body text — persons, places, organizations, works, typed 
+            <code>rs</code> elements, and quotations — wrapping each in a colour-coded 
+            <code>&lt;span&gt;</code> according to its entity type.
           </p>
           <div class="link-row">
             <a href="https://github.com/la-saya10/Sugihara_Chiune/blob/main/transform.py">View transform.py</a>
@@ -160,7 +162,7 @@
         <h2>CSV to RDF Transformation</h2>
           <p>
             To capture data beyond the text, supplementary details were recorded in a CSV file. 
-            Using the csv_to_rdf.py script, each subject–predicate–object row is mapped to RDF 
+            Using the <code>csv_to_rdf.py</code> script, each subject–predicate–object row is mapped to RDF 
             according to the conceptual model.
           </p>
           <div class="link-row">
