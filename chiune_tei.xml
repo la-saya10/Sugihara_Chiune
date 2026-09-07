@@ -2,7 +2,7 @@
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
 
   <!-- ============================================ -->
-  <!--     TEI HEADER : metadata -->
+  <!-- 1. TEI HEADER : metadata -->
   <!-- ============================================ -->
   <teiHeader>
 
@@ -30,13 +30,13 @@
       </sourceDesc>
     </fileDesc>
 
-
-
     <!-- ============================================ -->
-    <!-- encodingDesc                                 -->
+    <!-- encodingDesc                              -->
     <!-- ============================================ -->
     <encodingDesc>
-      <classDecl>        
+      <classDecl>
+
+        <!-- Concept taxonomy (unchanged from original) -->
         <taxonomy xml:id="concept">
           <category xml:id="righteous-among-nations">
             <catDesc>Righteous Among the Nations</catDesc>
@@ -48,13 +48,14 @@
             </note>
           </category>
         </taxonomy>
+
       </classDecl>
+
+
     </encodingDesc>
 
-
-
     <!-- ============================================ -->
-    <!-- profileDesc -->
+    <!-- profileDesc                                 -->
     <!-- ============================================ -->
     <profileDesc>
 
@@ -71,9 +72,7 @@
             <idno type="Wikidata">https://www.wikidata.org/wiki/Q161381</idno>
             <idno type="VIAF">https://viaf.org/viaf/22953110</idno>
           </person>
-        </listPerson>
-
-        <listPerson>
+        
           <person xml:id="jan-zwartendijk">
             <persName>Jan Zwartendijk</persName>
             <occupation>diplomat</occupation>
@@ -106,8 +105,8 @@
             </location>
           </org>
         </listOrg>
-      </particDesc>
 
+      </particDesc>
 
       <settingDesc>
         <listPlace>
@@ -119,11 +118,9 @@
               </address>
               <geo>54.90156 23.90909</geo>
             </location>
-            <desc>
-              City in Lithuania; location of the Dutch and Japanese consulates where
-              Chiune Sugihara served as a diplomat (1939-1940), issuing transit visas to Jewish
-              refugees.
-            </desc>
+            <desc>City in Lithuania; location of the Dutch and Japanese consulates where
+            Chiune Sugihara served as a diplomat (1939-1940), issuing transit visas to Jewish
+            refugees.</desc>
             <idno type="Wikidata">https://www.wikidata.org/wiki/Q4115712</idno>
           </place>
 
@@ -147,7 +144,7 @@
   </teiHeader>
 
   <!-- ============================================ -->
-  <!--   STAND-OFF MARKUP : bibliographic objects,   -->
+  <!--    STAND-OFF MARKUP : bibliographic objects,   -->
   <!--    events, physical objects, relations        -->
   <!-- ============================================ -->
   <standOff>
@@ -179,13 +176,14 @@
       </bibl>
     </listBibl>
 
-
     <listEvent>
       <event xml:id="soviet-occupation">
         <head>Soviet occupation of the Baltic states</head>
         <desc>
-          <p>Military takeover and annexation of Estonia, Latvia, and Lithuania by the
-          Soviet Union. Part of World War II.</p>
+          <p>
+            Military takeover and annexation of Estonia, Latvia, and Lithuania by the
+            Soviet Union. Part of World War II.
+          </p>
         </desc>
         <date when="1940">1940</date>
         <date type="end" when="1941"/>
@@ -193,14 +191,17 @@
       </event>
     </listEvent>
 
+
     <listObject>
       <object xml:id="transit-visa" type="document">
         <objectIdentifier>
           <objectName>Transit Visa</objectName>
         </objectIdentifier>
         <idno type="Wikidata">https://www.wikidata.org/wiki/Q170404</idno>
-        <note>Japanese transit visa issued by Chiune Sugihara to Jewish refugees in Kaunas
-        between July 18 and August 28, 1940, enabling passage through Japanese territory.</note>
+        <note>
+          Japanese transit visa issued by Chiune Sugihara to Jewish refugees in Kaunas
+          between July 18 and August 28, 1940, enabling passage through Japanese territory.
+        </note>
         <textLang mainLang="ja" otherLangs="fr">Japanese, French</textLang>
       </object>
     </listObject>
@@ -209,31 +210,33 @@
 
     <listRelation>
       <!-- Relations between Chiune Sugihara and entities -->
-      <relation name="#worksFor" active="#chiune" passive="#japanese-foreign-ministry"/>
-      <relation name="#servedIn" active="#chiune" passive="#kaunas"/>
-      <relation name="#affectedBy" active="#chiune" passive="#soviet-occupation"/>
-      <relation name="#issued" active="#chiune" passive="#transit-visa"/>
-      <relation name="#collaboratedWith" active="#chiune" passive="#jan-zwartendijk"/>
-      <relation name="#honoredBy" active="#chiune" passive="#yad-vashem"/>
-      <relation name="#commemoratedAt" active="#chiune" passive="#memorial-hall"/>
-      <relation name="#isSubjectOf" active="#chiune" passive="#conspiracy-of-kindness"/>
-      <relation name="#isSubjectOf" active="#chiune" passive="#hero-of-the-holocaust"/>
+      <relation name="worksFor" active="#chiune" passive="#japanese-foreign-ministry"/>
+      <relation name="servedIn" active="#chiune" passive="#kaunas"/>
+      <relation name="affectedBy" active="#chiune" passive="#soviet-occupation"/>
+      <relation name="issued" active="#chiune" passive="#transit-visa"/>
+      <relation name="collaboratedWith" active="#chiune" passive="#jan-zwartendijk"/>
+      <relation name="honoredBy" active="#chiune" passive="#yad-vashem"/>
+      <relation name="commemoratedAt" active="#chiune" passive="#memorial-hall"/>
+      <relation name="isSubjectOf" active="#chiune" passive="#conspiracy-of-kindness"/>
+      <relation name="isSubjectOf" active="#chiune" passive="#hero-of-the-holocaust"/>
 
       <!-- Relations between other entities -->
-      <relation name="#honoredBy" active="#jan-zwartendijk" passive="#yad-vashem"/>
-      <relation name="#tookPlaceAt" active="#soviet-occupation" passive="#kaunas"/>
-      <relation name="#isCreatedBy" active="#yad-vashem" passive="#righteous-among-nations"/>
-      <relation name="#servedIn" active="#jan-zwartendijk" passive="#kaunas"/>
-      <relation name="#wasRefusedBy" active="#transit-visa" passive="#japanese-foreign-ministry"/>
-      <relation name="#isIssuedIn" active="#transit-visa" passive="#kaunas"/>
-      <relation name="#wasIssuedDuring" active="#transit-visa" passive="#soviet-occupation"/>
-      <relation name="#isDisplayedAt" active="#transit-visa" passive="#memorial-hall"/>
+      <relation name="honoredBy" active="#jan-zwartendijk" passive="#yad-vashem"/>
+      <relation name="tookPlaceAt" active="#soviet-occupation" passive="#kaunas"/>
+      <relation name="isCreatedBy" active="#yad-vashem" passive="#righteous-among-nations"/>
+      <relation name="servedIn" active="#jan-zwartendijk" passive="#kaunas"/>
+      <relation name="wasRefusedBy" active="#transit-visa" passive="#japanese-foreign-ministry"/>
+      <relation name="isIssuedIn" active="#transit-visa" passive="#kaunas"/>
+      <relation name="wasIssuedDuring" active="#transit-visa" passive="#soviet-occupation"/>
+      <relation name="isDisplayedAt" active="#transit-visa" passive="#memorial-hall"/>
     </listRelation>
 
   </standOff>
 
+
+
   <!-- ============================================ -->
-  <!--    BODY                                      -->
+  <!--  BODY                                        -->
   <!-- ============================================ -->
   <text>
     <body>
@@ -294,11 +297,11 @@
           inferior post and the culture of the Japanese Foreign Service bureaucracy, this was an
           unusual act of disobedience. He spoke to Soviet officials who agreed to let the Jews travel
           through the country via the Trans-Siberian Railway. His wife Yukiko who supported and
-          encouraged him later recalled, <cit>
+          encouraged him later recalled, 
+          <cit>
             <quote>"My husband and I talked about the visas before he issued them. We understood
             that both the Japanese and German governments disagreed with our ideas, but we went
-            ahead anyhow."</quote>
-            <bibl ref="#hero-of-the-holocaust"/>
+            ahead anyhow."</quote>  
           </cit>
         </p>
       </div>
