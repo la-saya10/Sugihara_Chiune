@@ -93,11 +93,10 @@
       <div class="model-text">
         <h2>TEI → HTML (XSLT)</h2>
           <p>
-            The XML/TEI document is transformed into a HTML page 
-            using a Python script built on the <code>xml.etree.ElementTree</code> 
-            library. The script reads the back matter to build an index of entities, 
-            then processes the body text, wrapping each annotated entity in a 
-            colour-coded span linked to its Wikidata entry.   
+            The TEI/XML document is transformed into an HTML page using an XSLT stylesheet, 
+            processed via Python's lxml library. The stylesheet matches annotated entities 
+            within the body text (persons, places, organizations, works, and typed rs elements) 
+            and wraps each in a colour-coded <span> according to its entity type.  
           </p>
           <div class="link-row">
             <a href="https://github.com/la-saya10/Sugihara_Chiune/blob/main/transform.py">View transform.py</a>
