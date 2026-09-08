@@ -10,6 +10,7 @@ DCT      = Namespace("http://purl.org/dc/terms/")
 
 TEI    = "{http://www.tei-c.org/ns/1.0}"
 XML_ID = "{http://www.w3.org/XML/1998/namespace}id"
+# xml: = {http://www.w3.org/XML/1998/namespace}
 
 TYPES = {
     "chiune":                    FOAF.Person,
@@ -86,6 +87,8 @@ g.bind("wd", WD)
 g.bind("sugihara", SUGIHARA)
 g.bind("dcterms", DCT)
 
+
+
 def get_name(el):
     for tag in ("persName", "placeName", "orgName", "title", "head", "catDesc"):
         child = el.find(TEI + tag)
@@ -108,7 +111,9 @@ def get_wikidata(el):
 
 
 def collect_generic(el, uri):
-    for child in el:
+# Find attribute information in XML and convert it into RDF triples.
+    for child in el:  
+    #Loop over all direct child elements of element
         tag = child.tag.split("}")[-1]
         if tag in EXCLUDE:
             continue
@@ -138,33 +143,39 @@ def collect_generic(el, uri):
 
 
 
-id_to_uri = {}
+id_to_uri = {} # an empty dictionary
 for el in root.iter():
+# Find key entities in TEI/XML and register their URI, class, 
+# name, Wikidata, VIAF, and other attributes into RDF.
+
     xml_id = el.get(XML_ID)
     if xml_id not in TYPES:
         continue
     uri = SUGIHARA[xml_id]
-    id_to_uri[xml_id] = uri
+    id_to_uri[xml_id] = uri # add the pair to the dictionary
 
-    g.add((uri, RDF.type, TYPES[xml_id]))
+    g.add((uri, RDF.type, TYPES[xml_id]))  # ★ class into RDF
 
     name = get_name(el)
     if name:
         prop = FOAF.name if TYPES[xml_id] in (FOAF.Person, FOAF.Organization) else SCHEMA.name
-        g.add((uri, prop, Literal(name)))
+        g.add((uri, prop, Literal(name))) # ★ name into RDF
 
     if xml_id not in NO_SAMEAS:
         wd = get_wikidata(el)
         if wd:
-            g.add((uri, OWL.sameAs, wd))
+            g.add((uri, OWL.sameAs, wd))  # ★ wikidata into RDF
 
     viaf = el.find(f"{TEI}idno[@type='VIAF']")
-    if viaf is not None and viaf.text:
-        g.add((uri, OWL.sameAs, URIRef(viaf.text.strip())))
+    if viaf is not None and viaf.text: # if VIAF exists and it has a text in it,
+        g.add((uri, OWL.sameAs, URIRef(viaf.text.strip()))) # ★ VIAF into RDF
 
     collect_generic(el, uri)
 
+
+
 for rel in root.iter(TEI + "relation"):
+# Go through the entire tree, filtering specifically for <relation> tags
     name = rel.get("name")
     active = rel.get("active", "").lstrip("#")
     passive = rel.get("passive", "").lstrip("#")
