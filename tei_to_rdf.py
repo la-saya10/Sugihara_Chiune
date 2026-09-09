@@ -49,7 +49,7 @@ RELATIONS = {
 }
 REVERSE = {"issued", "commemoratedAt", "isSubjectOf", "isCreatedBy", "isReferedTo"}
 
-EXCLUDE = {"note", "desc", "geo", "pubPlace", "author", "publisher"}
+EXCLUDE = {"note", "desc", "geo", "pubPlace", "author", "publisher", "respStmt"}
 HANDLED = {"idno", "persName", "placeName", "orgName", "title",
            "head", "catDesc", "objectIdentifier", "respStmt", "objectName"}
 
@@ -116,9 +116,6 @@ def collect_generic(el, uri):
     #Loop over all direct child elements of element
         tag = child.tag.split("}")[-1]
         if tag in EXCLUDE:
-            continue
-
-        if tag == "respStmt":
             continue
 
         if tag not in HANDLED:

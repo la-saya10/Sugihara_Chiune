@@ -14,7 +14,6 @@ TYPE_CLASS = {
 }
 
 PROP = {
-    "has title":           None,
     "has type":            RDF.type,        
     "is agency of":        SCHEMA.parentOrganization,
     "was located in":      SCHEMA.location,
@@ -35,11 +34,12 @@ g.bind("sugihara", SUGIHARA)
 g.bind("schema", SCHEMA)
 g.bind("crm", CRM)
 g.bind("foaf", FOAF)
+g.bind("wd", WD)
+g.bind("owl", OWL)
 
 with open("info.csv", encoding="utf-8") as f:
     for row in csv.DictReader(f):
-        if not row.get("subject") or not row["subject"].strip():
-            continue
+
 
         subject   = row["subject"].strip()
         predicate = row["predicate"].strip()
@@ -59,8 +59,7 @@ with open("info.csv", encoding="utf-8") as f:
 
     
 
-g.bind("wd", WD)
-g.bind("owl", OWL)
+
 
 g.serialize(destination="output_from_csv.ttl", format="turtle")
 print(f"Transformation is successfully done! {len(g)} triples are made. Check output_from_csv.ttl")
